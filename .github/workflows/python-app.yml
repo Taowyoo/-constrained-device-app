@@ -34,4 +34,4 @@ jobs:
     - name: Test with unittest
       run: |
         export PYTHONPATH=${PYTHONPATH}:./src/main/python:./src/test/python
-        python -m unittest discover -s .\src\test\python\programmingtheiot\part01 -p "*Test.py"
+        python -m unittest discover -s ./src/test/python/programmingtheiot/part01 -p "*Test.py"
