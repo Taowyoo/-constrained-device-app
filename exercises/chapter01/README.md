@@ -55,6 +55,7 @@ diagram you provide will look similar to, but not the same as, its counterpart i
 book [Programming the IoT](https://learning.oreilly.com/library/view/programming-the-internet/9781492081401/). -->
 
 Here is the class diagram for ConstrainedDeviceApp, ConfigUtil, ConfigConst:
+![Class Diagram](../../doc/UML/class_diagram.png)
 
 ### Unit Tests Executed
 
