@@ -26,7 +26,7 @@ How does your implementation work?
 
 1. CI/CD with GitHub Action
 
-    As mentioned above. The .yml files under .github/workflows/ will be read by Github and been run as task automatically when I push or pull request to specific branch. At current, I set it will be triggered on `chapter01`.
+    As mentioned above. The .yml files under .github/workflows/ will be read by Github and been run as task automatically when I push or pull request to specific branch. At current, I set it will be triggered when there is new push or pull request on `chapter01` and `alpha01`.
 
     Slightly different to our java GDA, for my python CDA, `unittest` will be used as my main test framework. 
     
