@@ -5,9 +5,9 @@ name: unittest
 
 on:
   push:
-    branches: [ chapter01, alpha01 ]
+    branches: [ chapter01, alpha001 ]
   pull_request:
-    branches: [ chapter01, alpha01 ]
+    branches: [ chapter01, alpha001 ]
 
 jobs:
   build:
