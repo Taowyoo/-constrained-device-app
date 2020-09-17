@@ -35,4 +35,4 @@ jobs:
       run: |
         export PYTHONPATH=${PYTHONPATH}:./src/main/python:./src/test/python
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/unit/common/ -p "*Test.py"
-        python -m unittest discover -s ./src/test/python/programmingtheiot/part01/app/ConstrainedDeviceAppTest/ -p "*Test.py"
+        python -m unittest discover -s ./src/test/python/programmingtheiot/part01/integration/app/ -p "*Test.py"
