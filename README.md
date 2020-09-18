@@ -1,10 +1,23 @@
-[![Work in Repl.it](https://classroom.github.com/assets/work-in-replit-14baed9a392b3a25080506f3b7b6d57f295ec2978f6f33ec97e36a161684cbe9.svg)](https://classroom.github.com/online_ide?assignment_repo_id=3118877&assignment_repo_type=AssignmentRepo)
-# python-components
-This is the source repository for the Programming the Internet of Things - Python components.
-It includes (or will include) code for the constrained device application as well as cloud service
-FaaS components, which allows them to share the same core library for data translations, etc.
+![unittest](https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/workflows/unittest/badge.svg?branch=chapter01)
 
-PR's are disabled while the codebase is being developed.
+# Yuxiang' CDA
 
-DISCLAIMER: This code base is still under active development - some tests and code samples may be broken.
-Please see LICENSE if you plan to use this code.
+## Introduction
+
+The constrained device python app that will be deploied on constrained device(my Raspberry Pi 4) for CSYE 6530 Course prject.
+
+## Testing Strategy
+
+  At very beginner, there shoud be two parts:
+
+1. Unit Test
+  
+    All methods should have corresponding unit test and shoud be 100% passed.
+
+2. Integration Test
+
+    There should be intergrations tests that test all the functionality and feature for this software
+  
+## CI/CD
+
+**TODO** Use Github Action to implement continuous integration and continuous deployment.
