@@ -19,8 +19,21 @@ class SystemMemUtilTask(BaseSystemUtilTask):
 	"""
 
 	def __init__(self):
+		"""
+		Initialization of class: SystemMemUtilTask.
+		Initialize the instance by calling super class init method.
+		"""
+		super(SystemMemUtilTask, self).__init__()
 		pass
-	
+
 	def _getSystemUtil(self) -> float:
+		"""
+		Implement the template method for getting system cpu util info
+
+		Retrieve the current system virtual memory occupied percentage value as a float by using method virtual_memory()
+		in psutil.
+
+		@return float System virtual memory occupied percentage
+		"""
+		return psutil.virtual_memory().percent
 		pass
-		
