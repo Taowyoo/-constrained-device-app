@@ -19,8 +19,19 @@ class SystemCpuUtilTask(BaseSystemUtilTask):
 	"""
 
 	def __init__(self):
+		"""
+		Initialization of class: SystemCpuUtilTask.
+		"""
+		super(SystemCpuUtilTask, self).__init__()
 		pass
 	
 	def _getSystemUtil(self) -> float:
+		"""
+		Implement the template method for getting current system CPU occupied percentage
+
+		Retrieve the current system CPU occupied percentage value as a float by using method cpu_percent() in psutil.
+
+		@return float System CPU occupied percentage
+		"""
+		return psutil.cpu_percent()
 		pass
-		
