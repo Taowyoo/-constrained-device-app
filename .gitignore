@@ -1,3 +1,5 @@
+# vscode stuff
+.vscode/**
 # idea stuff
 # User-specific stuff
 .idea/**/workspace.xml
