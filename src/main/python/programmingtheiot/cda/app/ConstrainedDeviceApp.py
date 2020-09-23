@@ -71,12 +71,12 @@ def main():
 	"""
 	Main function definition for running client as application.
 	
-	Current implementation runs for 35 seconds then exits.
+	Current implementation runs for 65 seconds then exits.
 	"""
 	cda = ConstrainedDeviceApp()
 	cda.startApp()
 	
-	sleep(35)
+	sleep(65)
 		
 	cda.stopApp(0)
 
