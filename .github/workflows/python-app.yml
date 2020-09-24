@@ -5,9 +5,9 @@ name: unittest
 
 on:
   push:
-    branches: [ chapter01, alpha01 ]
+    branches: [ chapter02, alpha002 ]
   pull_request:
-    branches: [ chapter01, alpha01 ]
+    branches: [ chapter02, alpha002 ]
 
 jobs:
   build:
@@ -34,5 +34,4 @@ jobs:
     - name: Test with unittest
       run: |
         export PYTHONPATH=${PYTHONPATH}:./src/main/python:./src/test/python
-        python -m unittest discover -s ./src/test/python/programmingtheiot/part01/unit/common/ -p "*Test.py"
-        python -m unittest discover -s ./src/test/python/programmingtheiot/part01/integration/app/ -p "*Test.py"
+        python -m unittest discover -s ./src/test/python/programmingtheiot/part01/ -p "*Test.py"
