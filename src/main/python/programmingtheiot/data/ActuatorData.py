@@ -72,6 +72,7 @@ class ActuatorData(BaseIotData):
 
     def _handleUpdateData(self, data) -> bool:
         if isinstance(data, ActuatorData):
+            self._actuatorType = data._actuatorType
             self._value = data._value
             self._command = data._command
             self._stateData = data._stateData
