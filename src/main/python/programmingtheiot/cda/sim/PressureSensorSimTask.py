@@ -14,18 +14,17 @@ from programmingtheiot.cda.sim.SensorDataGenerator import SensorDataGenerator
 
 from programmingtheiot.data.SensorData import SensorData
 
-class PressureSensorSimTask(BaseSensorSimTask):
-	"""
-	Shell representation of class for student implementation.
-	
-	"""
 
-	def __init__(self):
-		pass
-	
-	def generateTelemetry(self) -> SensorData:
-		pass
-	
-	def getTelemetryValue(self) -> float:
-		pass
-	
+class PressureSensorSimTask(BaseSensorSimTask):
+    """
+    Shell representation of class for student implementation.
+
+    """
+
+    DEFAULT_DATA_SET = SensorDataGenerator().generateDailyEnvironmentPressureDataSet()
+
+    def __init__(self, sensorType: int = SensorData.PRESSURE_SENSOR_TYPE, dataSet = DEFAULT_DATA_SET,
+                 minVal: float = SensorDataGenerator.LOW_NORMAL_ENV_PRESSURE,
+                 maxVal: float = SensorDataGenerator.HI_NORMAL_ENV_PRESSURE):
+        super(PressureSensorSimTask, self).__init__(sensorType=sensorType, dataSet=dataSet,	minVal=minVal, maxVal=maxVal)
+        pass

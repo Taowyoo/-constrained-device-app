@@ -12,7 +12,6 @@ from datetime import datetime
 import programmingtheiot.common.ConfigConst as ConfigConst
 
 import logging
-logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s:%(message)s', level=logging.DEBUG)
 
 class BaseIotData(object):
     """
