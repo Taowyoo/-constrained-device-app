@@ -88,9 +88,10 @@ class SensorAdapterManager(object):
         pass
 
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
-        logging.info("Set %s as DataMessageListener." % listener.__str__())
-        if IDataMessageListener is None:
+        if listener is None:
+            logging.info("Given DataMessageListener is invalid!")
             return False
+        logging.info("Set %s as DataMessageListener." % listener.__str__())
         self.dataMsgListener = listener
         return True
         pass

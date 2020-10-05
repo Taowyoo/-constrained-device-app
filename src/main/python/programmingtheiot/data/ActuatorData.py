@@ -39,6 +39,9 @@ class ActuatorData(BaseIotData):
         self._stateData = self.DEFAULT_STATE_DATA
         pass
 
+    def getActuatorType(self) -> int:
+        return self._actuatorType
+
     def getCommand(self) -> int:
         return self._command
         pass
@@ -60,6 +63,10 @@ class ActuatorData(BaseIotData):
 
     def setAsResponse(self):
         self._isResponse = True
+        pass
+
+    def isResponse(self) -> bool:
+        return self._isResponse
         pass
 
     def setStateData(self, stateData: str):

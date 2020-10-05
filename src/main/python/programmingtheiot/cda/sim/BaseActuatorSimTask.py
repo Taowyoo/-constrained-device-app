@@ -17,22 +17,23 @@ class BaseActuatorSimTask():
 	Shell representation of class for student implementation.
 	
 	"""
+	DEFAULT_NAME = "BaseActuator"
 
-	def __init__(self, actuatorType: int = ActuatorData.DEFAULT_ACTUATOR_TYPE, simpleName: str = "Actuator"):
+	def __init__(self, actuatorType: int = ActuatorData.DEFAULT_ACTUATOR_TYPE, simpleName: str = DEFAULT_NAME):
 		self.actuatorType = actuatorType
 		self.simpleName = simpleName
 		self.latestActuatorData = ActuatorData(self.actuatorType)
 		pass
 		
 	def activateActuator(self, val: float) -> bool:
-		logging.info(f"Sim actuator received a ON command with value = {val}.")
+		logging.info("\n======\nSim %s actuator ON, with value = %d.\n======" % (self.getSimpleName(), val))
 		self.latestActuatorData.setCommand(ActuatorData.COMMAND_ON)
 		self.latestActuatorData.setValue(val)
 		return True
 		pass
 		
 	def deactivateActuator(self) -> bool:
-		logging.info(f"Sim actuator received a OFF command.")
+		logging.info("\n======\nSim %s actuator OFF.\n======" % self.getSimpleName())
 		self.latestActuatorData.setCommand(ActuatorData.COMMAND_OFF)
 		return True
 		pass
