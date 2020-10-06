@@ -25,7 +25,6 @@ class SensorAdapterManager(object):
     Shell representation of class for student implementation.
 
     """
-    logging.getLogger().setLevel(logging.DEBUG)
 
     def __init__(self, useEmulator: bool = False, pollRate: int = 5, allowConfigOverride: bool = True):
         logging.info("SensorAdapterManager is initializing...")
@@ -68,7 +67,7 @@ class SensorAdapterManager(object):
             self.pressureSensorSimTask = PressureSensorSimTask(dataSet=pressureData, minVal=pressureFloor,
                                                                maxVal=pressureCeiling)
             self.temperatureSensorSimTask = TemperatureSensorSimTask(dataSet=tempData, minVal=tempFloor,
-                                                               maxVal=tempCeiling)
+                                                                     maxVal=tempCeiling)
         pass
 
     def handleTelemetry(self):
