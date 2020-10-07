@@ -5,9 +5,19 @@ name: unittest
 
 on:
   push:
-    branches: [ chapter02, alpha002 ]
+    paths:
+    - 'src/**'
+    - 'config/**'
+    branches:
+    - alpha001
+    - 'chapter**'
   pull_request:
-    branches: [ chapter02, alpha002 ]
+    paths:
+    - 'src/**'
+    - 'config/**'
+    branches:
+    - alpha001
+    - 'chapter**'
 
 jobs:
   build:
@@ -31,7 +41,20 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with unittest
+    - name: Setup PYTHONPATH
       run: |
         export PYTHONPATH=${PYTHONPATH}:./src/main/python:./src/test/python
+    - name: Python Test for part 01
+      run: |
+        # test all tests in part 01
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/ -p "*Test.py"
+    - name: Python Test for part 02
+      run: |
+        # run unit tests in part02/unit
+        python -m unittest discover -s ./src/test/python/programmingtheiot/part02/unit/ -p "*Test.py"
+
+        # run integration tests for ActuatorAdapterManager and SensorAdapterManager
+        python -m unittest discover -s ./src/test/python/programmingtheiot/part02/integration/system/  -p "*Test.py"
+
+        # run integration test for ActuatorAdapterManager and SensorAdapterManager
+        python -m unittest ./src/test/python/programmingtheiot/part02/integration/app/DeviceDataManagerNoCommsTest.py
