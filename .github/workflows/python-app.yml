@@ -49,7 +49,9 @@ jobs:
     - name: Python Test for part 01
       run: |
         # test all tests in part 01
+        cp ./src/test/python/programmingtheiot/part01/unit/common/*.props ./
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/ -p "*Test.py"
+        rm ./src/test/python/programmingtheiot/part01/unit/common/*.props
     - name: Python Test for part 02
       run: |
         # run unit tests in part02/unit
