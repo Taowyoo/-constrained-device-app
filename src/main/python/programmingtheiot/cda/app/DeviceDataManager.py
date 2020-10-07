@@ -140,6 +140,9 @@ class DeviceDataManager(IDataMessageListener):
         pass
 
     def stopManager(self):
+        """
+        Stop the DeviceDataManager
+        """
         logging.info("DeviceDataManager stopping.")
         self.systemPerformanceManager.stopManager()
         self.sensorAdapterManager.stopManager()

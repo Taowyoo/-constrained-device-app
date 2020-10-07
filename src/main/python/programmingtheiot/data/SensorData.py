@@ -12,8 +12,9 @@ from programmingtheiot.data.BaseIotData import BaseIotData
 
 class SensorData(BaseIotData):
     """
-    Shell representation of class for student implementation.
+    Data object for storing sensor data
 
+    Data varies with sensor types
     """
     DEFAULT_VAL = 0.0
     DEFAULT_SENSOR_TYPE = 0
@@ -26,6 +27,12 @@ class SensorData(BaseIotData):
     SYS_UTIL_TYPE = 4
 
     def __init__(self, sensorType = DEFAULT_SENSOR_TYPE, d=None):
+        """
+        Constructor of SensorData:
+
+        Init variables with default value or given dict
+        :param d: dict to help init the object
+        """
         super(SensorData, self).__init__(d=d)
         self._sensorType = sensorType
         self._value = SensorData.DEFAULT_VAL

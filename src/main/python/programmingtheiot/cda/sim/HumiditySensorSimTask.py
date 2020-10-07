@@ -14,14 +14,22 @@ from programmingtheiot.cda.sim.SensorDataGenerator import SensorDataGenerator
 
 from programmingtheiot.data.SensorData import SensorData
 
+
 class HumiditySensorSimTask(BaseSensorSimTask):
     """
-    Shell representation of class for student implementation.
+    Implementation of HumiditySensorSimTask
 
     """
-    DEFAULT_DATA_SET = SensorDataGenerator().generateDailyEnvironmentHumidityDataSet()
-    def __init__(self, sensorType: int = SensorData.HUMIDITY_SENSOR_TYPE, dataSet = DEFAULT_DATA_SET,
+
+    def __init__(self, sensorType: int = SensorData.HUMIDITY_SENSOR_TYPE, dataSet = None,
                  minVal: float = SensorDataGenerator.LOW_NORMAL_ENV_HUMIDITY,
                  maxVal: float = SensorDataGenerator.HI_NORMAL_ENV_HUMIDITY):
+        """
+        Init HumiditySensorSimTask by using super class constructor with values especially for HumiditySensorSimTask
+        :param sensorType: Sensor Type, here is humidity sensor
+        :param dataSet: Using local generated default data set
+        :param minVal: Using default environment humidity from HumiditySensorSimTask
+        :param maxVal: Using default environment humidity from HumiditySensorSimTask
+        """
         super(HumiditySensorSimTask, self).__init__(sensorType=sensorType, dataSet=dataSet,	minVal=minVal, maxVal=maxVal)
         pass

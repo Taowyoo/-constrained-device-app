@@ -7,34 +7,47 @@
 # and designed to be modified by the student as needed.
 #
 
+
 import logging
 
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from programmingtheiot.cda.sim.PressureSensorSimTask import PressureSensorSimTask
 from programmingtheiot.cda.sim.SensorDataGenerator import SensorDataGenerator
 from programmingtheiot.common import ConfigConst
 from programmingtheiot.common.ConfigUtil import ConfigUtil
 from programmingtheiot.common.IDataMessageListener import IDataMessageListener
 
+# Import SimTasks
 from programmingtheiot.cda.sim.TemperatureSensorSimTask import TemperatureSensorSimTask
 from programmingtheiot.cda.sim.HumiditySensorSimTask import HumiditySensorSimTask
+from programmingtheiot.cda.sim.PressureSensorSimTask import PressureSensorSimTask
 
 class SensorAdapterManager(object):
     """
-    Shell representation of class for student implementation.
-
+    Manager to manage all sensor tasks, trigger and sensor tasks periodically and handle their results
+    According to config, manager also manage sim data set generation
     """
 
     def __init__(self, useEmulator: bool = False, pollRate: int = 5, allowConfigOverride: bool = True):
+        """
+        Init the SensorAdapterManager, if using simulator, setup data sets and sim tasks for simulation
+
+        :param useEmulator: Whether use Emulator
+        :param pollRate: Interval seconds for polling sensor data
+        :param allowConfigOverride: If allow to override config
+        """
         logging.info("SensorAdapterManager is initializing...")
+        # Init basic config variables
         self.useEmulator = useEmulator
         self.pollRate = pollRate
         self.allowConfigOverride = allowConfigOverride
+        # Init data message listener
         self.dataMsgListener: IDataMessageListener = None
+        # Init scheduler
         self.scheduler = BackgroundScheduler()
         self.scheduler.add_job(self.handleTelemetry, 'interval', seconds=self.pollRate)
 
+        # create sim sensor tasks and sim data tasks if needed
         if self.useEmulator is True:
             logging.info("SensorAdapterManager is using emulator.")
         else:
@@ -71,6 +84,10 @@ class SensorAdapterManager(object):
         pass
 
     def handleTelemetry(self):
+        """
+        Handle received sensor data
+        If it is using simulator, got sensor data from sim tasks
+        """
         logging.info("SensorAdapterManager is trying to get Telemetries...")
         if self.useEmulator is False:
             humidityTelemetry = self.humiditySensorSimTask.generateTelemetry()
@@ -87,6 +104,11 @@ class SensorAdapterManager(object):
         pass
 
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
+        """
+        Set DataMessageListener for manager
+        :param listener: Given listener
+        :return: If setup listen successfully
+        """
         if listener is None:
             logging.info("Given DataMessageListener is invalid!")
             return False
@@ -96,12 +118,18 @@ class SensorAdapterManager(object):
         pass
 
     def startManager(self):
+        """
+        Start SensorAdapterManager
+        """
         if not self.scheduler.running:
             self.scheduler.start()
             logging.info("Started SensorAdapterManager.")
         pass
 
     def stopManager(self):
+        """
+        Stop SensorAdapterManager
+        """
         if self.scheduler.running:
             self.scheduler.shutdown()
             logging.info("Stopped SensorAdapterManager.")

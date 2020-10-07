@@ -14,7 +14,7 @@ from programmingtheiot.data.SensorData import SensorData
 
 class BaseSensorSimTask():
     """
-    Shell representation of class for student implementation.
+    Base class for SensorSimTask
 
     """
     DEFAULT_DATA_SET_INDEX = 0
@@ -23,6 +23,13 @@ class BaseSensorSimTask():
     DEFAULT_RANDOMIZER_FLAG = False
 
     def __init__(self, sensorType: int = SensorData.DEFAULT_SENSOR_TYPE, dataSet = None, minVal: float = DEFAULT_MIN_VAL, maxVal: float = DEFAULT_MAX_VAL):
+        """
+        Init BaseSensorSimTask with default values
+        :param sensorType: Sensor Type
+        :param dataSet: Data set for sim
+        :param minVal: Min value of dataSet or randomizer range
+        :param maxVal: Max value of dataSet or randomizer range
+        """
         self._dataSet = dataSet
         self._sensorType = sensorType
         self._minVal = minVal
@@ -33,6 +40,11 @@ class BaseSensorSimTask():
         pass
 
     def generateTelemetry(self) -> SensorData:
+        """
+        Generate sim SensorData
+        If useRandomizer is enable, generate SensorData with random value, else use data in generated data set
+        :return: Generated sim SensorData
+        """
         data = SensorData(sensorType=self._sensorType)
         if self._useRandomizer:
             data.setValue(random.uniform(self._minVal,self._maxVal))
@@ -51,6 +63,10 @@ class BaseSensorSimTask():
         pass
 
     def getTelemetryValue(self) -> float:
+        """
+        Get latest generated data value
+        :return: Sensor data value
+        """
         if self._latestSensorData is None:
             self.generateTelemetry()
         return self._latestSensorData.getValue()

@@ -12,43 +12,86 @@ from programmingtheiot.data.BaseIotData import BaseIotData
 
 class SystemPerformanceData(BaseIotData):
     """
-    Shell representation of class for student implementation.
-    
+    Data object for storing System Performance info:
+
+    System cpu occupied percentage
+    System memory occupied percentage
+    System disk occupied bytes
     """
     DEFAULT_VAL = 0.0
 
     def __init__(self, d=None):
+        """
+        Constructor of SystemPerformanceData:
+
+        Init variables with default value or given dict
+        :param d: dict to help init the object
+        """
         super(SystemPerformanceData, self).__init__(d=d)
-        self._cpuUtil = self.DEFAULT_VAL
-        self._diskUtil = self.DEFAULT_VAL
-        self._memUtil = self.DEFAULT_VAL
+        if d:
+            self._cpuUtil = d['cpuUtil']
+            self._diskUtil = d['diskUtil']
+            self._memUtil = d['memUtil']
+        else:
+            self._cpuUtil = self.DEFAULT_VAL
+            self._diskUtil = self.DEFAULT_VAL
+            self._memUtil = self.DEFAULT_VAL
         pass
 
     def getCpuUtilization(self) -> float:
+        """
+        Return System cpu occupied percentage
+        :return: Percentage value
+        """
         return self._cpuUtil
         pass
 
     def getDiskUtilization(self) -> float:
+        """
+        Return System disk occupied bytes
+        :return: Bytes valueB
+        """
         return self._diskUtil
         pass
 
     def getMemoryUtilization(self) -> float:
+        """
+        Return System disk occupied percentage
+        :return: Percentage value
+        """
         return self._memUtil
         pass
 
     def setCpuUtilization(self, cpuUtil):
+        """
+        Set System cpu occupied percentage
+        :param cpuUtil: Given value
+        """
         self._cpuUtil = cpuUtil
         pass
 
     def setDiskUtilization(self, diskUtil):
+        """
+        Set System cpu occupied bytes
+        :param diskUtil: Given value
+        """
         self._diskUtil = diskUtil
         pass
 
     def setMemoryUtilization(self, memUtil):
+        """
+        Set System memory occupied percentage
+        :param memUtil: Given value
+        """
         self._memUtil = memUtil
         pass
 
     def _handleUpdateData(self, data) -> bool:
+        """
+        Use given data to update current instance
+        :param data: Given SystemPerformanceData
+        :return: If update successfully
+        """
         if isinstance(data, SystemPerformanceData):
             self._cpuUtil = data._cpuUtil
             self._memUtil = data._memUtil

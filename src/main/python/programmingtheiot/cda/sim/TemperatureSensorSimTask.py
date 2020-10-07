@@ -17,13 +17,19 @@ from programmingtheiot.data.SensorData import SensorData
 
 class TemperatureSensorSimTask(BaseSensorSimTask):
     """
-    Shell representation of class for student implementation.
-    
+    Implementation of TemperatureSensorSimTask
     """
-    DEFAULT_DATA_SET = SensorDataGenerator().generateDailyIndoorTemperatureDataSet()
 
-    def __init__(self, sensorType: int = SensorData.TEMP_SENSOR_TYPE, dataSet=DEFAULT_DATA_SET,
+
+    def __init__(self, sensorType: int = SensorData.TEMP_SENSOR_TYPE, dataSet=None,
                  minVal: float = SensorDataGenerator.LOW_NORMAL_INDOOR_TEMP,
                  maxVal: float = SensorDataGenerator.HI_NORMAL_INDOOR_TEMP):
+        """
+        Init TemperatureSensorSimTask by using super class constructor with values especially for TemperatureSensorSimTask
+        :param sensorType: Sensor Type, here is temperature sensor
+        :param dataSet: Using local generated default data set
+        :param minVal: Using default indoor temperature from SensorDataGenerator
+        :param maxVal: Using default indoor temperature from SensorDataGenerator
+        """
         super(TemperatureSensorSimTask, self).__init__(sensorType=sensorType, dataSet=dataSet, minVal=minVal, maxVal=maxVal)
         pass
