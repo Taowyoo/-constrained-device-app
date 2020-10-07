@@ -47,12 +47,13 @@ class BaseSensorSimTask():
         """
         data = SensorData(sensorType=self._sensorType)
         if self._useRandomizer:
-            data.setValue(random.uniform(self._minVal,self._maxVal))
+            data.setValue(random.uniform(self._minVal, self._maxVal))
+            pass
+        elif self._dataSet is None:
+            logging.warning("Sim data set has not been setup! Using data from Randomizer!")
+            data.setValue(random.uniform(self._minVal, self._maxVal))
             pass
         else:
-            if self._dataSet is None:
-                logging.error("Sim data set has not been setup!")
-                return None
             data.setValue(self._dataSet.getDataEntry(self._curDataIndex))
             self._curDataIndex += 1
             if self._curDataIndex >= self._dataSet.getDataEntryCount():
