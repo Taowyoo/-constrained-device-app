@@ -34,12 +34,7 @@ class ConfigUtilTest(unittest.TestCase):
 	
 	@classmethod
 	def setUpClass(self):
-		# os.chdir(os.path.dirname(__file__))  # ensure current work dir
-		print('__file__ ： ' + __file__)
-		print('os.path.dirname(__file__) ： ' + os.path.dirname(__file__))
-		print('os.getcwd() ： ' + os.getcwd())
-		print("os.environ['PYTHONPATH'] : " + os.environ['PYTHONPATH'])
-		print(os.path.dirname(__file__) == os.getcwd())
+		# os.chdir(os.path.dirname(__file__))  # ensure current work dir 
 		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
 		logging.info("Testing ConfigUtil class...")
 		self.configUtil = ConfigUtil(configFile = self.configFile)
