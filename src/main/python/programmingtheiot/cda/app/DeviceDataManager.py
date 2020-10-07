@@ -159,7 +159,7 @@ class DeviceDataManager(IDataMessageListener):
         """
         logging.debug("Handling analysis on IncomingData...")
         # TODO: validate msg in more detail
-        if msg is None or len(msg) is 0:
+        if msg is None or len(msg) == 0:
             logging.warning("Handling analysis on an invalid IncomingData string!")
             return
         # Convert msg
