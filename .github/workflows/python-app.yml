@@ -8,6 +8,7 @@ on:
     paths:
     - 'src/**'
     - 'config/**'
+    - '.github/workflows/**'
     branches:
     - alpha001
     - 'chapter**'
@@ -15,6 +16,7 @@ on:
     paths:
     - 'src/**'
     - 'config/**'
+    - '.github/workflows/**'
     branches:
     - alpha001
     - 'chapter**'
@@ -43,7 +45,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Setup PYTHONPATH
       run: |
-        export PYTHONPATH=${PYTHONPATH}:./src/main/python:./src/test/python
+        echo "PYTHONPATH=${PYTHONPATH}:./src/main/python:./src/test/python" >> $GITHUB_ENV
     - name: Python Test for part 01
       run: |
         # test all tests in part 01
