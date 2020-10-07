@@ -52,7 +52,7 @@ jobs:
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/unit/ -p "*Test.py"
         rm ./*.props
     - name: Python Integration Test in part 01
-        run: |
+      run: |
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/integration/ -p "*Test.py"
     - name: Python Unit Test for Lab 3 in part 02
       run: |
