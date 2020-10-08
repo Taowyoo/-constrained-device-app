@@ -11,6 +11,7 @@ from datetime import datetime
 
 import programmingtheiot.common.ConfigConst as ConfigConst
 
+import logging
 
 class BaseIotData(object):
     """
@@ -112,7 +113,8 @@ class BaseIotData(object):
         self.hasError = data.hasErrorFlag()
         self.statusCode = data.getStatusCode()
 
-        self._handleUpdateData(data)
+        if not self._handleUpdateData(data):
+            logging.warning("Updating not corresponding data!")
 
     def updateTimeStamp(self):
         """
@@ -127,12 +129,12 @@ class BaseIotData(object):
         
         @return The string representing this instance.
         """
-        custom_str = 'name=' + str(self.name) + ', timeStamp=' + str(self.timeStamp) + ', hasError=' \
-                             + str(self.hasError) + ', statusCode=' + str(self.statusCode)
+        custom_str = 'name = ' + str(self.name) + ', timeStamp = ' + str(self.timeStamp) + ', hasError= ' \
+                     + str(self.hasError) + ', statusCode = ' + str(self.statusCode)
 
         return custom_str
 
-    def _handleUpdateData(self, data):
+    def _handleUpdateData(self, data) -> bool:
         """
         Template method definition to update sub-class data.
         

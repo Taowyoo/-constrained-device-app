@@ -32,13 +32,19 @@ class ConfigUtilTest(unittest.TestCase):
 	#  - None (which will default to ./config/PiotConfig.props)
 	configFile = "./ValidTestConfig.props"
 	
+	
 	@classmethod
 	def setUpClass(self):
-		os.chdir(os.path.dirname(__file__))  # ensure current work dir 
+		self.originalPath = os.getcwd()
+		os.chdir(os.path.dirname(__file__))  # ensure current work dir
 		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
 		logging.info("Testing ConfigUtil class...")
 		self.configUtil = ConfigUtil(configFile = self.configFile)
-		
+	
+	@classmethod
+	def tearDownClass(self):
+		os.chdir(self.originalPath)  # recover current work dir
+
 	def setUp(self):
 		pass
 

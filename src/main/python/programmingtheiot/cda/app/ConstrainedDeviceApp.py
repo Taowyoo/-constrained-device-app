@@ -16,7 +16,7 @@ from time import sleep
 from programmingtheiot.cda.app.DeviceDataManager import DeviceDataManager
 from programmingtheiot.cda.system.SystemPerformanceManager import SystemPerformanceManager
 
-logging.basicConfig(format = '%(asctime)s:%(name)s:%(levelname)s:%(message)s', level = logging.DEBUG)
+logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s:%(message)s', level=logging.INFO)
 
 
 class ConstrainedDeviceApp():
@@ -30,32 +30,26 @@ class ConstrainedDeviceApp():
 		Initialization of class.
 		
 		Create DeviceDataManager instance.
-		Create SystemPerformanceManager instance.
 		"""
 		logging.info("Initializing CDA...")
 		self.devDataManager = DeviceDataManager()
-		self.sysPerformanceManager = SystemPerformanceManager();
 
 	def startApp(self):
 		"""
-		Start the CDA.
-		Calls startManager() on the device data manager instance.
-		Calls startManager() on the system performance manager instance.
+		Start the CDA:
+		Start DeviceDataManager.
 		"""
 		logging.info("Starting CDA...")
 		self.devDataManager.startManager()
-		self.sysPerformanceManager.startManager()
 		logging.info("CDA started.")
 
 	def stopApp(self, code: int):
 		"""
 		Stop the CDA.
-		Calls stopManager() on the device data manager instance.
-		Calls stopManager() on the system performance manager instance.
+		Stop DeviceDataManager.
 		"""
 		logging.info("CDA stopping...")
 		self.devDataManager.stopManager()
-		self.sysPerformanceManager.stopManager()
 		logging.info("CDA stopped with exit code %s.", str(code))
 		
 	def parseArgs(self, args):

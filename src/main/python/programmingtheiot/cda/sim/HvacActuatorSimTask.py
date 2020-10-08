@@ -15,18 +15,17 @@ from programmingtheiot.cda.sim.BaseActuatorSimTask import BaseActuatorSimTask
 
 class HvacActuatorSimTask(BaseActuatorSimTask):
 	"""
-	Shell representation of class for student implementation.
-	
-	"""
+	Implementation of HumidifierActuatorSimTask
 
-	def __init__(self):
+	"""
+	DEFAULT_NAME = "HVAC"
+
+	def __init__(self, actuatorType=ActuatorData.HVAC_ACTUATOR_TYPE, simpleName=DEFAULT_NAME):
+		"""
+		Init the HvacActuatorSimTask by using super class constructor with specific values
+		:param actuatorType: Type of sim actuator, here is HVAC_ACTUATOR_TYPE
+		:param simpleName: Name of sim actuator, here is {DEFAULT_NAME}
+		"""
+		super(HvacActuatorSimTask, self).__init__(actuatorType=actuatorType, simpleName=simpleName)
 		pass
-		
-	def activateActuator(self, val: float) -> bool:
-		pass
-		
-	def deactivateActuator(self) -> bool:
-		pass
-		
-	def updateActuator(self, data: ActuatorData) -> ActuatorData:
-		pass
+

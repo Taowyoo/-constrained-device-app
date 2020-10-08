@@ -9,10 +9,12 @@
 
 from programmingtheiot.data.BaseIotData import BaseIotData
 
+
 class SensorData(BaseIotData):
     """
-    Shell representation of class for student implementation.
+    Data object for storing sensor data
 
+    Data varies with sensor types
     """
     DEFAULT_VAL = 0.0
     DEFAULT_SENSOR_TYPE = 0
@@ -24,10 +26,16 @@ class SensorData(BaseIotData):
     TEMP_SENSOR_TYPE = 3
     SYS_UTIL_TYPE = 4
 
-    def __init__(self, sensorType = DEFAULT_SENSOR_TYPE, d = None):
-        super(SensorData, self).__init__(d = d)
-        self.sensorType = sensorType
-        self.value = SensorData.DEFAULT_VAL
+    def __init__(self, sensorType = DEFAULT_SENSOR_TYPE, d=None):
+        """
+        Constructor of SensorData:
+
+        Init variables with default value or given dict
+        :param d: dict to help init the object
+        """
+        super(SensorData, self).__init__(d=d)
+        self._sensorType = sensorType
+        self._value = SensorData.DEFAULT_VAL
         pass
 
     def getSensorType(self) -> int:
@@ -36,7 +44,7 @@ class SensorData(BaseIotData):
 
         @return int
         """
-        return self.sensorType
+        return self._sensorType
 
     def getValue(self) -> float:
         """
@@ -44,7 +52,7 @@ class SensorData(BaseIotData):
 
         @return float
         """
-        return self.value
+        return self._value
         pass
 
     def setValue(self, newVal: float):
@@ -52,17 +60,21 @@ class SensorData(BaseIotData):
         Upadtes the sensor value by input value.
 
         """
-        self.value = newVal
+        self._value = newVal
         pass
 
-    def _handleUpdateData(self, data):
+    def _handleUpdateData(self, data) -> bool:
         """
         Implemented template method for super data.
         Update sensor data part variables.
         @param data The Sensor data to apply to this instance.
         """
-        self.value = data.getValue()
-        self.sensorType = data.getSensorType()
+        if isinstance(data, SensorData):
+            self._value = data._value
+            self._sensorType = data._sensorType
+        else:
+            return False
+        return True
         pass
 
     def __str__(self):
@@ -73,6 +85,6 @@ class SensorData(BaseIotData):
         """
 
         custom_str = super(SensorData, self).__str__() + ', sensorType=' \
-                                                       + str(self.sensorType) + ', value=' + str(self.value)
+                     + str(self._sensorType) + ', value=' + str(self._value)
 
         return custom_str

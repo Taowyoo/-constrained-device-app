@@ -33,8 +33,10 @@ class SystemPerformanceManager(object):
 		self.cpuUtilTask = SystemCpuUtilTask()
 		self.memUtilTask = SystemMemUtilTask()
 		# Initialize sensor data values
-		self.cpuUtilPct = None
-		self.memUtilPct = None
+		self.cpuUtilPct: float = None
+		self.memUtilPct: float = None
+		# Initialize dataMsgListener
+		self.dataMsgListener: IDataMessageListener = None
 		# Initialize BackgroundScheduler
 		self.scheduler = BackgroundScheduler()
 		# Setup the BackgroundScheduler
@@ -48,6 +50,9 @@ class SystemPerformanceManager(object):
 		pass
 
 	def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
+		if listener is None:
+			return False
+		self.dataMsgListener = listener
 		pass
 
 	def startManager(self):
