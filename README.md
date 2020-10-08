@@ -1,4 +1,4 @@
-![unittest](https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/workflows/unittest/badge.svg?branch=chapter01)
+![unittest](https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/workflows/unittest/badge.svg)
 
 # Yuxiang' CDA
 
