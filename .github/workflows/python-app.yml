@@ -56,7 +56,7 @@ jobs:
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/integration/ -p "*Test.py"
     - name: Python Unit Test for Lab 3 in part 02
       run: |
-        # run unit tests in part02/unit
+        # run unit tests in part02/unit except DataUtilTest.py
         python -m unittest discover -s ./src/test/python/programmingtheiot/part02/unit/ -p "*Test.py"
     - name: Python Integration Test for Lab 3 in part 02
       run: |
