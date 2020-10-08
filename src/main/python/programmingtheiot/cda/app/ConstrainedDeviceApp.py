@@ -29,33 +29,27 @@ class ConstrainedDeviceApp():
 		"""
 		Initialization of class.
 		
-		Create SystemPerformanceManager instance.
 		Create DeviceDataManager instance.
 		"""
 		logging.info("Initializing CDA...")
 		self.devDataManager = DeviceDataManager()
-		self.sysPerformanceManager = SystemPerformanceManager()
 
 	def startApp(self):
 		"""
 		Start the CDA:
-		Start SystemPerformanceManager.
 		Start DeviceDataManager.
 		"""
 		logging.info("Starting CDA...")
 		self.devDataManager.startManager()
-		self.sysPerformanceManager.startManager()
 		logging.info("CDA started.")
 
 	def stopApp(self, code: int):
 		"""
 		Stop the CDA.
-		Stop SystemPerformanceManager.
 		Stop DeviceDataManager.
 		"""
 		logging.info("CDA stopping...")
 		self.devDataManager.stopManager()
-		self.sysPerformanceManager.stopManager()
 		logging.info("CDA stopped with exit code %s.", str(code))
 		
 	def parseArgs(self, args):

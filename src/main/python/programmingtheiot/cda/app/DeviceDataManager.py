@@ -60,8 +60,8 @@ class DeviceDataManager(IDataMessageListener):
         self.triggerHvacTempCeiling = self.configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE,
                                                                ConfigConst.TRIGGER_HVAC_TEMP_CEILING_KEY)
         # Init managers
-        self.systemPerformanceManager = SystemPerformanceManager()
-        self.systemPerformanceManager.setDataMessageListener(self)
+        self.sysPerfManager = SystemPerformanceManager()
+        self.sysPerfManager.setDataMessageListener(self)
         self.sensorAdapterManager = SensorAdapterManager(useEmulator=self.enableEmulator)
         self.sensorAdapterManager.setDataMessageListener(self)
         self.actuatorAdapterManager = ActuatorAdapterManager(useEmulator=self.enableEmulator)
@@ -134,7 +134,7 @@ class DeviceDataManager(IDataMessageListener):
         Start the DeviceDataManager.
         """
         logging.info("DeviceDataManager starting...")
-        self.systemPerformanceManager.startManager()
+        self.sysPerfManager.startManager()
         self.sensorAdapterManager.startManager()
         logging.info("DeviceDataManager stated.")
         pass
@@ -144,7 +144,7 @@ class DeviceDataManager(IDataMessageListener):
         Stop the DeviceDataManager
         """
         logging.info("DeviceDataManager stopping.")
-        self.systemPerformanceManager.stopManager()
+        self.sysPerfManager.stopManager()
         self.sensorAdapterManager.stopManager()
         logging.info("DeviceDataManager stopped.")
         pass
