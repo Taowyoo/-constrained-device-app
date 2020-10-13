@@ -1,3 +1,10 @@
+# project related stuff
+**/*.pyc
+**/cert
+**/cred
+**/venv
+/.wsl/
+
 # vscode stuff
 .vscode/**
 # idea stuff
@@ -68,8 +75,4 @@ fabric.properties
 
 # idea end
 
-**/*.pyc
-**/cert
-**/cred
-**/venv
 
