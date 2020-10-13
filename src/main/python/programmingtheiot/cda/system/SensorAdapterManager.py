@@ -50,6 +50,21 @@ class SensorAdapterManager(object):
         # create sim sensor tasks and sim data tasks if needed
         if self.useEmulator is True:
             logging.info("SensorAdapterManager is using emulator.")
+
+            humidityModule = __import__('programmingtheiot.cda.emulated.HumiditySensorEmulatorTask',
+                                        fromlist=['HumiditySensorEmulatorTask'])
+            huClass = getattr(humidityModule, 'HumiditySensorEmulatorTask')
+            self.humidityEmulator = huClass()
+
+            pressureModule = __import__('programmingtheiot.cda.emulated.PressureSensorEmulatorTask',
+                                        fromlist=['PressureSensorEmulatorTask'])
+            prClass = getattr(pressureModule, 'PressureSensorEmulatorTask')
+            self.pressureEmulator = prClass()
+
+            tempModule = __import__('programmingtheiot.cda.emulated.TemperatureSensorEmulatorTask',
+                                    fromlist=['TemperatureSensorEmulatorTask'])
+            teClass = getattr(tempModule, 'TemperatureSensorEmulatorTask')
+            self.tempEmulator = teClass()
         else:
             logging.info("SensorAdapterManager is using simulators.")
             self.dataGenerator = SensorDataGenerator()
@@ -100,6 +115,18 @@ class SensorAdapterManager(object):
 
             tempTelemetry = self.pressureSensorSimTask.generateTelemetry()
             logging.info("Simulated temperature data: %s" % tempTelemetry.__str__())
+            self.dataMsgListener.handleSensorMessage(tempTelemetry)
+        else:
+            humidityTelemetry = self.humidityEmulator.generateTelemetry()
+            logging.info("Emulated humidity data: %s" % humidityTelemetry.__str__())
+            self.dataMsgListener.handleSensorMessage(humidityTelemetry)
+
+            pressureTelemetry = self.pressureEmulator.generateTelemetry()
+            logging.info("Emulated pressure data: %s" % pressureTelemetry.__str__())
+            self.dataMsgListener.handleSensorMessage(pressureTelemetry)
+
+            tempTelemetry = self.tempEmulator.generateTelemetry()
+            logging.info("Emulated temperature data: %s" % tempTelemetry.__str__())
             self.dataMsgListener.handleSensorMessage(tempTelemetry)
         pass
 
