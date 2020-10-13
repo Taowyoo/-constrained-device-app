@@ -7,7 +7,7 @@ numpy
 matplotlib
 sense-emu
 pisense
-pyqt5
+#pyqt5
 
 # Imports for Chapters 06 and later
 paho-mqtt
