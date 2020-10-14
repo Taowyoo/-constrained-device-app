@@ -33,7 +33,7 @@ enableCrypt    = False
 # CDA specific configuration information
 #
 [ConstrainedDevice]
-enableEmulator  = False
+enableEmulator  = True
 enableSenseHAT  = False
 enableLogging   = True
 pollCycleSecs   = 60

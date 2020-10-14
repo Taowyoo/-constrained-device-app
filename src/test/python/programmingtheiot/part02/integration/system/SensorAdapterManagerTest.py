@@ -12,6 +12,8 @@ import unittest
 
 from time import sleep
 
+from programmingtheiot.common import ConfigConst
+from programmingtheiot.common.ConfigUtil import ConfigUtil
 from programmingtheiot.common.DefaultDataMessageListener import DefaultDataMessageListener
 from programmingtheiot.cda.system.SensorAdapterManager import SensorAdapterManager
 
@@ -28,9 +30,11 @@ class SensorAdapterManagerTest(unittest.TestCase):
 	def setUpClass(self):
 		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
 		logging.info("Testing SensorAdapterManager class...")
-		
+		self.configUtil = ConfigUtil()
+		self.enableEmulator = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
+														 ConfigConst.ENABLE_EMULATOR_KEY)
 		self.defaultMsgListener = DefaultDataMessageListener()
-		self.sensorAdapterMgr = SensorAdapterManager()
+		self.sensorAdapterMgr = SensorAdapterManager(useEmulator=self.enableEmulator)
 		self.sensorAdapterMgr.setDataMessageListener(self.defaultMsgListener)
 		
 	def setUp(self):

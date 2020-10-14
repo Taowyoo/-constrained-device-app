@@ -13,6 +13,8 @@ import unittest
 from time import sleep
 
 from programmingtheiot.cda.system.ActuatorAdapterManager import ActuatorAdapterManager
+from programmingtheiot.common import ConfigConst
+from programmingtheiot.common.ConfigUtil import ConfigUtil
 from programmingtheiot.common.DefaultDataMessageListener import DefaultDataMessageListener
 
 from programmingtheiot.data.ActuatorData import ActuatorData
@@ -30,9 +32,11 @@ class ActuatorAdapterManagerTest(unittest.TestCase):
 	def setUpClass(self):
 		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
 		logging.info("Testing ActuatorAdapterManager class...")
-		
+		self.configUtil = ConfigUtil()
+		self.enableEmulator = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
+														 ConfigConst.ENABLE_EMULATOR_KEY)
 		self.defaultMsgListener = DefaultDataMessageListener()
-		self.actuatorAdapterMgr = ActuatorAdapterManager()
+		self.actuatorAdapterMgr = ActuatorAdapterManager(useEmulator=self.enableEmulator)
 		self.actuatorAdapterMgr.setDataMessageListener(self.defaultMsgListener)
 		
 	def setUp(self):
@@ -58,6 +62,16 @@ class ActuatorAdapterManagerTest(unittest.TestCase):
 		ad.setCommand(ActuatorData.COMMAND_ON)
 		self.actuatorAdapterMgr.sendActuatorCommand(ad)
 		
+		ad.setCommand(ActuatorData.COMMAND_OFF)
+		self.actuatorAdapterMgr.sendActuatorCommand(ad)
+
+	def testLEDSimulation(self):
+		ad = ActuatorData(actuatorType=ActuatorData.LED_DISPLAY_ACTUATOR_TYPE)
+		ad.setStateData(stateData="Test stateData")
+
+		ad.setCommand(ActuatorData.COMMAND_ON)
+		self.actuatorAdapterMgr.sendActuatorCommand(ad)
+
 		ad.setCommand(ActuatorData.COMMAND_OFF)
 		self.actuatorAdapterMgr.sendActuatorCommand(ad)
 
