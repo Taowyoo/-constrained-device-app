@@ -68,7 +68,7 @@ class HvacEmulatorTask(BaseActuatorSimTask):
             else:
                 logging.warning("No SenseHAT LED screen instance to clear / close.")
                 return -1
-        return 1
+        return 0
         pass
 
     def updateActuator(self, data: ActuatorData) -> bool:
@@ -92,6 +92,6 @@ class HvacEmulatorTask(BaseActuatorSimTask):
         self.latestActuatorData.updateData(data)
         self.latestActuatorData.setStatusCode(int(ret))
         self.latestActuatorData.setAsResponse()
-        return ret > 0
+        return ret >= 0
         pass
 
