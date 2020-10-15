@@ -14,3 +14,7 @@ paho-mqtt
 
 # Imports for Chapters 08 and later
 CoAPthon3
+
+# Imports for Raspberry Pi
+RTIMULib
+smbus

@@ -34,7 +34,7 @@ enableCrypt    = False
 #
 [ConstrainedDevice]
 enableEmulator  = True
-enableSenseHAT  = False
+enableSenseHAT  = True
 enableLogging   = True
 pollCycleSecs   = 60
 testGdaDataPath = /tmp/gda-data
