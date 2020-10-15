@@ -22,13 +22,18 @@ from programmingtheiot.cda.sim.TemperatureSensorSimTask import TemperatureSensor
 from programmingtheiot.cda.sim.HumiditySensorSimTask import HumiditySensorSimTask
 from programmingtheiot.cda.sim.PressureSensorSimTask import PressureSensorSimTask
 
+# Import I2C Tasks
+from programmingtheiot.cda.embedded.HumidityI2cSensorAdapterTask import HumidityI2cSensorAdapterTask
+from programmingtheiot.cda.embedded.PressureI2cSensorAdapterTask import PressureI2cSensorAdapterTask
+from programmingtheiot.cda.embedded.TemperatureI2cSensorAdapterTask import TemperatureI2cSensorAdapterTask
+
 class SensorAdapterManager(object):
     """
     Manager to manage all sensor tasks, trigger and sensor tasks periodically and handle their results
     According to config, manager also manage sim data set generation
     """
 
-    def __init__(self, useEmulator: bool = False, pollRate: int = 5, allowConfigOverride: bool = True):
+    def __init__(self, useEmulator: bool = False, enableSenseHAT: bool = False, pollRate: int = 5, allowConfigOverride: bool = True):
         """
         Init the SensorAdapterManager, if using simulator, setup data sets and sim tasks for simulation
 
@@ -47,8 +52,16 @@ class SensorAdapterManager(object):
         self.scheduler = BackgroundScheduler()
         self.scheduler.add_job(self.handleTelemetry, 'interval', seconds=self.pollRate)
 
-        # create sim sensor tasks and sim data tasks if needed
-        if self.useEmulator is True:
+        configUtil = ConfigUtil()
+        self.enableSenseHAT = enableSenseHAT
+
+        if self.enableSenseHAT is True:
+            logging.info("SensorAdapterManager is using SenseHAT.")
+            self.humiditySensorI2cTask = HumidityI2cSensorAdapterTask()
+            self.pressureSensorI2cTask = PressureI2cSensorAdapterTask()
+            self.temperatureSensorI2cTask = TemperatureI2cSensorAdapterTask()
+            pass
+        elif self.useEmulator is True:
             logging.info("SensorAdapterManager is using emulator.")
 
             humidityModule = __import__('programmingtheiot.cda.emulated.HumiditySensorEmulatorTask',
@@ -68,7 +81,7 @@ class SensorAdapterManager(object):
         else:
             logging.info("SensorAdapterManager is using simulators.")
             self.dataGenerator = SensorDataGenerator()
-            configUtil = ConfigUtil()
+            
             humidityFloor = configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.HUMIDITY_SIM_FLOOR_KEY,
                                                 SensorDataGenerator.LOW_NORMAL_ENV_HUMIDITY)
             humidityCeiling = configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.HUMIDITY_SIM_CEILING_KEY,
@@ -104,7 +117,18 @@ class SensorAdapterManager(object):
         If it is using simulator, got sensor data from sim tasks
         """
         logging.info("SensorAdapterManager is trying to get Telemetries...")
-        if self.useEmulator is False:
+        if self.enableSenseHAT is True:
+            humidityTelemetry = self.humiditySensorI2cTask.generateTelemetry()
+            logging.info("SenserHAT I2c humidity data: %s" % humidityTelemetry.__str__())
+
+            pressureTelemetry = self.pressureSensorI2cTask.generateTelemetry()
+            logging.info("SenserHAT I2c pressure data: %s" % pressureTelemetry.__str__())
+
+            tempTelemetry = self.temperatureSensorI2cTask.generateTelemetry()
+            logging.info("SenserHAT I2c temperature data: %s" % tempTelemetry.__str__())
+
+            pass
+        elif self.useEmulator is False:
             humidityTelemetry = self.humiditySensorSimTask.generateTelemetry()
             logging.info("Simulated humidity data: %s" % humidityTelemetry.__str__())
             self.dataMsgListener.handleSensorMessage(humidityTelemetry)

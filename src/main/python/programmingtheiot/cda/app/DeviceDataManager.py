@@ -50,7 +50,7 @@ class DeviceDataManager(IDataMessageListener):
         # Retrieving configs
         self.configUtil = ConfigUtil()
         self.enableEmulator = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_EMULATOR_KEY)
-
+        self.enableSenseHAT = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_SENSE_HAT_KEY)
         self.enableHandleTempChangeOnDevice = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
                                                                          ConfigConst.ENABLE_HANDLE_TEMP_CHANGE_ON_DEVICE_KEY)
 
@@ -62,7 +62,7 @@ class DeviceDataManager(IDataMessageListener):
         # Init managers
         self.sysPerfManager = SystemPerformanceManager()
         self.sysPerfManager.setDataMessageListener(self)
-        self.sensorAdapterManager = SensorAdapterManager(useEmulator=self.enableEmulator)
+        self.sensorAdapterManager = SensorAdapterManager(useEmulator=self.enableEmulator, enableSenseHAT=self.enableSenseHAT)
         self.sensorAdapterManager.setDataMessageListener(self)
         self.actuatorAdapterManager = ActuatorAdapterManager(useEmulator=self.enableEmulator)
         self.actuatorAdapterManager.setDataMessageListener(self)
