@@ -1,10 +1,11 @@
 import smbus
 import struct
 import pisense
+
 se = pisense.SenseEnviron()
-print(se.temperature)
-print(se.pressure)
-print(se.humidity)
+print("pisense temperature:", se.temperature)
+print("pisense pressure:", se.pressure)
+print("pisense humidity:", se.humidity)
 # init the I2C bus at the humidity address
 # WARNING: only use I2C bus 1 when working with the SenseHAT on the Raspberry Pi!!
 # senseHAT info: https://pinout.xyz/pinout/sense_hat
@@ -53,32 +54,38 @@ def linearInterpolation(x_low: float, x: float, x_hi: float, y_low: float, y_hi:
 
 
 # read humidity sensor tempreture
-# # T0_OUT
-# T0_OUT_L = 0x3C
-# T0_OUT_H = 0x3D
-# T0_OUT = read2byte(humidAddr, T0_OUT_L, T0_OUT_H)
-# # T1_OUT
-# T1_OUT_L = 0x3E
-# T1_OUT_H = 0x3F
-# T1_OUT = read2byte(humidAddr, T1_OUT_L, T1_OUT_H)
-# # T0_degC_x8
-# T0_degC_x8_ADDR = 0x32
-# T0_degC_x8 = i2cBus.read_byte_data(humidAddr, T0_degC_x8_ADDR)
-# T0_degC = (T0_degC_x8 | (1 << (T0_degC_x8.bit_length() - 1 ))) / 8
-# print('T0_degC',T0_degC)
-# # T1_degC_x8
-# T1_degC_x8_ADDR = 0x33
-# T1_degC_x8 = i2cBus.read_byte_data(humidAddr, T1_degC_x8_ADDR)
-# T1_degC = (T1_degC_x8 | (1 << (T1_degC_x8.bit_length() - 1))) / 8
-# print('T1_degC',T1_degC)
+# T0_OUT
+T0_OUT_L = 0x3C
+T0_OUT_H = 0x3D
+T0_OUT = read2byte(humidAddr, T0_OUT_L, T0_OUT_H)
+# T1_OUT
+T1_OUT_L = 0x3E
+T1_OUT_H = 0x3F
+T1_OUT = read2byte(humidAddr, T1_OUT_L, T1_OUT_H)
+# T0_degC_x8
+T0_degC_x8_ADDR = 0x32
+T0_degC_x8 = i2cBus.read_byte_data(humidAddr, T0_degC_x8_ADDR)
 
-# # TEMP_OUT
-# TEMP_OUT_L = 0x2A
-# TEMP_OUT_H = 0x2B
-# TEMP_OUT = read2byte(humidAddr, TEMP_OUT_L, TEMP_OUT_H)
+# T1_degC_x8
+T1_degC_x8_ADDR = 0x33
+T1_degC_x8 = i2cBus.read_byte_data(humidAddr, T1_degC_x8_ADDR)
 
-# temperature = linearInterpolation(T0_OUT, TEMP_OUT, T1_OUT, T1_degC, T0_degC)
-# print('humidity sensor, tempreture:', temperature)
+# T0_degC_msb, T1_degC_msb
+degC_msb_ADDR = 0x35
+msb = i2cBus.read_byte_data(humidAddr, degC_msb_ADDR)
+T0_degC_msb = (msb & 0x03) << 8
+T1_degC_msb = (msb & 0x0C) << 6
+
+T0_degC = (T0_degC_msb | T0_degC_x8) >> 3
+T1_degC = (T1_degC_msb | T1_degC_x8) >> 3
+
+# TEMP_OUT
+TEMP_OUT_L = 0x2A
+TEMP_OUT_H = 0x2B
+TEMP_OUT = read2byte(humidAddr, TEMP_OUT_L, TEMP_OUT_H)
+
+temperature = linearInterpolation(T0_OUT, TEMP_OUT, T1_OUT, T0_degC, T1_degC)
+print('humidity sensor, tempreture:', temperature)
 
 
 
