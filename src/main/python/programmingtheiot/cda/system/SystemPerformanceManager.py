@@ -44,6 +44,10 @@ class SystemPerformanceManager(object):
 		pass
 
 	def handleTelemetry(self):
+		"""
+		TODO: handle Data objects
+		:return:
+		"""
 		self.cpuUtilPct = self.cpuUtilTask.getTelemetryValue()
 		self.memUtilPct = self.memUtilTask.getTelemetryValue()
 		logging.info('CPU utilization is %s percent, and memory utilization is %s percent.', str(self.cpuUtilPct), str(self.memUtilPct))

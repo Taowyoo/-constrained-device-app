@@ -28,6 +28,7 @@ class BaseSystemUtilTask():
 		"""
 		Retrieve the telemetry value from method _getSystemUtil, package the row data into SensorData.
 		Update latestSensorData and return it.
+		TODO: change to generate SystemPerformanceData
 		@return SensorData Packaged latest sensor data
 		"""
 		sensor_date = SensorData()
@@ -57,4 +58,3 @@ class BaseSystemUtilTask():
 		@return float System utilization value
 		"""
 		pass
-		
