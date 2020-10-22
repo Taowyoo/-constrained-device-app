@@ -29,13 +29,13 @@ class SystemPerformanceData(BaseIotData):
         """
         super(SystemPerformanceData, self).__init__(d=d)
         if d:
-            self._cpuUtil = d['cpuUtil']
-            self._diskUtil = d['diskUtil']
-            self._memUtil = d['memUtil']
+            self.cpuUtil = d.get('cpuUtil', self.DEFAULT_VAL)
+            self.diskUtil = d.get('diskUtil', self.DEFAULT_VAL)
+            self.memUtil = d.get('memUtil', self.DEFAULT_VAL)
         else:
-            self._cpuUtil = self.DEFAULT_VAL
-            self._diskUtil = self.DEFAULT_VAL
-            self._memUtil = self.DEFAULT_VAL
+            self.cpuUtil = self.DEFAULT_VAL
+            self.diskUtil = self.DEFAULT_VAL
+            self.memUtil = self.DEFAULT_VAL
         pass
 
     def getCpuUtilization(self) -> float:
@@ -43,7 +43,7 @@ class SystemPerformanceData(BaseIotData):
         Return System cpu occupied percentage
         :return: Percentage value
         """
-        return self._cpuUtil
+        return self.cpuUtil
         pass
 
     def getDiskUtilization(self) -> float:
@@ -51,7 +51,7 @@ class SystemPerformanceData(BaseIotData):
         Return System disk occupied bytes
         :return: Bytes valueB
         """
-        return self._diskUtil
+        return self.diskUtil
         pass
 
     def getMemoryUtilization(self) -> float:
@@ -59,7 +59,7 @@ class SystemPerformanceData(BaseIotData):
         Return System disk occupied percentage
         :return: Percentage value
         """
-        return self._memUtil
+        return self.memUtil
         pass
 
     def setCpuUtilization(self, cpuUtil):
@@ -67,7 +67,7 @@ class SystemPerformanceData(BaseIotData):
         Set System cpu occupied percentage
         :param cpuUtil: Given value
         """
-        self._cpuUtil = cpuUtil
+        self.cpuUtil = cpuUtil
         pass
 
     def setDiskUtilization(self, diskUtil):
@@ -75,7 +75,7 @@ class SystemPerformanceData(BaseIotData):
         Set System cpu occupied bytes
         :param diskUtil: Given value
         """
-        self._diskUtil = diskUtil
+        self.diskUtil = diskUtil
         pass
 
     def setMemoryUtilization(self, memUtil):
@@ -83,7 +83,7 @@ class SystemPerformanceData(BaseIotData):
         Set System memory occupied percentage
         :param memUtil: Given value
         """
-        self._memUtil = memUtil
+        self.memUtil = memUtil
         pass
 
     def _handleUpdateData(self, data) -> bool:
@@ -93,9 +93,9 @@ class SystemPerformanceData(BaseIotData):
         :return: If update successfully
         """
         if isinstance(data, SystemPerformanceData):
-            self._cpuUtil = data._cpuUtil
-            self._memUtil = data._memUtil
-            self._diskUtil = data._diskUtil
+            self.cpuUtil = data.cpuUtil
+            self.memUtil = data.memUtil
+            self.diskUtil = data.diskUtil
         else:
             return False
         return True
@@ -108,7 +108,7 @@ class SystemPerformanceData(BaseIotData):
         @return The string representing this instance.
         """
 
-        custom_str = super(SystemPerformanceData, self).__str__() + ', CpuUtilization = ' + str(self._cpuUtil) \
-                     + ', DiskUtilization = ' + str(self._diskUtil) + ', MemoryUtilization = ' + str(self._memUtil)
+        custom_str = super(SystemPerformanceData, self).__str__() + ', CpuUtilization = ' + str(self.cpuUtil) \
+                     + ', DiskUtilization = ' + str(self.diskUtil) + ', MemoryUtilization = ' + str(self.memUtil)
 
         return custom_str
