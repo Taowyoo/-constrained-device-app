@@ -52,7 +52,7 @@ class DataUtilTest(unittest.TestCase):
 	def tearDown(self):
 		pass
 	
-	@unittest.skip("Ignore for now.")
+	# @unittest.skip("Ignore for now.")
 	def testActuatorDataConversionsFromJson(self):
 		logging.info("\n\n----- [ActuatorData Conversions from JSON] -----")
 		
@@ -68,7 +68,7 @@ class DataUtilTest(unittest.TestCase):
 		self.assertEqual(self.adName, adObj2.getName())
 		self.assertEqual(adObj1.getTimeStamp(), adObj2.getTimeStamp())
 
-	@unittest.skip("Ignore for now.")
+	# @unittest.skip("Ignore for now.")
 	def testActuatorDataConversionsFromObject(self):
 		logging.info("\n\n----- [JSON Conversions from ActuatorData] -----")
 		
@@ -90,7 +90,7 @@ class DataUtilTest(unittest.TestCase):
 		self.assertEqual(adObj1.getTimeStamp(), adObj2.getTimeStamp())
 		self.assertEqual(adObj1Str, adObj2Str)
 
-	@unittest.skip("Ignore for now.")
+	# @unittest.skip("Ignore for now.")
 	def testSensorDataConversionsFromJson(self):
 		logging.info("\n\n----- [SensorData Conversions from JSON] -----")
 		
@@ -106,7 +106,7 @@ class DataUtilTest(unittest.TestCase):
 		self.assertEqual(self.sdName, sdObj2.getName())
 		self.assertEqual(sdObj1.getTimeStamp(), sdObj2.getTimeStamp())
 
-	@unittest.skip("Ignore for now.")
+	# @unittest.skip("Ignore for now.")
 	def testSensorDataConversionsFromObject(self):
 		logging.info("\n\n----- [JSON Conversions from SensorData] -----")
 		
@@ -128,7 +128,7 @@ class DataUtilTest(unittest.TestCase):
 		self.assertEqual(sdObj1.getTimeStamp(), sdObj2.getTimeStamp())
 		self.assertEqual(sdObj1Str, sdObj2Str)
 
-	@unittest.skip("Ignore for now.")
+	# @unittest.skip("Ignore for now.")
 	def testSystemPerformanceConversionsFromJson(self):
 		logging.info("\n\n----- [SystemPerformanceData Conversions from JSON] -----")
 		
@@ -144,7 +144,7 @@ class DataUtilTest(unittest.TestCase):
 		self.assertEqual(self.spdName, spdObj2.getName())
 		self.assertEqual(spdObj1.getTimeStamp(), spdObj2.getTimeStamp())
 
-	@unittest.skip("Ignore for now.")
+	# @unittest.skip("Ignore for now.")
 	def testSystemPerformanceDataConversionsFromObject(self):
 		logging.info("\n\n----- [JSON Conversions from SystemPerformanceData] -----")
 		
