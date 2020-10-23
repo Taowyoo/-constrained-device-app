@@ -23,20 +23,30 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:chapter04" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:chapter05" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7719111f-0b51-491e-b474-2e641b08c284" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/python/programmingtheiot/cda/connection/RedisPersistenceAdapter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/connection/RedisClientAdapterTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/programmingtheiot/cda/system/BaseSystemUtilTask.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/programmingtheiot/cda/system/BaseSystemUtilTask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/python/programmingtheiot/cda/system/SystemPerformanceManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/programmingtheiot/cda/system/SystemPerformanceManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic_imports.txt" beforeDir="false" afterPath="$PROJECT_DIR$/basic_imports.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/PiotConfig.props" beforeDir="false" afterPath="$PROJECT_DIR$/config/PiotConfig.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/python/programmingtheiot/common/ConfigConst.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/python/programmingtheiot/common/ConfigConst.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -74,7 +84,7 @@
       <recent name="F:\Codes\programmingtheiot\constrained-device-app-Taowyoo" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in SystemMemUtilTaskTest.py">
+  <component name="RunManager" selected="Python tests.Unittests in RedisClientAdapterTest.py">
     <configuration name="Unittests in ActuatorAdapterManagerTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="constrained-device-app-Taowyoo" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -105,18 +115,18 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in SensorAdapterManagerTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests in RedisClientAdapterTest.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="constrained-device-app-Taowyoo" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/system" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/connection" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/system/SensorAdapterManagerTest.py&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/connection/RedisClientAdapterTest.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -185,19 +195,19 @@
     <list>
       <item itemvalue="Python tests.Unittests in part01" />
       <item itemvalue="Python tests.Unittests in part02/unit" />
-      <item itemvalue="Python tests.Unittests in SensorAdapterManagerTest.py" />
       <item itemvalue="Python tests.Unittests in ActuatorAdapterManagerTest.py" />
       <item itemvalue="Python tests.Unittests in DataUtilTest.py" />
       <item itemvalue="Python tests.Unittests in SystemCpuUtilTaskTest.py" />
       <item itemvalue="Python tests.Unittests in SystemMemUtilTaskTest.py" />
+      <item itemvalue="Python tests.Unittests in RedisClientAdapterTest.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in RedisClientAdapterTest.py" />
         <item itemvalue="Python tests.Unittests in SystemMemUtilTaskTest.py" />
         <item itemvalue="Python tests.Unittests in SystemCpuUtilTaskTest.py" />
         <item itemvalue="Python tests.Unittests in DataUtilTest.py" />
         <item itemvalue="Python tests.Unittests in ActuatorAdapterManagerTest.py" />
-        <item itemvalue="Python tests.Unittests in SensorAdapterManagerTest.py" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +237,8 @@
       <workItem from="1602560145747" duration="680000" />
       <workItem from="1602621341010" duration="9940000" />
       <workItem from="1603325856133" duration="1368000" />
-      <workItem from="1603402647048" duration="5441000" />
+      <workItem from="1603402647048" duration="7207000" />
+      <workItem from="1603410837300" duration="9025000" />
     </task>
     <task id="LOCAL-00001" summary="Finish SystemMemUtilTask">
       <created>1600486689285</created>
@@ -509,7 +520,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603407217268</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="config: Idea config auto Update">
+      <created>1603408155697</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1603408155697</updated>
+    </task>
+    <task id="LOCAL-00042" summary="docs: Add TODOs&#10;Add some TODOs for system util part.">
+      <created>1603408236304</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1603408236304</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -531,7 +556,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="chapter04" />
+                        <option value="chapter05" />
                       </list>
                     </value>
                   </entry>
@@ -545,7 +570,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Code update&#10;1. Add dataMsgListener code for SystemPerformanceManager" />
     <MESSAGE value="Test update&#10;1. Ignore DataUtilTest for current development." />
     <MESSAGE value="Test update&#10;1. Finish SensorAdapterManager implementation." />
     <MESSAGE value="Code update&#10;1. Finish ActuatorAdapterManager implementation.&#10;2. Add some logging in BaseActuatorSimTask&#10;3. Add getActuatorType(), isResponse() in ActuatorData" />
@@ -570,7 +594,8 @@
     <MESSAGE value="feat: Implement DataUtil" />
     <MESSAGE value="test: Enable and pass DataUtilTest" />
     <MESSAGE value="config: Idea config auto Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="config: Idea config auto Update" />
+    <MESSAGE value="docs: Add TODOs&#10;Add some TODOs for system util part." />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: Add TODOs&#10;Add some TODOs for system util part." />
   </component>
   <component name="WindowStateProjectService">
     <state x="698" y="344" key="#Notifications" timestamp="1602556264760">
@@ -595,11 +620,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="768" y="352" key="#com.intellij.ide.util.TreeClassChooserDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1601878492306" />
-    <state x="173" y="49" width="1497" height="863" key="CommitChangelistDialog2" timestamp="1603407216936">
+    <state x="173" y="49" width="1497" height="863" key="CommitChangelistDialog2" timestamp="1603408235977">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="15" y="73" width="1712" height="961" key="CommitChangelistDialog2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1602063281310" />
-    <state x="173" y="49" width="1497" height="863" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603407216936" />
+    <state x="173" y="49" width="1497" height="863" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603408235977" />
     <state x="128" y="60" key="DiffContextDialog" timestamp="1603407175733">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -613,26 +638,26 @@
     </state>
     <state x="663" y="289" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1602024117750" />
     <state x="663" y="286" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602639088722" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1603408043507">
+    <state width="1877" height="259" key="GridCell.Tab.0.bottom" timestamp="1603430367087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.bottom/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1602122911333" />
-    <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603408043507" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1603408043507">
+    <state width="1877" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603430367087" />
+    <state width="1877" height="259" key="GridCell.Tab.0.center" timestamp="1603430367087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.center/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1602122911333" />
-    <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603408043507" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1603408043507">
+    <state width="1877" height="259" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603430367087" />
+    <state width="1877" height="259" key="GridCell.Tab.0.left" timestamp="1603430367087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.left/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1602122911333" />
-    <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603408043507" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1603408043507">
+    <state width="1877" height="259" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603430367087" />
+    <state width="1877" height="259" key="GridCell.Tab.0.right" timestamp="1603430367087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="278" key="GridCell.Tab.0.right/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1602122911333" />
-    <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603408043507" />
+    <state width="1877" height="259" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603430367087" />
     <state x="598" y="286" key="MultipleFileMergeDialog" timestamp="1602063327680">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -713,6 +738,7 @@
     <SUITE FILE_PATH="coverage/constrained_device_app_Taowyoo$Unittests_in_TemperatureSensorSimTaskTest_py.coverage" NAME="Unittests in TemperatureSensorSimTaskTest.py Coverage Results" MODIFIED="1601863604460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/unit/sim" />
     <SUITE FILE_PATH="coverage/constrained_device_app_Taowyoo$Unittests_in_SensorDataTest_py.coverage" NAME="Unittests in SensorDataTest.py Coverage Results" MODIFIED="1602631137588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/unit/data" />
     <SUITE FILE_PATH="coverage/constrained_device_app_Taowyoo$Unittests_in_PressureSensorSimTaskTest_py.coverage" NAME="Unittests in PressureSensorSimTaskTest.py Coverage Results" MODIFIED="1602631167906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/unit/sim" />
+    <SUITE FILE_PATH="coverage/constrained_device_app_Taowyoo$Unittests_in_RedisClientAdapterTest_py.coverage" NAME="Unittests in RedisClientAdapterTest.py Coverage Results" MODIFIED="1603430367076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/connection" />
     <SUITE FILE_PATH="coverage/constrained_device_app_Taowyoo$Unittests_in_ActuatorAdapterManagerTest_py.coverage" NAME="Unittests in ActuatorAdapterManagerTest.py Coverage Results" MODIFIED="1602636642579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/system" />
     <SUITE FILE_PATH="coverage/constrained_device_app_Taowyoo$Unittests_in_HumiditySensorSimTaskTest_py.coverage" NAME="Unittests in HumiditySensorSimTaskTest.py Coverage Results" MODIFIED="1602631156943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/unit/sim" />
     <SUITE FILE_PATH="coverage/constrained_device_app_Taowyoo$Unittests_in_DeviceDataManagerNoCommsTest_py.coverage" NAME="Unittests in DeviceDataManagerNoCommsTest.py Coverage Results" MODIFIED="1602066033543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/test/python/programmingtheiot/part02/integration/app" />
