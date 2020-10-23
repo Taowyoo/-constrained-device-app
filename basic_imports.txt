@@ -7,10 +7,15 @@ numpy
 matplotlib
 sense-emu
 pisense
-#pyqt5
 
 # Imports for Chapters 06 and later
 paho-mqtt
 
 # Imports for Chapters 08 and later
 CoAPthon3
+
+# Imports for Raspberry Pi
+smbus
+
+# Imports for Redis
+redis
