@@ -50,6 +50,7 @@ class HumiditySensorEmulatorTask(BaseSensorSimTask):
         :return: Generated SensorData
         """
         data = SensorData(sensorType=self._sensorType)
+        data.setName("EmulatedHumidity")
         data.setValue(self.sh.environ.humidity)
         self._latestSensorData = data
         return self._latestSensorData

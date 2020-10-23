@@ -24,6 +24,7 @@ class PressureI2cSensorAdapterTask(BaseSensorSimTask):
         super(PressureI2cSensorAdapterTask, self).__init__(sensorType=SensorData.PRESSURE_SENSOR_TYPE,
                                                            minVal=SensorDataGenerator.LOW_NORMAL_ENV_PRESSURE,
                                                            maxVal=SensorDataGenerator.HI_NORMAL_ENV_PRESSURE)
+        self._sensorName = "PressureI2cSensor"
         # init the I2C bus
         self.i2cBus = SMBus(1)
         # pressure sensor I2c address

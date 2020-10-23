@@ -19,10 +19,12 @@ class HumidityI2cSensorAdapterTask(BaseSensorSimTask):
     Shell representation of class for student implementation.
 
     """
+
     def __init__(self):
         super(HumidityI2cSensorAdapterTask, self).__init__(sensorType=SensorData.HUMIDITY_SENSOR_TYPE,
                                                            minVal=SensorDataGenerator.LOW_NORMAL_ENV_HUMIDITY,
                                                            maxVal=SensorDataGenerator.HI_NORMAL_ENV_HUMIDITY)
+        self._sensorName = "HumidityI2cSensor"
         # init the I2C bus
         self.i2cBus = SMBus(1)
         # humidity sensor I2c address
@@ -32,6 +34,7 @@ class HumidityI2cSensorAdapterTask(BaseSensorSimTask):
     def generateTelemetry(self) -> SensorData:
         data = SensorData(sensorType=self._sensorType)
         data.setValue(self._readValueFromI2cBus())
+        data.setName()
         self._latestSensorData = data
         return self._latestSensorData
         pass

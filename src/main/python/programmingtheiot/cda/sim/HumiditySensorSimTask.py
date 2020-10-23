@@ -32,4 +32,5 @@ class HumiditySensorSimTask(BaseSensorSimTask):
         :param maxVal: Using default environment humidity from HumiditySensorSimTask
         """
         super(HumiditySensorSimTask, self).__init__(sensorType=sensorType, dataSet=dataSet,	minVal=minVal, maxVal=maxVal)
+        self._sensorName = "HumiditySimSensor"
         pass

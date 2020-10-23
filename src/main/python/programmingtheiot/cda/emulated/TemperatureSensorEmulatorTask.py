@@ -51,6 +51,7 @@ class TemperatureSensorEmulatorTask(BaseSensorSimTask):
         """
         data = SensorData(sensorType=self._sensorType)
         data.setValue(self.sh.environ.temperature)
+        data.setName("EmulatedTemperature")
         self._latestSensorData = data
         return self._latestSensorData
         pass

@@ -32,4 +32,5 @@ class TemperatureSensorSimTask(BaseSensorSimTask):
         :param maxVal: Using default indoor temperature from SensorDataGenerator
         """
         super(TemperatureSensorSimTask, self).__init__(sensorType=sensorType, dataSet=dataSet, minVal=minVal, maxVal=maxVal)
+        self._sensorName = "TemperatureSimSensor"
         pass
