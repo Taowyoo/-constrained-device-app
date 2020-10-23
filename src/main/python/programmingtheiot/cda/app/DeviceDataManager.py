@@ -14,6 +14,7 @@ from programmingtheiot.cda.connection.CoapClientConnector import CoapClientConne
 from programmingtheiot.cda.connection.MqttClientConnector import MqttClientConnector
 
 # Import Managers
+from programmingtheiot.cda.connection.RedisPersistenceAdapter import RedisPersistenceAdapter
 from programmingtheiot.cda.system.ActuatorAdapterManager import ActuatorAdapterManager
 from programmingtheiot.cda.system.SensorAdapterManager import SensorAdapterManager
 from programmingtheiot.cda.system.SystemPerformanceManager import SystemPerformanceManager
@@ -69,6 +70,12 @@ class DeviceDataManager(IDataMessageListener):
 
         # Init DataUtil for converting data
         self.dataUtil = DataUtil()
+
+        # Init RedisPersistenceAdapter
+        self.redisClient = None
+        self.enableRedis = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_REDIS_KEY)
+        if self.enableRedis:
+            self.redisClient = RedisPersistenceAdapter()
         pass
 
     def handleActuatorCommandResponse(self, data: ActuatorData) -> bool:
@@ -110,6 +117,8 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("Callback: Handling an SensorMessage")
         logging.debug("SensorData: %s" % data.__str__())
         jsonData = self.dataUtil.sensorDataToJson(data)
+        if self.enableRedis:
+            self.redisClient.storeData(data=jsonData)
         self._handleUpstreamTransmission(ResourceNameEnum.CDA_SENSOR_MSG_RESOURCE, jsonData)
         self._handleSensorDataAnalysis(data)
         return True
@@ -136,6 +145,8 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("DeviceDataManager starting...")
         self.sysPerfManager.startManager()
         self.sensorAdapterManager.startManager()
+        if self.enableRedis:
+            self.redisClient.connectClient()
         logging.info("DeviceDataManager stated.")
         pass
 
@@ -146,6 +157,8 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("DeviceDataManager stopping.")
         self.sysPerfManager.stopManager()
         self.sensorAdapterManager.stopManager()
+        if self.enableRedis:
+            self.redisClient.disconnectClient()
         logging.info("DeviceDataManager stopped.")
         pass
 
@@ -196,7 +209,7 @@ class DeviceDataManager(IDataMessageListener):
 
     def _handleUpstreamTransmission(self, resourceName: ResourceNameEnum, msg: str):
         """
-        Call this from handleActuatorCommandResponse(), handlesensorMessage(), and handleSystemPerformanceMessage()
+        Call this from handleActuatorCommandResponse(), handleSensorMessage(), and handleSystemPerformanceMessage()
         to determine if the message should be sent upstream. Steps to take:
         1) Check connection: Is there a client connection configured (and valid) to a remote MQTT or CoAP server?
         2) Act on msg: If # 1 is true, send message upstream using one (or both) client connections.

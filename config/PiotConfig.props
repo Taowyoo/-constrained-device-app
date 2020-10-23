@@ -33,9 +33,10 @@ enableCrypt    = False
 # CDA specific configuration information
 #
 [ConstrainedDevice]
-enableEmulator  = True
+enableEmulator  = False
 enableSenseHAT  = False
 enableLogging   = True
+enableRedis     = True
 pollCycleSecs   = 60
 testGdaDataPath = /tmp/gda-data
 testCdaDataPath = /tmp/cda-data
