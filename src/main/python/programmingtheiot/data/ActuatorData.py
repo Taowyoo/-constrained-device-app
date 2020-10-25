@@ -26,7 +26,7 @@ class ActuatorData(BaseIotData):
     # and displays will be 100..1999
 
     # Actuator types
-    DEFAULT_ACTUATOR_TYPE = 0.0
+    DEFAULT_ACTUATOR_TYPE = 0
     HVAC_ACTUATOR_TYPE = 1
     HUMIDIFIER_ACTUATOR_TYPE = 2
     LED_DISPLAY_ACTUATOR_TYPE = 100
@@ -39,7 +39,7 @@ class ActuatorData(BaseIotData):
         :param d: dict to help init the object
         """
         super(ActuatorData, self).__init__(d=d)
-        if d:
+        if d is not None:
             self.actuatorType = d.get('actuatorType', actuatorType)
             self.command = d.get('command', self.DEFAULT_COMMAND)
             self.isResponse = d.get('isResponse', self.DEFAULT_RESPONSE_FLAG)
