@@ -30,20 +30,19 @@ class ConfigUtilTest(unittest.TestCase):
 	#  - EmptyTestConfig.props
 	#  - InvalidTestConfig.props
 	#  - None (which will default to ./config/PiotConfig.props)
-	configFile = "./ValidTestConfig.props"
+	configFile = "./src/test/python/programmingtheiot/part01/unit/common/ValidTestConfig.props"
 	
 	
 	@classmethod
 	def setUpClass(self):
-		self.originalPath = os.getcwd()
-		os.chdir(os.path.dirname(__file__))  # ensure current work dir
 		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
 		logging.info("Testing ConfigUtil class...")
 		self.configUtil = ConfigUtil(configFile = self.configFile)
 	
 	@classmethod
 	def tearDownClass(self):
-		os.chdir(self.originalPath)  # recover current work dir
+		# os.chdir(self.originalPath)  # recover current work dir
+		pass
 
 	def setUp(self):
 		pass

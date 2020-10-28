@@ -187,12 +187,16 @@ class ConfigUtil(metaclass = Singleton):
 		the constructor.
 		 
 		"""
+		originalPath = os.getcwd()
+		os.chdir(os.path.dirname(__file__))  # ensure current work dir
+		os.chdir('../../../../../')  # goto project root dir
 		if (os.path.exists(self.configFile) and os.path.isfile(self.configFile)):
 			logging.info("Loading config: %s", self.configFile)
 			
 			self.configParser.read(self.configFile)
 			self.isLoaded = True
 		else:
+			# logging.info("Current work dir: %s", os.path.abspath("../../../../../"))
 			logging.info("Config file %s doesn't exist. Will try to load default: %s", self.configFile, ConfigConst.DEFAULT_CONFIG_FILE_NAME)
 			
 			self.configFile = ConfigConst.DEFAULT_CONFIG_FILE_NAME
@@ -200,6 +204,7 @@ class ConfigUtil(metaclass = Singleton):
 			self.isLoaded = True
 		
 		logging.debug("Config: %s", str(self.configParser.sections()))
+		os.chdir(originalPath)  # recover current work dir
 
 	def _getConfig(self, forceReload: bool = False) -> configparser:
 		"""
