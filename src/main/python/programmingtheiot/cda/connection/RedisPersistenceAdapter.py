@@ -57,7 +57,7 @@ class RedisPersistenceAdapter:
         jsonStr = self.dataUtil.sensorDataToJson(data)
         if self.curConnection:
             subNums = self.curConnection.publish(channel=topicName, message=jsonStr)
-            logging.debug("Published msg to {0} with {1} subscribers.".format(topicName, subNums))
+            logging.debug("Published msg:\n{0}\nto {1} with {2} subscribers.".format(jsonStr, topicName, subNums))
             return True
         else:
             logging.error("Cannot store data to Redis, because client has not connected to server yet!")

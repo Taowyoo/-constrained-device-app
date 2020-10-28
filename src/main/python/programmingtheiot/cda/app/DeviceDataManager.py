@@ -60,8 +60,10 @@ class DeviceDataManager(IDataMessageListener):
 
         self.triggerHvacTempCeiling = self.configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE,
                                                                ConfigConst.TRIGGER_HVAC_TEMP_CEILING_KEY)
+        self.sysPerfPollRate = self.configUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.POLL_CYCLES_KEY)
+
         # Init managers
-        self.sysPerfManager = SystemPerformanceManager()
+        self.sysPerfManager = SystemPerformanceManager(self.sysPerfPollRate)
         self.sysPerfManager.setDataMessageListener(self)
         self.sensorAdapterManager = SensorAdapterManager(useEmulator=self.enableEmulator, enableSenseHAT=self.enableSenseHAT)
         self.sensorAdapterManager.setDataMessageListener(self)
