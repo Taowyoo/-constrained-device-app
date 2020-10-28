@@ -64,7 +64,7 @@ class SensorData(BaseIotData):
         Upadtes the sensor value by input value.
 
         """
-        self.value = newVal
+        self.value = float(newVal)
         pass
 
     def _handleUpdateData(self, data) -> bool:

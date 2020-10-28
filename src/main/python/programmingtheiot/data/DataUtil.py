@@ -34,9 +34,9 @@ class DataUtil():
 		:return: Encoded json string of ActuatorData
 		"""
 		if self.encodeToUtf8:
-			jsonData: str = json.dumps(actuatorData, indent=4, cls=JsonDataEncoder, ensure_ascii=False).encode('utf8')
+			jsonData: str = json.dumps(actuatorData, indent=2, cls=JsonDataEncoder, ensure_ascii=False)
 		else:
-			jsonData: str = json.dumps(actuatorData, indent=4, cls=JsonDataEncoder, ensure_ascii=True)
+			jsonData: str = json.dumps(actuatorData, indent=2, cls=JsonDataEncoder, ensure_ascii=True)
 		return jsonData
 
 	def sensorDataToJson(self, sensorData: SensorData) -> str:
@@ -46,9 +46,9 @@ class DataUtil():
 		:return: Encoded json string of SensorData
 		"""
 		if self.encodeToUtf8:
-			jsonData: str = json.dumps(sensorData, indent=4, cls=JsonDataEncoder, ensure_ascii=False).encode('utf8')
+			jsonData: str = json.dumps(sensorData, indent=2, cls=JsonDataEncoder, ensure_ascii=False)
 		else:
-			jsonData: str = json.dumps(sensorData, indent=4, cls=JsonDataEncoder, ensure_ascii=True)
+			jsonData: str = json.dumps(sensorData, indent=2, cls=JsonDataEncoder, ensure_ascii=True)
 		return jsonData
 
 	def systemPerformanceDataToJson(self, sysPerfData: SystemPerformanceData) -> str:
@@ -58,9 +58,9 @@ class DataUtil():
 		:return: Encoded json string of SystemPerformanceData
 		"""
 		if self.encodeToUtf8:
-			jsonData: str = json.dumps(sysPerfData, indent=4, cls=JsonDataEncoder, ensure_ascii=False).encode('utf8')
+			jsonData: str = json.dumps(sysPerfData, indent=2, cls=JsonDataEncoder, ensure_ascii=False)
 		else:
-			jsonData: str = json.dumps(sysPerfData, indent=4, cls=JsonDataEncoder, ensure_ascii=True)
+			jsonData: str = json.dumps(sysPerfData, indent=2, cls=JsonDataEncoder, ensure_ascii=True)
 		return jsonData
 
 	def jsonToActuatorData(self, jsonData) -> ActuatorData:
