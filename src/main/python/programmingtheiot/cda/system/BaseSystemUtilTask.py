@@ -15,6 +15,7 @@ class BaseSystemUtilTask():
 	Shell representation of class for student implementation.
 	
 	"""
+	SIMPLE_NAME = 'BaseSystemUtil'
 	
 	def __init__(self):
 		"""
@@ -22,6 +23,7 @@ class BaseSystemUtilTask():
 		Set latestSensorData default value to None
 		"""
 		self.latestSensorData = None
+		self.simpleName = self.SIMPLE_NAME
 		pass
 	
 	def generateTelemetry(self) -> SensorData:
@@ -31,8 +33,8 @@ class BaseSystemUtilTask():
 		TODO: change to generate SystemPerformanceData
 		@return SensorData Packaged latest sensor data
 		"""
-		sensor_date = SensorData()
-		sensor_date.setName('SystemUtilData')
+		sensor_date = SensorData(sensorType=SensorData.SYS_UTIL_TYPE)
+		sensor_date.setName(self.simpleName)
 		sensor_date.setValue(self._getSystemUtil())
 		self.latestSensorData = sensor_date
 		return self.latestSensorData
