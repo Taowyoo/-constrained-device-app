@@ -9,11 +9,12 @@
 import json
 from json import JSONEncoder
 
+from programmingtheiot.common.Singleton import Singleton
 from programmingtheiot.data.ActuatorData import ActuatorData
 from programmingtheiot.data.SensorData import SensorData
 from programmingtheiot.data.SystemPerformanceData import SystemPerformanceData
 
-class DataUtil():
+class DataUtil(metaclass = Singleton):
 	"""
 	Data util class for encoding or decoding SystemPerformanceData, SensorData, ActuatorData.
 	Data will be encoded or decoded in json format, which will be suit for network transmission
