@@ -70,7 +70,7 @@ def main():
 	cda = ConstrainedDeviceApp()
 	cda.startApp()
 	
-	sleep(65)
+	sleep(200)
 		
 	cda.stopApp(0)
 

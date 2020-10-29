@@ -32,4 +32,5 @@ class PressureSensorSimTask(BaseSensorSimTask):
         :param maxVal: Using default environment pressure from PressureSensorSimTask
         """
         super(PressureSensorSimTask, self).__init__(sensorType=sensorType, dataSet=dataSet,	minVal=minVal, maxVal=maxVal)
+        self._sensorName = "PressureSimSensor"
         pass

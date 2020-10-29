@@ -51,6 +51,7 @@ class PressureSensorEmulatorTask(BaseSensorSimTask):
         """
         data = SensorData(sensorType=self._sensorType)
         data.setValue(self.sh.environ.pressure)
+        data.setName("EmulatedPressure")
         self._latestSensorData = data
         return self._latestSensorData
         pass

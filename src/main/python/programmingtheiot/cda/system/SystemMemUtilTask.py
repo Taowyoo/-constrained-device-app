@@ -24,6 +24,7 @@ class SystemMemUtilTask(BaseSystemUtilTask):
 		Initialize the instance by calling super class init method.
 		"""
 		super(SystemMemUtilTask, self).__init__()
+		self.simpleName = 'SystemMemUtil'
 		pass
 
 	def _getSystemUtil(self) -> float:

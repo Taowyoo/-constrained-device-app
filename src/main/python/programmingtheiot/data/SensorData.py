@@ -26,7 +26,7 @@ class SensorData(BaseIotData):
     TEMP_SENSOR_TYPE = 3
     SYS_UTIL_TYPE = 4
 
-    def __init__(self, sensorType = DEFAULT_SENSOR_TYPE, d=None):
+    def __init__(self, sensorType=DEFAULT_SENSOR_TYPE, d=None):
         """
         Constructor of SensorData:
 
@@ -34,8 +34,12 @@ class SensorData(BaseIotData):
         :param d: dict to help init the object
         """
         super(SensorData, self).__init__(d=d)
-        self._sensorType = sensorType
-        self._value = SensorData.DEFAULT_VAL
+        if d:
+            self.sensorType = d.get('sensorType', sensorType)
+            self.value = d.get('value', SensorData.DEFAULT_VAL)
+        else:
+            self.sensorType = sensorType
+            self.value = SensorData.DEFAULT_VAL
         pass
 
     def getSensorType(self) -> int:
@@ -44,7 +48,7 @@ class SensorData(BaseIotData):
 
         @return int
         """
-        return self._sensorType
+        return self.sensorType
 
     def getValue(self) -> float:
         """
@@ -52,7 +56,7 @@ class SensorData(BaseIotData):
 
         @return float
         """
-        return self._value
+        return self.value
         pass
 
     def setValue(self, newVal: float):
@@ -60,7 +64,7 @@ class SensorData(BaseIotData):
         Upadtes the sensor value by input value.
 
         """
-        self._value = newVal
+        self.value = float(newVal)
         pass
 
     def _handleUpdateData(self, data) -> bool:
@@ -70,8 +74,8 @@ class SensorData(BaseIotData):
         @param data The Sensor data to apply to this instance.
         """
         if isinstance(data, SensorData):
-            self._value = data._value
-            self._sensorType = data._sensorType
+            self.value = data.value
+            self.sensorType = data.sensorType
         else:
             return False
         return True
@@ -84,7 +88,7 @@ class SensorData(BaseIotData):
         @return The string representing this instance.
         """
 
-        custom_str = super(SensorData, self).__str__() + ', sensorType=' \
-                     + str(self._sensorType) + ', value=' + str(self._value)
+        custom_str = super(SensorData, self).__str__() + ', sensorType = ' \
+                     + str(self.sensorType) + ', value = ' + str(self.value)
 
         return custom_str

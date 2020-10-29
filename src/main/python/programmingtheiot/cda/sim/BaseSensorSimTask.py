@@ -21,6 +21,7 @@ class BaseSensorSimTask():
     DEFAULT_MIN_VAL = 0.0
     DEFAULT_MAX_VAL = 1000.0
     DEFAULT_RANDOMIZER_FLAG = False
+    DEFAULT_NAME = "DefaultSimSensor"
 
     def __init__(self, sensorType: int = SensorData.DEFAULT_SENSOR_TYPE, dataSet = None, minVal: float = DEFAULT_MIN_VAL, maxVal: float = DEFAULT_MAX_VAL):
         """
@@ -32,6 +33,7 @@ class BaseSensorSimTask():
         """
         self._dataSet = dataSet
         self._sensorType = sensorType
+        self._sensorName = self.DEFAULT_NAME
         self._minVal = minVal
         self._maxVal = maxVal
         self._curDataIndex = self.DEFAULT_DATA_SET_INDEX
@@ -46,6 +48,7 @@ class BaseSensorSimTask():
         :return: Generated sim SensorData
         """
         data = SensorData(sensorType=self._sensorType)
+        data.setName(self._sensorName)
         if self._useRandomizer:
             data.setValue(random.uniform(self._minVal, self._maxVal))
             pass

@@ -53,7 +53,7 @@ class ActuatorAdapterManager(object):
 
     def sendActuatorCommand(self, data: ActuatorData) -> bool:
         logging.debug("Got ActuatorData: {}".format(data.__str__()))
-        if data.isResponse():
+        if data.isResponse:
             logging.info("Ignore response ActuatorData.")
             return True
         if self.useEmulator is False:

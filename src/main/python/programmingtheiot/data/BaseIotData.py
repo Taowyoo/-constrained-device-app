@@ -28,7 +28,7 @@ class BaseIotData(object):
     STATUS_IDLE = DEFAULT_STATUS
     STATUS_ACTIVE = 1
 
-    def __init__(self, d=None):
+    def __init__(self, d: dict = None):
         """
         Constructor.
         
@@ -37,13 +37,13 @@ class BaseIotData(object):
         in DataUtil should be used instead.
         """
         if d:
-            self.name = d['name']
-            self.timeStamp = d['timeStamp']
-            self.hasError = d['hasError']
-            self.statusCode = d['statusCode']
+            self.name = d.get('name', ConfigConst.NOT_SET)
+            self.timeStamp = d.get('timeStamp', str(datetime.now()))
+            self.hasError = d.get('hasError', False)
+            self.statusCode = d.get('statusCode', self.DEFAULT_STATUS)
         else:
-            self.updateTimeStamp()
             self.name = ConfigConst.NOT_SET
+            self.updateTimeStamp()
             self.hasError = False
             self.statusCode = self.DEFAULT_STATUS
 

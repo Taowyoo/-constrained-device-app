@@ -23,6 +23,7 @@ class SystemCpuUtilTask(BaseSystemUtilTask):
 		Initialization of class: SystemCpuUtilTask.
 		"""
 		super(SystemCpuUtilTask, self).__init__()
+		self.simpleName = 'SystemCpuUtil'
 		pass
 	
 	def _getSystemUtil(self) -> float:

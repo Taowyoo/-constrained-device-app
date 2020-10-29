@@ -64,8 +64,8 @@ CDA_SYSTEM_PERF_MSG_RESOURCE  = PRODUCT_NAME + '/' + CONSTRAINED_DEVICE + '/' + 
 
 # NOTE: You may need to update these paths if you change
 # the directory structure for python-components
-DEFAULT_CONFIG_FILE_NAME = '../../../../../../../config/PiotConfig.props'
-DEFAULT_CRED_FILE_NAME   = '../../../../../../../cred/PiotCred.props'
+DEFAULT_CONFIG_FILE_NAME = './config/PiotConfig.props'
+DEFAULT_CRED_FILE_NAME   = './cred/PiotCred.props'
 
 TEST_GDA_DATA_PATH_KEY = 'testGdaDataPath'
 TEST_CDA_DATA_PATH_KEY = 'testCdaDataPath'
@@ -81,6 +81,8 @@ COAP_GATEWAY_SERVICE  = COAP    + '.' + GATEWAY_SERVICE
 MQTT_GATEWAY_SERVICE  = MQTT    + '.' + GATEWAY_SERVICE
 OPCUA_GATEWAY_SERVICE = OPCUA   + '.' + GATEWAY_SERVICE
 SMTP_GATEWAY_SERVICE  = SMTP    + '.' + GATEWAY_SERVICE
+
+DATA_GATEWAY_SERVICE = 'Data.GatewayService'
 
 CRED_SECTION = "Credentials"
 
@@ -104,6 +106,7 @@ ENABLE_CRYPT_KEY     = 'enableCrypt'
 ENABLE_EMULATOR_KEY  = 'enableEmulator'
 ENABLE_SENSE_HAT_KEY = 'enableSenseHAT'
 ENABLE_LOGGING_KEY   = 'enableLogging'
+ENABLE_REDIS_KEY     = 'enableRedis'
 USE_WEB_ACCESS_KEY   = 'useWebAccess'
 POLL_CYCLES_KEY      = 'pollCycleSecs'
 KEEP_ALIVE_KEY       = 'keepAlive'

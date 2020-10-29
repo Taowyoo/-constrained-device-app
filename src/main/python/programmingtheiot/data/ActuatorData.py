@@ -26,7 +26,7 @@ class ActuatorData(BaseIotData):
     # and displays will be 100..1999
 
     # Actuator types
-    DEFAULT_ACTUATOR_TYPE = 0.0
+    DEFAULT_ACTUATOR_TYPE = 0
     HVAC_ACTUATOR_TYPE = 1
     HUMIDIFIER_ACTUATOR_TYPE = 2
     LED_DISPLAY_ACTUATOR_TYPE = 100
@@ -39,18 +39,18 @@ class ActuatorData(BaseIotData):
         :param d: dict to help init the object
         """
         super(ActuatorData, self).__init__(d=d)
-        if d:
-            self._actuatorType = d['actuatorType']
-            self._command = d['command']
-            self._isResponse = d['isResponse']
-            self._value = d['value']
-            self._stateData = d['stateData']
+        if d is not None:
+            self.actuatorType = d.get('actuatorType', actuatorType)
+            self.command = d.get('command', self.DEFAULT_COMMAND)
+            self.isResponse = d.get('isResponse', self.DEFAULT_RESPONSE_FLAG)
+            self.value = d.get('value', self.DEFAULT_VALUE)
+            self.stateData = d.get('stateData', self.DEFAULT_STATE_DATA)
         else:
-            self._actuatorType = actuatorType
-            self._command = self.DEFAULT_COMMAND
-            self._isResponse = self.DEFAULT_RESPONSE_FLAG
-            self._value = self.DEFAULT_VALUE
-            self._stateData = self.DEFAULT_STATE_DATA
+            self.actuatorType = actuatorType
+            self.command = self.DEFAULT_COMMAND
+            self.isResponse = self.DEFAULT_RESPONSE_FLAG
+            self.value = self.DEFAULT_VALUE
+            self.stateData = self.DEFAULT_STATE_DATA
         pass
 
     def getActuatorType(self) -> int:
@@ -58,14 +58,14 @@ class ActuatorData(BaseIotData):
         Return Actuator Type
         :return: Type number
         """
-        return self._actuatorType
+        return self.actuatorType
 
     def getCommand(self) -> int:
         """
         Return Actuator Command
         :return: Command number
         """
-        return self._command
+        return self.command
         pass
 
     def getStateData(self) -> str:
@@ -73,7 +73,7 @@ class ActuatorData(BaseIotData):
         Return State Data
         :return: State Data String
         """
-        return self._stateData
+        return self.stateData
         pass
 
     def getValue(self) -> float:
@@ -81,7 +81,7 @@ class ActuatorData(BaseIotData):
         Return Actuator Data value
         :return: Actuator Data value
         """
-        return self._value
+        return self.value
         pass
 
     def isResponseFlagEnabled(self) -> bool:
@@ -96,14 +96,14 @@ class ActuatorData(BaseIotData):
         Set Command
         :param command: Given command number, should use variables in ActuatorData
         """
-        self._command = command
+        self.command = command
         pass
 
     def setAsResponse(self):
         """
         Set current ActuatorData is a response
         """
-        self._isResponse = True
+        self.isResponse = True
         pass
 
     def isResponse(self) -> bool:
@@ -111,7 +111,7 @@ class ActuatorData(BaseIotData):
         Check Whether current ActuatorData is a response
         :return: Whether current ActuatorData is a response
         """
-        return self._isResponse
+        return self.isResponse
         pass
 
     def setStateData(self, stateData: str):
@@ -119,7 +119,7 @@ class ActuatorData(BaseIotData):
         Set state data
         :param stateData: State data string
         """
-        self._stateData = stateData
+        self.stateData = stateData
         pass
 
     def setValue(self, val: float):
@@ -127,7 +127,7 @@ class ActuatorData(BaseIotData):
         Set actuator target value
         :param stateData: Actuator value
         """
-        self._value = val
+        self.value = val
         pass
 
     def _handleUpdateData(self, data) -> bool:
@@ -137,11 +137,11 @@ class ActuatorData(BaseIotData):
         :return: If update successfully
         """
         if isinstance(data, ActuatorData):
-            self._actuatorType = data._actuatorType
-            self._value = data._value
-            self._command = data._command
-            self._stateData = data._stateData
-            self._isResponse = data._isResponse
+            self.actuatorType = data.actuatorType
+            self.value = data.value
+            self.command = data.command
+            self.stateData = data.stateData
+            self.isResponse = data.isResponse
         else:
             return False
         return True
@@ -154,8 +154,8 @@ class ActuatorData(BaseIotData):
         @return The string representing this instance.
         """
 
-        custom_str = super(ActuatorData, self).__str__() + ', actuatorType=' + str(self._actuatorType) \
-                     + ', value=' + str(self._value) + ', command=' + str(self._command) \
-                     + ', isResponse=' + str(self._isResponse) + ', stateData=' + str(self._stateData)
+        custom_str = super(ActuatorData, self).__str__() + ', actuatorType=' + str(self.actuatorType) \
+                     + ', value=' + str(self.value) + ', command=' + str(self.command) \
+                     + ', isResponse=' + str(self.isResponse) + ', stateData=' + str(self.stateData)
 
         return custom_str

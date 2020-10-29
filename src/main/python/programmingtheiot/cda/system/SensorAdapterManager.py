@@ -137,7 +137,7 @@ class SensorAdapterManager(object):
             logging.info("Simulated pressure data: %s" % pressureTelemetry.__str__())
             self.dataMsgListener.handleSensorMessage(pressureTelemetry)
 
-            tempTelemetry = self.pressureSensorSimTask.generateTelemetry()
+            tempTelemetry = self.temperatureSensorSimTask.generateTelemetry()
             logging.info("Simulated temperature data: %s" % tempTelemetry.__str__())
             self.dataMsgListener.handleSensorMessage(tempTelemetry)
         else:

@@ -24,6 +24,7 @@ class TemperatureI2cSensorAdapterTask(BaseSensorSimTask):
         super(TemperatureI2cSensorAdapterTask, self).__init__(sensorType=SensorData.TEMP_SENSOR_TYPE,
                                                               minVal=SensorDataGenerator.LOW_NORMAL_INDOOR_TEMP,
                                                               maxVal=SensorDataGenerator.HI_NORMAL_INDOOR_TEMP)
+        self._sensorName = "TemperatureI2cSensor"
         # init the I2C bus
         self.i2cBus = SMBus(1)
         # use temperature sensor in humidity sensor
