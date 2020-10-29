@@ -2,48 +2,77 @@
 
 ## Lab Module 05
 
-Be sure to implement all the PIOT-CDA-* issues (requirements) listed at [PIOT-INF-05-001 - Chapter 05](https://github.com/orgs/programming-the-iot/projects/1#column-10488421).
-
 ### Description
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+#### What does your implementation do? 
 
-What does your implementation do? 
+- Install Redis in Ubuntu 18.04 in WSL.
+- Implement **Json to Class** and **Class to Json** functions in `DataUtil` class.
+- Add a function that enable Data containers to initialize and construct instance from a `dict` object.
+- Implement `RedisPersistenceAdapter` class.
+- Integrate `RedisPersistenceAdapter` into `DeviceDataManager `
+- Implement test for `RedisPersistenceAdapter` class
 
-How does your implementation work?
+#### How does your implementation work?
+
+- Use following lines to install Redis:
+
+  ```shell
+  sudo apt-get install redis-server hugepages
+  ```
+
+- Use python `json` module to implement Json Conversion:
+
+  - Use `json.dumps()` to convert object to Json string, and use a custom `JsonDataEncoder` to just convert object by its  `dict` form:
+
+    ```python
+    class JsonDataEncoder(JSONEncoder):
+    	"""
+    	Convenience class to facilitate JSON encoding of an object that
+    	can be converted to a dict.
+    	"""
+    	def default(self, o):
+    		"""
+    		Override default JSONEncoder method
+    		:param o: Given object
+    		:return: Use dict format of object as the way to encode object
+    		"""
+    		return o.__dict__
+    ```
+
+  - Use `json.loads` to convert Json string to object.
+
+  - By changing Boolean parameter `ensure_ascii` in `json.dumps()` to implement the feature of whether encode object to Json string using UTF8.
+    
+  - Note: after python3, when `ensure_ascii` is `False`, the Json module will automatically convert Object to string by using UTF8.
+    
+  
+- Use `redis` module to implement `RedisPersistenceAdapter` class:
+
+  - Use `pip install redis`to install `reids` module.
+  - Use `ConfigUtil` to get configuration of Redis Server.
+  - Create `redis.client.Redis` with configuration to connect to Redis Server.
+  - Use `redis.client.Redis.publish()` to publish newly generated `SensorData`.
+
+- Add `RedisPersistenceAdapter` instance and related code in `DeviceDataManager`.
 
 ### Code Repository and Branch
 
-NOTE: Be sure to include the branch (e.g. https://github.com/programming-the-iot/python-components/tree/alpha001).
-
-URL: 
+URL: https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/tree/alpha001
 
 ### UML Design Diagram(s)
 
-NOTE: Include one or more UML designs representing your solution. It's expected each
-diagram you provide will look similar to, but not the same as, its counterpart in the
-book [Programming the IoT](https://learning.oreilly.com/library/view/programming-the-internet/9781492081401/).
-
+Here is the [class diagram](../../doc/UML/Lab05.svg) of latest code:
+![Class Diagram Lab 5](../../doc/UML/Lab05.svg)
 
 ### Unit Tests Executed
 
-NOTE: TA's will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
-
-- 
-- 
-- 
+- src/test/python/programmingtheiot/part02/unit/data/DataUtilTest
+- src/test/python/programmingtheiot/part01/unit/system/SystemCpuUtilTaskTest
+- src/test/python/programmingtheiot/part01/unit/system/SystemMemUtilTaskTest
 
 ### Integration Tests Executed
 
-NOTE: TA's will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
-
-- 
-- 
-- 
-
-EOF.
+- src/test/python/programmingtheiot/part02/integration/data/DataIntegrationTest
+- src/test/python/programmingtheiot/part02/integration/connection/RedisClientAdapterTest
+- src/test/python/programmingtheiot/part01/integration/app/ConstrainedDeviceAppTest
