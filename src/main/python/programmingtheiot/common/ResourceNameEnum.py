@@ -55,6 +55,7 @@ class ResourceNameEnum(Enum):
 	CDA_MGMT_STATUS_CMD_RESOURCE = ConfigConst.CDA_MGMT_CMD_MSG_RESOURCE
 	CDA_SYSTEM_PERF_MSG_RESOURCE = ConfigConst.CDA_SYSTEM_PERF_MSG_RESOURCE
 
+	@classmethod
 	def getResourceNameByValue(self, val: str) -> str:
 		"""
 		Looks up the resource enum by its value.
