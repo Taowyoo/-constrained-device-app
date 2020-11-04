@@ -10,6 +10,8 @@
 import logging
 
 # Import Client Connectors
+from json import JSONDecodeError
+
 from programmingtheiot.cda.connection.CoapClientConnector import CoapClientConnector
 from programmingtheiot.cda.connection.MqttClientConnector import MqttClientConnector
 
@@ -54,7 +56,7 @@ class DeviceDataManager(IDataMessageListener):
         self.enableSenseHAT = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_SENSE_HAT_KEY)
         self.enableHandleTempChangeOnDevice = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
                                                                          ConfigConst.ENABLE_HANDLE_TEMP_CHANGE_ON_DEVICE_KEY)
-
+        self.enableMqttClient = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_MQTT_KEY)
         self.triggerHvacTempFloor = self.configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE,
                                                              ConfigConst.TRIGGER_HVAC_TEMP_FLOOR_KEY)
 
@@ -62,6 +64,7 @@ class DeviceDataManager(IDataMessageListener):
                                                                ConfigConst.TRIGGER_HVAC_TEMP_CEILING_KEY)
         self.sysPerfPollRate = self.configUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.POLL_CYCLES_KEY)
 
+        self.qos = self.configUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.DEFAULT_QOS_KEY)
         # Init managers
         self.sysPerfManager = SystemPerformanceManager(self.sysPerfPollRate)
         self.sysPerfManager.setDataMessageListener(self)
@@ -72,6 +75,11 @@ class DeviceDataManager(IDataMessageListener):
 
         # Init DataUtil for converting data
         self.dataUtil = DataUtil()
+        # Init Mqtt Client
+        self.mqttClient = None
+        if self.enableMqttClient:
+            self.mqttClient = MqttClientConnector()
+            self.mqttClient.setDataMessageListener(self)
 
         # Init RedisPersistenceAdapter
         self.redisClient = None
@@ -87,10 +95,11 @@ class DeviceDataManager(IDataMessageListener):
         :param data: Callback ActuatorData
         :return: Whether hand the data successfully
         """
-        logging.info("Callback: Handling an ActuatorCommandResponse")
-        logging.debug("ActuatorData: %s" % data.__str__())
-        jsonData = self.dataUtil.actuatorDataToJson(data)
-        self._handleUpstreamTransmission(ResourceNameEnum.CDA_ACTUATOR_RESPONSE_RESOURCE, jsonData)
+        if data.isResponse():
+            logging.info("Callback: Handling an ActuatorCommandResponse")
+            logging.debug("ActuatorData: %s" % data.__str__())
+            jsonData = self.dataUtil.actuatorDataToJson(data)
+            self._handleUpstreamTransmission(ResourceNameEnum.CDA_ACTUATOR_RESPONSE_RESOURCE, jsonData)
         return True
         pass
 
@@ -104,8 +113,8 @@ class DeviceDataManager(IDataMessageListener):
         """
         logging.info("Callback: Handling an IncomingMessage")
         logging.debug("IncomingMessage: %s" % msg)
-        # actuatorData: ActuatorData = self.dataUtil.jsonToActuatorData(msg)
-        self._handleIncomingDataAnalysis(msg)
+        if resourceEnum == ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE:
+            self._handleIncomingDataAnalysis(msg)
         return True
         pass
 
@@ -119,6 +128,8 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("Callback: Handling an SensorMessage")
         logging.debug("SensorData: %s" % data.__str__())
         jsonData = self.dataUtil.sensorDataToJson(data)
+        if self.enableMqttClient:
+            self.mqttClient.publishMessage(ResourceNameEnum.CDA_SENSOR_MSG_RESOURCE, jsonData,self.qos)
         if self.enableRedis:
             self.redisClient.storeData(data=jsonData)
         self._handleUpstreamTransmission(ResourceNameEnum.CDA_SENSOR_MSG_RESOURCE, jsonData)
@@ -136,6 +147,8 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("Callback: Handling an SystemPerformanceMessage")
         logging.debug("SystemPerformanceData: %s" % data.__str__())
         jsonData = self.dataUtil.sensorDataToJson(data)
+        if self.enableMqttClient:
+            self.mqttClient.publishMessage(ResourceNameEnum.CDA_SYSTEM_PERF_MSG_RESOURCE, jsonData, self.qos)
         self._handleUpstreamTransmission(ResourceNameEnum.CDA_SYSTEM_PERF_MSG_RESOURCE, jsonData)
         return True
         pass
@@ -147,6 +160,9 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("DeviceDataManager starting...")
         self.sysPerfManager.startManager()
         self.sensorAdapterManager.startManager()
+        if self.enableMqttClient:
+            self.mqttClient.connectClient()
+            self.mqttClient.subscribeToTopic(ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE, self.qos)
         if self.enableRedis:
             self.redisClient.connectClient()
         logging.info("DeviceDataManager stated.")
@@ -159,6 +175,9 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("DeviceDataManager stopping.")
         self.sysPerfManager.stopManager()
         self.sensorAdapterManager.stopManager()
+        if self.enableMqttClient and self.mqttClient:
+            self.mqttClient.unsubscribeFromTopic(ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE)
+            self.mqttClient.disconnectClient()
         if self.enableRedis:
             self.redisClient.disconnectClient()
         logging.info("DeviceDataManager stopped.")
@@ -177,10 +196,16 @@ class DeviceDataManager(IDataMessageListener):
         if msg is None or len(msg) == 0:
             logging.warning("Handling analysis on an invalid IncomingData string!")
             return
-        # Convert msg
-        actuatorData: ActuatorData = self.dataUtil.jsonToActuatorData(msg)
-        # Act on msg
-        self.actuatorAdapterManager.sendActuatorCommand(actuatorData)
+
+        try:
+            # Convert msg
+            actuatorData: ActuatorData = self.dataUtil.jsonToActuatorData(msg)
+            if not actuatorData.isResponse():
+                # Act on msg
+                logging.info("Send a {} CMD to ActuatorAdapterManager.".format(actuatorData.getName()))
+                self.actuatorAdapterManager.sendActuatorCommand(actuatorData)
+        except JSONDecodeError as ex:
+            logging.error("Cannot convert incoming msg to ActuatorData: " + ex.__str__())
         pass
 
     def _handleSensorDataAnalysis(self, data: SensorData):

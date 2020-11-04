@@ -15,7 +15,7 @@ host           = localhost
 port           = 1883
 securePort     = 1884
 defaultQoS     = 0
-keepAlive      = 30
+keepAlive      = 60
 enableCrypt    = False
 
 #
@@ -36,7 +36,8 @@ enableCrypt    = False
 enableEmulator  = False
 enableSenseHAT  = False
 enableLogging   = True
-enableRedis     = True
+enableRedis     = False
+enableMqttClient= False
 pollCycleSecs   = 10
 testGdaDataPath = /tmp/gda-data
 testCdaDataPath = /tmp/cda-data
