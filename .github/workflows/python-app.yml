@@ -32,36 +32,58 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.7.6
+    - name: actions-setup-redis
+      # You may pin to the exact commit or the version.
+      # uses: shogo82148/actions-setup-redis@f168880de5407eeb262957436a2ed697af41cdb4
+      uses: shogo82148/actions-setup-redis@v1.9.1
+
+    - name: Mosquitto MQTT Broker in GitHub Actions
+      # You may pin to the exact commit or the version.
+      # uses: Namoshek/mosquitto-github-action@2ff373e4962a64948356341d1e3a059de23481db
+      uses: Namoshek/mosquitto-github-action@v0.1.0
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f basic_imports.txt ]; then pip install -r basic_imports.txt; fi
+    
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    
     - name: Setup PYTHONPATH
       run: |
         echo "PYTHONPATH=${PYTHONPATH}:./:./src/main/python:./src/test/python" >> $GITHUB_ENV
+    
     - name: Python Unit Test in part 01
       run: |
         cp ./src/test/python/programmingtheiot/part01/unit/common/*.props ./
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/unit/ -p "*Test.py"
         rm ./*.props
+    
     - name: Python Integration Test in part 01
       run: |
         python -m unittest discover -s ./src/test/python/programmingtheiot/part01/integration/ -p "*Test.py"
-    - name: Python Unit Test for Lab 3 in part 02
+    
+    - name: Python Unit Test in part 02
       run: |
-        # run unit tests in part02/unit except DataUtilTest.py
+        # run unit tests in part02/unit
         python -m unittest discover -s ./src/test/python/programmingtheiot/part02/unit/ -p "*Test.py"
-    - name: Python Integration Test for Lab 3 in part 02
+    
+    - name: Python Integration Test AdapterManagers
       run: |
         # run integration tests for ActuatorAdapterManager and SensorAdapterManager
         python -m unittest discover -s ./src/test/python/programmingtheiot/part02/integration/system/  -p "*Test.py"
-
-        # run integration test for ActuatorAdapterManager and SensorAdapterManager
+    
+    - name: Python Integration Test for Redis
+      run: |
+        python -m unittest src/test/python/programmingtheiot/part02/integration/connection/RedisClientAdapterTest.py
         python -m unittest src/test/python/programmingtheiot/part02/integration/app/DeviceDataManagerNoCommsTest.py
+    
+    - name: Python Integration Test for MQTT
+      run: |
+        python -m unittest src/test/python/programmingtheiot/part03/integration/connection/MqttClientConnectorTest.py
