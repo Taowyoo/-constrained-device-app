@@ -44,6 +44,15 @@ URL: https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/tree
 Here is latest class diagram of current code:
 ![Class Diagram](./../../doc/UML/Lab06.svg)
 
+### Unit Tests Executed
+
+- All unit tests in part01
+- All unit tests in part02
+
+### Integration Tests Executed
+
+-  src\test\python\programmingtheiot\part03\integration\connection\MqttClientConnectorTest
+
 ### 14 Types of MQTT Control Packets
 
 #### 1. CONNECT – Client requests a connection to a Server
@@ -292,12 +301,3 @@ MQ Telemetry Transport Protocol, Disconnect Req
         .... 0000 = Reserved: 0
     Msg Len: 0
 ```
-
-### Unit Tests Executed
-
-- All unit tests in part01
-- All unit tests in part02
-
-### Integration Tests Executed
-
--  src\test\python\programmingtheiot\part03\integration\connection\MqttClientConnectorTest
