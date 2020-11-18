@@ -4,8 +4,6 @@
 
 ### Description
 
-<!-- NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below. -->
-
 What does your implementation do? 
 
 1. Install the SenseHAT emulator on my Win10 and ubuntu20.04 OS.
@@ -35,17 +33,12 @@ How does your implementation work?
 
 ### Code Repository and Branch
 
-<!-- NOTE: Be sure to include the branch (e.g. https://github.com/programming-the-iot/python-components/tree/alpha001). -->
-
 URL: https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/tree/chapter04
 
 ### UML Design Diagram(s)
 
 Here is the [class diagram](../../doc/UML/Lab04.svg) of latest code:
 ![Class Diagram Lab 4](../../doc/UML/Lab04.svg)
-<!-- NOTE: Include one or more UML designs representing your solution. It's expected each
-diagram you provide will look similar to, but not the same as, its counterpart in the
-book [Programming the IoT](https://learning.oreilly.com/library/view/programming-the-internet/9781492081401/). -->
 
 
 ### Unit Tests Executed
