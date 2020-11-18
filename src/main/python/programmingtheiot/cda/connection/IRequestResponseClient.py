@@ -31,7 +31,7 @@ class IRequestResponseClient():
 		"""
 		pass
 
-	def sendDeleteRequest(self, resource: ResourceNameEnum, timeout: int = DEFAULT_TIMEOUT) -> bool:
+	def sendDeleteRequest(self, resource: ResourceNameEnum, enableCON = False, timeout: int = DEFAULT_TIMEOUT) -> bool:
 		"""
 		Connects to the server and sends DELETE request to resource at path.
 		IDataMessageListener callback must be set to receive response.
@@ -42,7 +42,7 @@ class IRequestResponseClient():
 		"""
 		pass
 
-	def sendGetRequest(self, resource: ResourceNameEnum, timeout: int = DEFAULT_TIMEOUT) -> bool:
+	def sendGetRequest(self, resource: ResourceNameEnum, enableCON = False, timeout: int = DEFAULT_TIMEOUT) -> bool:
 		"""
 		Connects to the server and sends GET request for resource at path.
 		IDataMessageListener callback must be set to receive response.
@@ -53,7 +53,7 @@ class IRequestResponseClient():
 		"""
 		pass
 
-	def sendPostRequest(self, resource: ResourceNameEnum, payload: str, timeout: int = DEFAULT_TIMEOUT) -> bool:
+	def sendPostRequest(self, resource: ResourceNameEnum, payload = None, enableCON = False, timeout: int = DEFAULT_TIMEOUT) -> bool:
 		"""
 		Connects to the server and sends POST request of payload to resource at path.
 		IDataMessageListener callback must be set to receive response.
@@ -65,7 +65,7 @@ class IRequestResponseClient():
 		"""
 		pass
 
-	def sendPutRequest(self, resource: ResourceNameEnum, payload: str, timeout: int = DEFAULT_TIMEOUT) -> bool:
+	def sendPutRequest(self, resource: ResourceNameEnum, payload: str, enableCON = False, timeout: int = DEFAULT_TIMEOUT) -> bool:
 		"""
 		Connects to the server and sends GET request for resource at path.
 		IDataMessageListener callback must be set to receive response.
