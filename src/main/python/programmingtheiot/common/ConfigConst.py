@@ -29,7 +29,7 @@ DEFAULT_MQTT_SECURE_PORT = 8883
 DEFAULT_KEEP_ALIVE       = 60
 DEFAULT_POLL_CYCLES      = 60
 
-PRODUCT_NAME = 'ProgrammingIoT'
+PRODUCT_NAME = 'PIOT'
 CLOUD        = 'Cloud'
 GATEWAY      = 'Gateway'
 CONSTRAINED  = 'Constrained'
