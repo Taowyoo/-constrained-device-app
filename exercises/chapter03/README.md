@@ -2,11 +2,7 @@
 
 ## Lab Module 03
 
-<!-- Be sure to implement all the PIOT-CDA-* issues (requirements) listed at [PIOT-INF-03-001 - Chapter 03](https://github.com/orgs/programming-the-iot/projects/1#column-10488379). -->
-
 ### Description
-
-<!-- NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below. -->
 
 What does your implementation do? 
 
@@ -60,8 +56,6 @@ How does your implementation work?
    3. Update tests to run: include all related tests need to run for lab module 3.
 
 ### Code Repository and Branch
-
-<!-- NOTE: Be sure to include the branch (e.g. https://github.com/programming-the-iot/python-components/tree/alpha001). -->
 
 URL: https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/tree/alpha001
 

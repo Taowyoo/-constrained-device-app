@@ -53,6 +53,7 @@ class DeviceDataManager(IDataMessageListener):
         # Retrieving configs
         self.configUtil = ConfigUtil()
         self.enableEmulator = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_EMULATOR_KEY)
+        # TODO: Add an option to control whether to use I2C or pisense to communicate with real SenseHAT
         self.enableSenseHAT = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_SENSE_HAT_KEY)
         self.enableHandleTempChangeOnDevice = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
                                                                          ConfigConst.ENABLE_HANDLE_TEMP_CHANGE_ON_DEVICE_KEY)
