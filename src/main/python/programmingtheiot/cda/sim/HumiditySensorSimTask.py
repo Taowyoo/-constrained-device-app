@@ -11,6 +11,7 @@ import logging
 
 from programmingtheiot.cda.sim.BaseSensorSimTask import BaseSensorSimTask
 from programmingtheiot.cda.sim.SensorDataGenerator import SensorDataGenerator
+from programmingtheiot.common import ConfigConst
 
 from programmingtheiot.data.SensorData import SensorData
 
@@ -32,5 +33,5 @@ class HumiditySensorSimTask(BaseSensorSimTask):
         :param maxVal: Using default environment humidity from HumiditySensorSimTask
         """
         super(HumiditySensorSimTask, self).__init__(sensorType=sensorType, dataSet=dataSet,	minVal=minVal, maxVal=maxVal)
-        self._sensorName = "HumiditySimSensor"
+        self._sensorName = ConfigConst.HUMIDITY_SENSOR_NAME
         pass

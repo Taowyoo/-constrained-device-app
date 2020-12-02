@@ -49,9 +49,8 @@ class PressureSensorEmulatorTask(BaseSensorSimTask):
         The pressure is measured in millibars (aka hectopascals).(in mbar or hPa)
         :return: Generated SensorData
         """
-        data = SensorData(sensorType=self._sensorType)
+        data = SensorData(name=ConfigConst.PRESSURE_SENSOR_NAME, sensorType=self._sensorType)
         data.setValue(self.sh.environ.pressure)
-        data.setName("EmulatedPressure")
         self._latestSensorData = data
         return self._latestSensorData
         pass

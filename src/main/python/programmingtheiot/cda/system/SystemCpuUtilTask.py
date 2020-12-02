@@ -11,6 +11,8 @@ import logging
 import psutil
 
 from programmingtheiot.cda.system.BaseSystemUtilTask import BaseSystemUtilTask
+from programmingtheiot.common import ConfigConst
+
 
 class SystemCpuUtilTask(BaseSystemUtilTask):
 	"""
@@ -23,7 +25,7 @@ class SystemCpuUtilTask(BaseSystemUtilTask):
 		Initialization of class: SystemCpuUtilTask.
 		"""
 		super(SystemCpuUtilTask, self).__init__()
-		self.simpleName = 'SystemCpuUtil'
+		self.simpleName = ConfigConst.CPU_UTIL_NAME
 		pass
 	
 	def _getSystemUtil(self) -> float:

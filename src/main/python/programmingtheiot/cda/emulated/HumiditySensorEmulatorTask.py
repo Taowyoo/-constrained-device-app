@@ -49,8 +49,7 @@ class HumiditySensorEmulatorTask(BaseSensorSimTask):
         The humidity is measured as a % of relative humidity.(in %RH)
         :return: Generated SensorData
         """
-        data = SensorData(sensorType=self._sensorType)
-        data.setName("EmulatedHumidity")
+        data = SensorData(name=ConfigConst.HUMIDITY_SENSOR_NAME, sensorType=self._sensorType)
         data.setValue(self.sh.environ.humidity)
         self._latestSensorData = data
         return self._latestSensorData
