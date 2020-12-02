@@ -108,6 +108,7 @@ ENABLE_SENSE_HAT_KEY = 'enableSenseHAT'
 ENABLE_LOGGING_KEY   = 'enableLogging'
 ENABLE_REDIS_KEY     = 'enableRedis'
 ENABLE_MQTT_KEY      = 'enableMqttClient'
+ENABLE_COAP_KEY      = 'enableCoAPClient'
 USE_WEB_ACCESS_KEY   = 'useWebAccess'
 POLL_CYCLES_KEY      = 'pollCycleSecs'
 KEEP_ALIVE_KEY       = 'keepAlive'
@@ -123,3 +124,18 @@ TEMP_SIM_CEILING_KEY     = 'tempSimCeiling'
 ENABLE_HANDLE_TEMP_CHANGE_ON_DEVICE_KEY = 'enableHandleTempChangeOnDevice'
 TRIGGER_HVAC_TEMP_FLOOR_KEY = 'triggerHvacTempFloor'
 TRIGGER_HVAC_TEMP_CEILING_KEY = 'triggerHvacTempCeiling'
+
+# Names of data containers
+LED_ACTUATOR_NAME = 'LedActuator'
+HUMIDIFIER_ACTUATOR_NAME = 'HumidifierActuator'
+HVAC_ACTUATOR_NAME = 'HvacActuator'
+
+HUMIDITY_SENSOR_NAME = 'HumiditySensor'
+PRESSURE_SENSOR_NAME = 'PressureSensor'
+TEMP_SENSOR_NAME = 'TempSensor'
+
+SYS_PERF_DATA = 'SysPerfData'
+
+CPU_UTIL_NAME = 'CpuUtil'
+DISK_UTIL_NAME = 'DiskUtil'
+MEM_UTIL_NAME = 'MemUtil'

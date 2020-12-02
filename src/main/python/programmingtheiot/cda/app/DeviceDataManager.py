@@ -41,7 +41,7 @@ class DeviceDataManager(IDataMessageListener):
 
     """
 
-    def __init__(self, enableMqtt: bool = True, enableCoap: bool = False):
+    def __init__(self, enableMqtt: bool = None, enableCoap: bool = None):
         """
         Constructor for DeviceDataManager:
         1. Got configuration info from config file
@@ -57,10 +57,16 @@ class DeviceDataManager(IDataMessageListener):
         self.enableSenseHAT = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_SENSE_HAT_KEY)
         self.enableHandleTempChangeOnDevice = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
                                                                          ConfigConst.ENABLE_HANDLE_TEMP_CHANGE_ON_DEVICE_KEY)
+
         self.enableMqttClient = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_MQTT_KEY)
+        self.enableCoAPClient = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_COAP_KEY)
+        if enableMqtt is not None:
+            self.enableMqttClient = enableMqtt
+        if enableCoap is not None:
+            self.enableCoAPClient = enableCoap
+
         self.triggerHvacTempFloor = self.configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE,
                                                              ConfigConst.TRIGGER_HVAC_TEMP_FLOOR_KEY)
-
         self.triggerHvacTempCeiling = self.configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE,
                                                                ConfigConst.TRIGGER_HVAC_TEMP_CEILING_KEY)
         self.sysPerfPollRate = self.configUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.POLL_CYCLES_KEY)
@@ -77,10 +83,16 @@ class DeviceDataManager(IDataMessageListener):
         # Init DataUtil for converting data
         self.dataUtil = DataUtil()
         # Init Mqtt Client
-        self.mqttClient = None
+        self.mqttClient: MqttClientConnector = None
         if self.enableMqttClient:
             self.mqttClient = MqttClientConnector()
             self.mqttClient.setDataMessageListener(self)
+
+        # Init CoAP Client
+        self.coapClient: CoapClientConnector = None
+        if self.enableCoAPClient:
+            self.coapClient = CoapClientConnector()
+            self.coapClient.setDataMessageListener(self)
 
         # Init RedisPersistenceAdapter
         self.redisClient = None
@@ -129,8 +141,6 @@ class DeviceDataManager(IDataMessageListener):
         logging.info("Callback: Handling an SensorMessage")
         logging.debug("SensorData: %s" % data.__str__())
         jsonData = self.dataUtil.sensorDataToJson(data)
-        if self.enableMqttClient:
-            self.mqttClient.publishMessage(ResourceNameEnum.CDA_SENSOR_MSG_RESOURCE, jsonData,self.qos)
         if self.enableRedis:
             self.redisClient.storeData(data=jsonData)
         self._handleUpstreamTransmission(ResourceNameEnum.CDA_SENSOR_MSG_RESOURCE, jsonData)
@@ -147,9 +157,7 @@ class DeviceDataManager(IDataMessageListener):
         """
         logging.info("Callback: Handling an SystemPerformanceMessage")
         logging.debug("SystemPerformanceData: %s" % data.__str__())
-        jsonData = self.dataUtil.sensorDataToJson(data)
-        if self.enableMqttClient:
-            self.mqttClient.publishMessage(ResourceNameEnum.CDA_SYSTEM_PERF_MSG_RESOURCE, jsonData, self.qos)
+        jsonData = self.dataUtil.systemPerformanceDataToJson(data)
         self._handleUpstreamTransmission(ResourceNameEnum.CDA_SYSTEM_PERF_MSG_RESOURCE, jsonData)
         return True
         pass
@@ -164,6 +172,8 @@ class DeviceDataManager(IDataMessageListener):
         if self.enableMqttClient:
             self.mqttClient.connectClient()
             self.mqttClient.subscribeToTopic(ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE, self.qos)
+        if self.enableCoAPClient and self.coapClient is None:
+            self.coapClient = CoapClientConnector()
         if self.enableRedis:
             self.redisClient.connectClient()
         logging.info("DeviceDataManager stated.")
@@ -179,6 +189,9 @@ class DeviceDataManager(IDataMessageListener):
         if self.enableMqttClient and self.mqttClient:
             self.mqttClient.unsubscribeFromTopic(ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE)
             self.mqttClient.disconnectClient()
+        if self.enableCoAPClient and self.coapClient:
+            self.coapClient.stopClient()
+            self.coapClient = None
         if self.enableRedis:
             self.redisClient.disconnectClient()
         logging.info("DeviceDataManager stopped.")
@@ -219,7 +232,8 @@ class DeviceDataManager(IDataMessageListener):
         logging.debug("Handling analysis on SensorData...")
         if self.enableHandleTempChangeOnDevice is True:
             if data.getSensorType() is SensorData.TEMP_SENSOR_TYPE:
-                localActuatorCmd = ActuatorData(actuatorType=ActuatorData.HVAC_ACTUATOR_TYPE)
+                localActuatorCmd = ActuatorData(name=ConfigConst.HVAC_ACTUATOR_NAME,
+                                                actuatorType=ActuatorData.HVAC_ACTUATOR_TYPE)
                 if data.getValue() < self.triggerHvacTempFloor:
                     logging.debug("Turn on HVAC as current temperature: %f is lower than floor: %f."
                                   % (data.getValue(), self.triggerHvacTempFloor))
@@ -243,5 +257,8 @@ class DeviceDataManager(IDataMessageListener):
         2) Act on msg: If # 1 is true, send message upstream using one (or both) client connections.
         """
         logging.debug("Handling upstream transmission...")
-        # TODO: upload the json string
+        if self.enableMqttClient:
+            self.mqttClient.publishMessage(resourceName, msg, self.qos)
+        if self.enableCoAPClient:
+            self.coapClient.sendPutRequest(resourceName, msg)
         pass
