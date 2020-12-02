@@ -6,7 +6,7 @@
 # implementation for the Programming the Internet of Things exercises,
 # and designed to be modified by the student as needed.
 #
-
+from programmingtheiot.common import ConfigConst
 from programmingtheiot.data.BaseIotData import BaseIotData
 
 
@@ -26,14 +26,14 @@ class SensorData(BaseIotData):
     TEMP_SENSOR_TYPE = 3
     SYS_UTIL_TYPE = 4
 
-    def __init__(self, sensorType=DEFAULT_SENSOR_TYPE, d=None):
+    def __init__(self, sensorType=DEFAULT_SENSOR_TYPE, name: str = ConfigConst.NOT_SET, d=None):
         """
         Constructor of SensorData:
 
         Init variables with default value or given dict
         :param d: dict to help init the object
         """
-        super(SensorData, self).__init__(d=d)
+        super(SensorData, self).__init__(name=name, d=d)
         if d:
             self.sensorType = d.get('sensorType', sensorType)
             self.value = d.get('value', SensorData.DEFAULT_VAL)
