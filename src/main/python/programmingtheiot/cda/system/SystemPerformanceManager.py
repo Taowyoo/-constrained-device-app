@@ -15,6 +15,8 @@ from programmingtheiot.common.IDataMessageListener import IDataMessageListener
 
 from programmingtheiot.cda.system.SystemCpuUtilTask import SystemCpuUtilTask
 from programmingtheiot.cda.system.SystemMemUtilTask import SystemMemUtilTask
+from programmingtheiot.data.SystemPerformanceData import SystemPerformanceData
+
 
 class SystemPerformanceManager(object):
     """
@@ -45,16 +47,17 @@ class SystemPerformanceManager(object):
 
     def handleTelemetry(self):
         """
-        TODO: handle Data objects
+        Get system performance telemetry and send it to dataMsgListener as SystemPerformanceData
         :return:
         """
-        cpuData = self.cpuUtilTask.generateTelemetry()
-        memData = self.memUtilTask.generateTelemetry()
-
+        cpuVal = self.cpuUtilTask.getTelemetryValue()
+        memVal = self.memUtilTask.getTelemetryValue()
+        sysPerfData = SystemPerformanceData()
+        sysPerfData.setCpuUtilization(cpuVal)
+        sysPerfData.setMemoryUtilization(memVal)
         logging.info('CPU utilization is %s percent, and memory utilization is %s percent.',
-                     str(cpuData.getValue()), str(memData.getValue()))
-        self.dataMsgListener.handleSensorMessage(cpuData)
-        self.dataMsgListener.handleSensorMessage(memData)
+                     str(cpuVal), str(memVal))
+        self.dataMsgListener.handleSystemPerformanceMessage(sysPerfData)
         pass
 
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
