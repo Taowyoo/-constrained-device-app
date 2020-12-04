@@ -19,7 +19,6 @@ from programmingtheiot.common.ResourceNameEnum import ResourceNameEnum
 from programmingtheiot.cda.connection.IPubSubClient import IPubSubClient
 from programmingtheiot.data.DataUtil import DataUtil
 
-DEFAULT_QOS = 1
 
 class MqttClientConnector(IPubSubClient):
     """
@@ -27,7 +26,7 @@ class MqttClientConnector(IPubSubClient):
 
     """
 
-    QOS = ConfigUtil().getInteger(ConfigConst.MQTT_GATEWAY_SERVICE, ConfigConst.DEFAULT_QOS_KEY,
+    QOS = ConfigUtil.ConfigUtil().getInteger(ConfigConst.MQTT_GATEWAY_SERVICE, ConfigConst.DEFAULT_QOS_KEY,
                                   IPubSubClient.DEFAULT_QOS)
 
     def __init__(self, clientID: str = None):
@@ -135,8 +134,8 @@ class MqttClientConnector(IPubSubClient):
         if qos > 2 or qos < 0:
             qos = IPubSubClient.DEFAULT_QOS
             logging.warning("Got invalid QoS value, change to use default QoS: {}".format(qos))
-        logging.debug("MQTT client send msg:'{}' to topic '{}' with qos {}.".format(msg, resource.name, qos))
-        self.mc.publish(topic=resource.name, payload=msg, qos=qos)
+        logging.info("MQTT client send msg:'{}' to topic '{}' with qos {}.".format(msg, resource.value, qos))
+        self.mc.publish(topic=resource.value, payload=msg, qos=qos)
         pass
 
     def subscribeToTopic(self, resource: ResourceNameEnum, qos: int = QOS):
@@ -145,13 +144,13 @@ class MqttClientConnector(IPubSubClient):
         if qos > 2 or qos < 0:
             qos = IPubSubClient.DEFAULT_QOS
             logging.warning("Got invalid QoS value, change to use default QoS: {}".format(qos))
-        logging.debug("MQTT client subscribe to topic '{}' with qos {}.".format(resource.name, qos))
-        self.mc.subscribe(topic=resource.name, qos=qos)
+        logging.info("MQTT client subscribe to topic '{}' with qos {}.".format(resource.value, qos))
+        self.mc.subscribe(topic=resource.value, qos=qos)
         pass
 
     def unsubscribeFromTopic(self, resource: ResourceNameEnum):
-        logging.debug("MQTT client MQTT client unsubscribe to topic '{}'.".format(resource.name))
-        self.mc.unsubscribe(topic=resource.name)
+        logging.info("MQTT client MQTT client unsubscribe to topic '{}'.".format(resource.value))
+        self.mc.unsubscribe(topic=resource.value)
         pass
 
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
