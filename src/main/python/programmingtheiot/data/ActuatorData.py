@@ -106,7 +106,7 @@ class ActuatorData(BaseIotData):
         self.isResponse = True
         pass
 
-    def isResponse(self) -> bool:
+    def isAResponse(self) -> bool:
         """
         Check Whether current ActuatorData is a response
         :return: Whether current ActuatorData is a response
