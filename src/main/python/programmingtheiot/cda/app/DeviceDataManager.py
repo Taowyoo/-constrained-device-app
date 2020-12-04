@@ -101,6 +101,24 @@ class DeviceDataManager(IDataMessageListener):
             self.redisClient = RedisPersistenceAdapter()
         pass
 
+    def handleActuatorCommandMessage(self, data: ActuatorData) -> bool:
+        """
+        Handle Actuator Command
+        :param data: Incoming Actuator Command
+        :return: Whether execute command successfully
+        """
+        if data:
+            logging.info("Processing actuator command message.")
+            if not data.isAResponse():
+                self.actuatorAdapterManager.sendActuatorCommand(data)
+                return True
+            else:
+                logging.warning("Ignore actuator command response.")
+                return False
+        else:
+            logging.warning("Received invalid ActuatorData command message. Ignoring.")
+            return False
+
     def handleActuatorCommandResponse(self, data: ActuatorData) -> bool:
         """
         Interface of IDataMessageListener:
@@ -108,7 +126,7 @@ class DeviceDataManager(IDataMessageListener):
         :param data: Callback ActuatorData
         :return: Whether hand the data successfully
         """
-        if data.isResponse():
+        if data and data.isAResponse():
             logging.info("Callback: Handling an ActuatorCommandResponse")
             logging.debug("ActuatorData: %s" % data.__str__())
             jsonData = self.dataUtil.actuatorDataToJson(data)
@@ -170,7 +188,7 @@ class DeviceDataManager(IDataMessageListener):
         self.sysPerfManager.startManager()
         self.sensorAdapterManager.startManager()
         if self.enableMqttClient:
-            self.mqttClient.connectClient()
+            self.mqttClient.connect()
             self.mqttClient.subscribeToTopic(ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE, self.qos)
         if self.enableCoAPClient and self.coapClient is None:
             self.coapClient = CoapClientConnector()
@@ -188,7 +206,7 @@ class DeviceDataManager(IDataMessageListener):
         self.sensorAdapterManager.stopManager()
         if self.enableMqttClient and self.mqttClient:
             self.mqttClient.unsubscribeFromTopic(ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE)
-            self.mqttClient.disconnectClient()
+            self.mqttClient.disconnect()
         if self.enableCoAPClient and self.coapClient:
             self.coapClient.stopClient()
             self.coapClient = None
@@ -214,7 +232,7 @@ class DeviceDataManager(IDataMessageListener):
         try:
             # Convert msg
             actuatorData: ActuatorData = self.dataUtil.jsonToActuatorData(msg)
-            if not actuatorData.isResponse():
+            if not actuatorData.isAResponse():
                 # Act on msg
                 logging.info("Send a {} CMD to ActuatorAdapterManager.".format(actuatorData.getName()))
                 self.actuatorAdapterManager.sendActuatorCommand(actuatorData)

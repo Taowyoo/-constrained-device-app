@@ -60,4 +60,12 @@ class IDataMessageListener():
 		@return bool True on success; False otherwise.
 		"""
 		pass
-	
+
+	def handleActuatorCommandMessage(self, data: ActuatorData) -> bool:
+		"""
+		Callback function to handle an actuator command message packaged as a ActuatorData object.
+
+		@param data The ActuatorData message received.
+		@return bool True on success; False otherwise.
+		"""
+		pass
