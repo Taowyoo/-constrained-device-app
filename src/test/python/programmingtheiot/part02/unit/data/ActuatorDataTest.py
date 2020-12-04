@@ -39,16 +39,16 @@ class ActuatorDataTest(unittest.TestCase):
 	def testDefaultValues(self):
 		ad = ActuatorData()
 		
-		self.assertEquals(ad.getCommand(), ActuatorData.DEFAULT_COMMAND)
-		self.assertEquals(ad.getStatusCode(), ActuatorData.DEFAULT_STATUS)
+		self.assertEqual(ad.getCommand(), ActuatorData.DEFAULT_COMMAND)
+		self.assertEqual(ad.getStatusCode(), ActuatorData.DEFAULT_STATUS)
 
 	def testParameterUpdates(self):
 		ad = self._createTestActuatorData()
 		
-		self.assertEquals(ad.getName(), self.DEFAULT_NAME)
-		self.assertEquals(ad.getCommand(), ActuatorData.COMMAND_ON)
-		self.assertEquals(ad.getStateData(), self.DEFAULT_STATE_DATA)
-		self.assertEquals(ad.getValue(), self.DEFAULT_VALUE)
+		self.assertEqual(ad.getName(), self.DEFAULT_NAME)
+		self.assertEqual(ad.getCommand(), ActuatorData.COMMAND_ON)
+		self.assertEqual(ad.getStateData(), self.DEFAULT_STATE_DATA)
+		self.assertEqual(ad.getValue(), self.DEFAULT_VALUE)
 
 	def testFullUpdate(self):
 		ad = ActuatorData()
@@ -56,9 +56,9 @@ class ActuatorDataTest(unittest.TestCase):
 		
 		ad.updateData(ad2)
 		
-		self.assertEquals(ad.getCommand(), ActuatorData.COMMAND_ON)
-		self.assertEquals(ad.getStateData(), self.DEFAULT_STATE_DATA)
-		self.assertEquals(ad.getValue(), self.DEFAULT_VALUE)
+		self.assertEqual(ad.getCommand(), ActuatorData.COMMAND_ON)
+		self.assertEqual(ad.getStateData(), self.DEFAULT_STATE_DATA)
+		self.assertEqual(ad.getValue(), self.DEFAULT_VALUE)
 	
 	def _createTestActuatorData(self):
 		ad = ActuatorData()

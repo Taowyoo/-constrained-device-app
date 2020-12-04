@@ -44,7 +44,7 @@ class HumidifierActuatorSimTaskTest(unittest.TestCase):
 		adr = self.hSimTask.getLatestActuatorResponse()
 		
 		self.assertIsNotNone(adr)
-		self.assertEquals(adr.getValue(), self.DEFAULT_VAL_A)
+		self.assertEqual(adr.getValue(), self.DEFAULT_VAL_A)
 		logging.info("ActuatorData: " + str(adr))
 		
 		ad.setValue(self.DEFAULT_VAL_B)
@@ -52,7 +52,7 @@ class HumidifierActuatorSimTaskTest(unittest.TestCase):
 		adr = self.hSimTask.getLatestActuatorResponse()
 		
 		self.assertIsNotNone(adr)
-		self.assertEquals(adr.getValue(), self.DEFAULT_VAL_B)
+		self.assertEqual(adr.getValue(), self.DEFAULT_VAL_B)
 		logging.info("ActuatorData: " + str(adr))
 		
 		ad.setCommand(ActuatorData.COMMAND_OFF)
@@ -60,7 +60,7 @@ class HumidifierActuatorSimTaskTest(unittest.TestCase):
 		adr = self.hSimTask.getLatestActuatorResponse()
 		
 		self.assertIsNotNone(adr)
-		self.assertEquals(adr.getCommand(), ActuatorData.COMMAND_OFF)
+		self.assertEqual(adr.getCommand(), ActuatorData.COMMAND_OFF)
 		logging.info("ActuatorData: " + str(adr))
 			
 if __name__ == "__main__":

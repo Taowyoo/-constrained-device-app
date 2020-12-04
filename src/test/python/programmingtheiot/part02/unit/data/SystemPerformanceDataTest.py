@@ -42,39 +42,39 @@ class SystemPerformanceDataTest(unittest.TestCase):
 	def testDefaultValues(self):
 		spd = SystemPerformanceData()
 		
-		self.assertEquals(spd.getName(), ConfigConst.NOT_SET)
-		self.assertEquals(spd.getStatusCode(), SystemPerformanceData.DEFAULT_STATUS)
+		self.assertEqual(spd.getName(), ConfigConst.SYS_PERF_DATA)
+		self.assertEqual(spd.getStatusCode(), SystemPerformanceData.DEFAULT_STATUS)
 		
-		self.assertEquals(spd.getCpuUtilization(), SystemPerformanceData.DEFAULT_VAL)
-		self.assertEquals(spd.getDiskUtilization(), SystemPerformanceData.DEFAULT_VAL)
-		self.assertEquals(spd.getMemoryUtilization(), SystemPerformanceData.DEFAULT_VAL)
+		self.assertEqual(spd.getCpuUtilization(), SystemPerformanceData.DEFAULT_VAL)
+		self.assertEqual(spd.getDiskUtilization(), SystemPerformanceData.DEFAULT_VAL)
+		self.assertEqual(spd.getMemoryUtilization(), SystemPerformanceData.DEFAULT_VAL)
 
 	def testParameterUpdates(self):
 		spd = self._createTestSystemPerformanceData()
 		
-		self.assertEquals(spd.getName(), self.DEFAULT_NAME)
+		self.assertEqual(spd.getName(), self.DEFAULT_NAME)
 		
-		self.assertEquals(spd.getCpuUtilization(), self.DEFAULT_CPU_UTIL_DATA)
-		self.assertEquals(spd.getDiskUtilization(), self.DEFAULT_DISK_UTIL_DATA)
-		self.assertEquals(spd.getMemoryUtilization(), self.DEFAULT_MEM_UTIL_DATA)
+		self.assertEqual(spd.getCpuUtilization(), self.DEFAULT_CPU_UTIL_DATA)
+		self.assertEqual(spd.getDiskUtilization(), self.DEFAULT_DISK_UTIL_DATA)
+		self.assertEqual(spd.getMemoryUtilization(), self.DEFAULT_MEM_UTIL_DATA)
 
 	def testFullUpdate(self):
 		spd = SystemPerformanceData()
 		spd2 = self._createTestSystemPerformanceData()
 		
-		self.assertEquals(spd.getName(), ConfigConst.NOT_SET)
+		self.assertEqual(spd.getName(), ConfigConst.SYS_PERF_DATA)
 		
-		self.assertEquals(spd.getCpuUtilization(), SystemPerformanceData.DEFAULT_VAL)
-		self.assertEquals(spd.getDiskUtilization(), SystemPerformanceData.DEFAULT_VAL)
-		self.assertEquals(spd.getMemoryUtilization(), SystemPerformanceData.DEFAULT_VAL)
+		self.assertEqual(spd.getCpuUtilization(), SystemPerformanceData.DEFAULT_VAL)
+		self.assertEqual(spd.getDiskUtilization(), SystemPerformanceData.DEFAULT_VAL)
+		self.assertEqual(spd.getMemoryUtilization(), SystemPerformanceData.DEFAULT_VAL)
 		
 		spd.updateData(spd2)
 		
-		self.assertEquals(spd.getName(), self.DEFAULT_NAME)
+		self.assertEqual(spd.getName(), self.DEFAULT_NAME)
 		
-		self.assertEquals(spd.getCpuUtilization(), self.DEFAULT_CPU_UTIL_DATA)
-		self.assertEquals(spd.getDiskUtilization(), self.DEFAULT_DISK_UTIL_DATA)
-		self.assertEquals(spd.getMemoryUtilization(), self.DEFAULT_MEM_UTIL_DATA)
+		self.assertEqual(spd.getCpuUtilization(), self.DEFAULT_CPU_UTIL_DATA)
+		self.assertEqual(spd.getDiskUtilization(), self.DEFAULT_DISK_UTIL_DATA)
+		self.assertEqual(spd.getMemoryUtilization(), self.DEFAULT_MEM_UTIL_DATA)
 	
 	def _createTestSystemPerformanceData(self):
 		spd = SystemPerformanceData()
