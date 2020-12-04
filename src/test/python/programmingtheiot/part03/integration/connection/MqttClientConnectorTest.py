@@ -8,6 +8,9 @@
 # 
 
 import logging
+
+logging.basicConfig(format='%(asctime)s:%(module)s:%(levelname)s:%(message)s', level=logging.DEBUG)
+
 import unittest
 
 from time import sleep
@@ -33,7 +36,6 @@ class MqttClientConnectorTest(unittest.TestCase):
 
     @classmethod
     def setUpClass(self):
-        logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
         logging.info("Testing MqttClientConnector class...")
 
         self.cfg = ConfigUtil()
@@ -60,7 +62,7 @@ class MqttClientConnectorTest(unittest.TestCase):
         qos = 1
         delay = self.cfg.getInteger(ConfigConst.MQTT_GATEWAY_SERVICE, ConfigConst.KEEP_ALIVE_KEY, ConfigConst.DEFAULT_KEEP_ALIVE)
         listener = DefaultDataMessageListener()
-
+        self.mcc.setDataMessageListener(listener)
         self.mcc.connect()
         self.mcc.subscribeToTopic(ResourceNameEnum.CDA_MGMT_STATUS_MSG_RESOURCE, qos)
         sleep(5)
@@ -85,7 +87,7 @@ class MqttClientConnectorTest(unittest.TestCase):
         actuatorData = ActuatorData()
         payload = DataUtil().actuatorDataToJson(actuatorData)
 
-        self.mcc.connectClient()
+        self.mcc.connect()
 
         sleep(5)
 
@@ -93,7 +95,7 @@ class MqttClientConnectorTest(unittest.TestCase):
 
         sleep(delay)
 
-        self.mcc.disconnectClient()
+        self.mcc.disconnect()
 
     @unittest.skip("Ignore for now.")
     def testIntegrateWithGdaSubscribeCdaCmdTopic(self):
