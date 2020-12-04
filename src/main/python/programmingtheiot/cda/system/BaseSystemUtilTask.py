@@ -24,7 +24,7 @@ class BaseSystemUtilTask():
 		Set latestSensorData default value to None
 		"""
 		self.latestSensorData = None
-		self.simpleName = self.ConfigConst.NOT_SET
+		self.simpleName = ConfigConst.NOT_SET
 		pass
 	
 	def generateTelemetry(self) -> SensorData:

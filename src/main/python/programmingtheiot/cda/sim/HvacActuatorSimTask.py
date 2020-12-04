@@ -10,6 +10,7 @@
 import logging
 import random
 
+from programmingtheiot.common import ConfigConst
 from programmingtheiot.data.ActuatorData import ActuatorData
 from programmingtheiot.cda.sim.BaseActuatorSimTask import BaseActuatorSimTask
 
@@ -18,13 +19,12 @@ class HvacActuatorSimTask(BaseActuatorSimTask):
 	Implementation of HumidifierActuatorSimTask
 
 	"""
-	DEFAULT_NAME = "HVAC"
 
-	def __init__(self, actuatorType=ActuatorData.HVAC_ACTUATOR_TYPE, simpleName=DEFAULT_NAME):
+	def __init__(self, actuatorType=ActuatorData.HVAC_ACTUATOR_TYPE, simpleName=ConfigConst.HVAC_ACTUATOR_NAME):
 		"""
 		Init the HvacActuatorSimTask by using super class constructor with specific values
 		:param actuatorType: Type of sim actuator, here is HVAC_ACTUATOR_TYPE
-		:param simpleName: Name of sim actuator, here is {DEFAULT_NAME}
+		:param simpleName: Name of sim actuator
 		"""
 		super(HvacActuatorSimTask, self).__init__(actuatorType=actuatorType, simpleName=simpleName)
 		pass
