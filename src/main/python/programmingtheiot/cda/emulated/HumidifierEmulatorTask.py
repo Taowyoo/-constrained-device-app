@@ -32,7 +32,7 @@ class HumidifierEmulatorTask(BaseActuatorSimTask):
         Init emulated or not SenseHAT instance according to config.
         """
         super(HumidifierEmulatorTask, self).__init__(actuatorType=ActuatorData.HUMIDIFIER_ACTUATOR_TYPE,
-                                                     simpleName="HUMIDIFIER")
+                                                     simpleName=ConfigConst.HUMIDIFIER_ACTUATOR_NAME)
         self.enableEmulation = True
         configUtil = ConfigUtil()
         enableSenseHAT = configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_SENSE_HAT_KEY)
@@ -89,6 +89,7 @@ class HumidifierEmulatorTask(BaseActuatorSimTask):
             return False
         ret = self._handleActuation(cmd, data.getValue(), data.getStateData())
         self.latestActuatorData.updateData(data)
+        self.latestActuatorData.setName(self.simpleName)
         self.latestActuatorData.setStatusCode(int(ret))
         self.latestActuatorData.setAsResponse()
         return ret >= 0

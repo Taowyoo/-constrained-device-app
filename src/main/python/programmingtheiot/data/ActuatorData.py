@@ -6,7 +6,7 @@
 # implementation for the Programming the Internet of Things exercises,
 # and designed to be modified by the student as needed.
 #
-
+from programmingtheiot.common import ConfigConst
 from programmingtheiot.data.BaseIotData import BaseIotData
 
 
@@ -31,14 +31,14 @@ class ActuatorData(BaseIotData):
     HUMIDIFIER_ACTUATOR_TYPE = 2
     LED_DISPLAY_ACTUATOR_TYPE = 100
 
-    def __init__(self, actuatorType=DEFAULT_ACTUATOR_TYPE, d=None):
+    def __init__(self, actuatorType=DEFAULT_ACTUATOR_TYPE, name: str = ConfigConst.NOT_SET, d=None):
         """
         Constructor of ActuatorData:
 
         Init variables with default value or given dict
         :param d: dict to help init the object
         """
-        super(ActuatorData, self).__init__(d=d)
+        super(ActuatorData, self).__init__(name=name, d=d)
         if d is not None:
             self.actuatorType = d.get('actuatorType', actuatorType)
             self.command = d.get('command', self.DEFAULT_COMMAND)
@@ -106,7 +106,7 @@ class ActuatorData(BaseIotData):
         self.isResponse = True
         pass
 
-    def isResponse(self) -> bool:
+    def isAResponse(self) -> bool:
         """
         Check Whether current ActuatorData is a response
         :return: Whether current ActuatorData is a response

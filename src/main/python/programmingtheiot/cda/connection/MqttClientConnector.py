@@ -17,14 +17,17 @@ from programmingtheiot.common.IDataMessageListener import IDataMessageListener
 from programmingtheiot.common.ResourceNameEnum import ResourceNameEnum
 
 from programmingtheiot.cda.connection.IPubSubClient import IPubSubClient
+from programmingtheiot.data.DataUtil import DataUtil
 
-DEFAULT_QOS = 1
 
 class MqttClientConnector(IPubSubClient):
     """
     Shell representation of class for student implementation.
 
     """
+
+    QOS = ConfigUtil.ConfigUtil().getInteger(ConfigConst.MQTT_GATEWAY_SERVICE, ConfigConst.DEFAULT_QOS_KEY,
+                                  IPubSubClient.DEFAULT_QOS)
 
     def __init__(self, clientID: str = None):
         """
@@ -90,18 +93,22 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def onConnect(self, client, userdata, flags, rc):
-        logging.info("MQTT client Connection returned result: " + mqttClient.connack_string(rc))
+        logging.info('[Callback] Connected to MQTT broker. Result code: ' + str(rc))
+        # NOTE: Use the QoS of your choice - '1' is only an example
+        self.mc.subscribe(topic=ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE.value, qos=self.QOS)
+        self.mc.message_callback_add(sub=ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE.value,
+                                     callback=self.onActuatorCommandMessage)
         pass
 
     def onDisconnect(self, client, userdata, rc):
         if rc != 0:
-            logging.warning("MQTT client meets Unexpected disconnection!")
+            logging.warning("[Callback] MQTT client meets Unexpected disconnection!")
         else:
-            logging.info("MQTT client succeed to disconnect from broker.")
+            logging.info("[Callback] MQTT client succeed to disconnect from broker.")
         pass
 
     def onMessage(self, client, userdata, msg):
-        logging.info("MQTT client received message '" + str(msg.payload) + "' on topic '"
+        logging.info("[Callback] MQTT client received message '" + str(msg.payload) + "' on topic '"
                      + msg.topic + "' with QoS " + str(msg.qos))
         resource = ResourceNameEnum.getResourceNameByValue(val=msg.topic)
         if resource:
@@ -114,36 +121,36 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def onPublish(self, client, userdata, mid):
-        logging.info("MQTT client succeed to publish a message, id: " + str(mid))
+        logging.info("[Callback] MQTT client succeed to publish a message, id: " + str(mid))
         pass
 
     def onSubscribe(self, client, userdata, mid, granted_qos):
-        logging.info("MQTT client succeed to subscribe, id: {}, QoS: {}".format(mid, granted_qos))
+        logging.info("[Callback] MQTT client succeed to subscribe, id: {}, QoS: {}".format(mid, granted_qos))
         pass
 
-    def publishMessage(self, resource: ResourceNameEnum, msg, qos: int = IPubSubClient.DEFAULT_QOS):
+    def publishMessage(self, resource: ResourceNameEnum, msg, qos: int = QOS):
         if resource is None:
             logging.warning("Got invalid ResourceNameEnum when publishing!")
         if qos > 2 or qos < 0:
             qos = IPubSubClient.DEFAULT_QOS
             logging.warning("Got invalid QoS value, change to use default QoS: {}".format(qos))
-        logging.debug("MQTT client send msg:'{}' to topic '{}' with qos {}.".format(msg, resource.name, qos))
-        self.mc.publish(topic=resource.name, payload=msg, qos=qos)
+        logging.info("MQTT client send msg:'{}' to topic '{}' with qos {}.".format(msg, resource.value, qos))
+        self.mc.publish(topic=resource.value, payload=msg, qos=qos)
         pass
 
-    def subscribeToTopic(self, resource: ResourceNameEnum, qos: int = IPubSubClient.DEFAULT_QOS):
+    def subscribeToTopic(self, resource: ResourceNameEnum, qos: int = QOS):
         if resource is None:
             logging.warning("Got invalid ResourceNameEnum when subscribing!")
         if qos > 2 or qos < 0:
             qos = IPubSubClient.DEFAULT_QOS
             logging.warning("Got invalid QoS value, change to use default QoS: {}".format(qos))
-        logging.debug("MQTT client subscribe to topic '{}' with qos {}.".format(resource.name, qos))
-        self.mc.subscribe(topic=resource.name, qos=qos)
+        logging.info("MQTT client subscribe to topic '{}' with qos {}.".format(resource.value, qos))
+        self.mc.subscribe(topic=resource.value, qos=qos)
         pass
 
     def unsubscribeFromTopic(self, resource: ResourceNameEnum):
-        logging.debug("MQTT client MQTT client unsubscribe to topic '{}'.".format(resource.name))
-        self.mc.unsubscribe(topic=resource.name)
+        logging.info("MQTT client MQTT client unsubscribe to topic '{}'.".format(resource.value))
+        self.mc.unsubscribe(topic=resource.value)
         pass
 
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
@@ -154,3 +161,14 @@ class MqttClientConnector(IPubSubClient):
         self.dataMsgListener = listener
         return True
         pass
+
+    def onActuatorCommandMessage(self, client, userdata, msg):
+        logging.info('[Callback] Actuator command message received. Topic: %s.', msg.topic)
+
+        if self.dataMsgListener:
+            try:
+                actuatorData = DataUtil().jsonToActuatorData(msg.payload)
+
+                self.dataMsgListener.handleActuatorCommandMessage(actuatorData)
+            except:
+                logging.exception("Failed to convert incoming actuation command payload to ActuatorData: ")

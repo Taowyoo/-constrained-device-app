@@ -30,7 +30,7 @@ class LedDisplayEmulatorTask(BaseActuatorSimTask):
         Init emulated or not SenseHAT instance according to config.
         """
         super(LedDisplayEmulatorTask, self).__init__(actuatorType=ActuatorData.HUMIDIFIER_ACTUATOR_TYPE,
-                                                     simpleName="LED_Display")
+                                                     simpleName=ConfigConst.LED_ACTUATOR_NAME)
         self.enableEmulation = True
         configUtil = ConfigUtil()
         enableSenseHAT = configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_SENSE_HAT_KEY)
@@ -90,6 +90,7 @@ class LedDisplayEmulatorTask(BaseActuatorSimTask):
         ret = self._handleActuation(cmd, data.getValue(), data.getStateData())
         self.latestActuatorData.updateData(data)
         self.latestActuatorData.setStatusCode(int(ret))
+        self.latestActuatorData.setName(self.simpleName)
         self.latestActuatorData.setAsResponse()
         return ret >= 0
         pass

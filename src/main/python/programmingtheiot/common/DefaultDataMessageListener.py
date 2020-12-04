@@ -30,4 +30,4 @@ class DefaultDataMessageListener(IDataMessageListener):
 		@param msg The message received. It is expected to be in JSON format.
 		@return bool True on success, False otherwise.
 		"""
-		print('Topic: %s, Message: %s', topicEnum.name, msg)
+		print('Topic: %s, Message: %s', topicEnum.value, msg)

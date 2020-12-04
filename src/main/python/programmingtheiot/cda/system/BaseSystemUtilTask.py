@@ -8,6 +8,8 @@
 #
 
 import logging
+
+from programmingtheiot.common import ConfigConst
 from programmingtheiot.data.SensorData import SensorData
 
 class BaseSystemUtilTask():
@@ -15,15 +17,14 @@ class BaseSystemUtilTask():
 	Shell representation of class for student implementation.
 	
 	"""
-	SIMPLE_NAME = 'BaseSystemUtil'
-	
+
 	def __init__(self):
 		"""
 		Initialization of class: BaseSystemUtilTask.
 		Set latestSensorData default value to None
 		"""
 		self.latestSensorData = None
-		self.simpleName = self.SIMPLE_NAME
+		self.simpleName = ConfigConst.NOT_SET
 		pass
 	
 	def generateTelemetry(self) -> SensorData:

@@ -2,8 +2,10 @@
 **/*.pyc
 **/cert
 **/cred
+# python virtual env
 **/venv
 /.wsl/
+.env/
 
 # vscode stuff
 .vscode/**
@@ -74,5 +76,4 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # idea end
-
 

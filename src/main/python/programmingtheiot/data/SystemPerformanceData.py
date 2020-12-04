@@ -6,7 +6,7 @@
 # implementation for the Programming the Internet of Things exercises,
 # and designed to be modified by the student as needed.
 #
-
+from programmingtheiot.common import ConfigConst
 from programmingtheiot.data.BaseIotData import BaseIotData
 
 
@@ -20,14 +20,14 @@ class SystemPerformanceData(BaseIotData):
     """
     DEFAULT_VAL = 0.0
 
-    def __init__(self, d=None):
+    def __init__(self, name: str = ConfigConst.SYS_PERF_DATA, d=None):
         """
         Constructor of SystemPerformanceData:
 
         Init variables with default value or given dict
         :param d: dict to help init the object
         """
-        super(SystemPerformanceData, self).__init__(d=d)
+        super(SystemPerformanceData, self).__init__(name=name, d=d)
         if d:
             self.cpuUtil = d.get('cpuUtil', self.DEFAULT_VAL)
             self.diskUtil = d.get('diskUtil', self.DEFAULT_VAL)

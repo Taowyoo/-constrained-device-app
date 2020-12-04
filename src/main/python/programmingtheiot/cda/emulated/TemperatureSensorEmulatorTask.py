@@ -49,9 +49,8 @@ class TemperatureSensorEmulatorTask(BaseSensorSimTask):
         The temperature is measured in degrees celsius.(in °C)
         :return: Generated SensorData
         """
-        data = SensorData(sensorType=self._sensorType)
+        data = SensorData(name=ConfigConst.TEMP_SENSOR_NAME, sensorType=self._sensorType)
         data.setValue(self.sh.environ.temperature)
-        data.setName("EmulatedTemperature")
         self._latestSensorData = data
         return self._latestSensorData
         pass
