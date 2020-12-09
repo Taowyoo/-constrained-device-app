@@ -14,7 +14,7 @@ certFile       = ./cert/PiotMqttLocalCertFile.pem
 host           = localhost
 port           = 1883
 securePort     = 1884
-defaultQoS     = 0
+defaultQoS     = 1
 keepAlive      = 60
 enableCrypt    = False
 
@@ -33,13 +33,14 @@ enableCrypt    = False
 # CDA specific configuration information
 #
 [ConstrainedDevice]
-enableEmulator  = True
-enableSenseHAT  = False
+enableEmulator  = False
+enableSenseHAT  = True
+enableSenseHATI2C = False
 enableLogging   = True
 enableRedis     = False
 enableMqttClient= True
 enableCoAPClient= False
-pollCycleSecs   = 10
+pollCycleSecs   = 30
 testGdaDataPath = /tmp/gda-data
 testCdaDataPath = /tmp/cda-data
 

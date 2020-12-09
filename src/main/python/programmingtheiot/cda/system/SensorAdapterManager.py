@@ -54,14 +54,15 @@ class SensorAdapterManager(object):
 
         configUtil = ConfigUtil()
         self.enableSenseHAT = enableSenseHAT
+        self.enableSenseHATI2C = configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,ConfigConst.ENABLE_SENSE_HAT_I2C_KEY,False)
 
-        if self.enableSenseHAT is True:
+        if self.enableSenseHATI2C is True:
             logging.info("SensorAdapterManager is using SenseHAT.")
             self.humiditySensorI2cTask = HumidityI2cSensorAdapterTask()
             self.pressureSensorI2cTask = PressureI2cSensorAdapterTask()
             self.temperatureSensorI2cTask = TemperatureI2cSensorAdapterTask()
             pass
-        elif self.useEmulator is True:
+        elif self.useEmulator is True or self.enableSenseHAT:
             logging.info("SensorAdapterManager is using emulator.")
 
             humidityModule = __import__('programmingtheiot.cda.emulated.HumiditySensorEmulatorTask',

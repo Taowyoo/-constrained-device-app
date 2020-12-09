@@ -21,9 +21,10 @@ class ActuatorAdapterManager(object):
 
     """
 
-    def __init__(self, useEmulator: bool = False):
+    def __init__(self,  useEmulator: bool = False, enableSenseHAT: bool = False,):
         logging.info("ActuatorAdapterManager is initializing...")
         self.useEmulator = useEmulator
+        self.enableSenseHAT = enableSenseHAT
         self.dataMsgListener: IDataMessageListener = None
         if self.useEmulator is True:
             logging.info("ActuatorAdapterManager is using emulator.")
@@ -48,7 +49,12 @@ class ActuatorAdapterManager(object):
             self.humidifierActuator = HumidifierActuatorSimTask()
             # create simulated HVAC actuator
             self.hvacActuator = HvacActuatorSimTask()
-
+        if enableSenseHAT:
+            # create emulated LED Display
+            ledModule = __import__('programmingtheiot.cda.emulated.LedDisplayEmulatorTask',
+                                    fromlist=['LedDisplayEmulatorTask'])
+            ledClass = getattr(ledModule, 'LedDisplayEmulatorTask')
+            self.ledEmulator = ledClass()
         pass
 
     def sendActuatorCommand(self, data: ActuatorData) -> bool:
@@ -79,6 +85,9 @@ class ActuatorAdapterManager(object):
                 pass
             else:
                 logging.warning("Got ActuatorData for Actuator that has not been simulated.")
+        if self.enableSenseHAT:
+            if data.getActuatorType() is ActuatorData.LED_DISPLAY_ACTUATOR_TYPE:
+                self.ledEmulator.updateActuator(data)
         return True
         pass
 
