@@ -36,7 +36,7 @@ class DeviceDataManagerNoCommsTest(unittest.TestCase):
 	
 	@classmethod
 	def setUpClass(self):
-		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
+		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.INFO)
 		logging.info("Testing DeviceDataManager class...")
 		
 	def setUp(self):
@@ -49,7 +49,7 @@ class DeviceDataManagerNoCommsTest(unittest.TestCase):
 		ddMgr = DeviceDataManager(enableMqtt = False, enableCoap = False)
 		ddMgr.startManager()
 		
-		sleep(30)
+		sleep(35)
 		
 		ddMgr.stopManager()
 
