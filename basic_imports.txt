@@ -16,6 +16,10 @@ CoAPthon3
 
 # Imports for Raspberry Pi
 smbus
+RPI.GPIO
+
+# Imports for CCS811 Air Quality Sensor
+adafruit-circuitpython-ccs811
 
 # Imports for Redis
 redis
