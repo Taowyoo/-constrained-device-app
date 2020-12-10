@@ -11,12 +11,14 @@
 # 
 
 import logging
+from programmingtheiot.common import ConfigConst
+
+from programmingtheiot.common.ConfigUtil import ConfigUtil
+logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s:%(message)s', level=logging.INFO)
 
 from time import sleep
 from programmingtheiot.cda.app.DeviceDataManager import DeviceDataManager
 from programmingtheiot.cda.system.SystemPerformanceManager import SystemPerformanceManager
-
-logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s:%(message)s', level=logging.INFO)
 
 
 class ConstrainedDeviceApp():
@@ -67,11 +69,21 @@ def main():
 	
 	Current implementation runs for 65 seconds then exits.
 	"""
+	run_time = ConfigUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE,ConfigConst.TEST_CDA_RUN_TIME_KEY,-1)
 	cda = ConstrainedDeviceApp()
 	cda.startApp()
 	
-	sleep(200)
-		
+	import asyncio 
+
+	if run_time < 0:
+		loop = asyncio.get_event_loop()
+		try:
+			loop.run_forever()
+		finally:
+			loop.close()
+	else:
+		sleep(run_time)
+	
 	cda.stopApp(0)
 
 if __name__ == '__main__':
