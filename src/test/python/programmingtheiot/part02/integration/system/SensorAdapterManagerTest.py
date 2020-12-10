@@ -33,8 +33,10 @@ class SensorAdapterManagerTest(unittest.TestCase):
 		self.configUtil = ConfigUtil()
 		self.enableEmulator = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
 														 ConfigConst.ENABLE_EMULATOR_KEY)
+		self.enableSenseHAT = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
+														 ConfigConst.ENABLE_SENSE_HAT_KEY)
 		self.defaultMsgListener = DefaultDataMessageListener()
-		self.sensorAdapterMgr = SensorAdapterManager(useEmulator=self.enableEmulator)
+		self.sensorAdapterMgr = SensorAdapterManager(useEmulator=self.enableEmulator,enableSenseHAT=self.enableSenseHAT,pollRate=5)
 		self.sensorAdapterMgr.setDataMessageListener(self.defaultMsgListener)
 		
 	def setUp(self):
