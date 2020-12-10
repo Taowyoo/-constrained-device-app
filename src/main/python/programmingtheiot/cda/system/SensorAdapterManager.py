@@ -26,6 +26,7 @@ from programmingtheiot.cda.sim.PressureSensorSimTask import PressureSensorSimTas
 from programmingtheiot.cda.embedded.HumidityI2cSensorAdapterTask import HumidityI2cSensorAdapterTask
 from programmingtheiot.cda.embedded.PressureI2cSensorAdapterTask import PressureI2cSensorAdapterTask
 from programmingtheiot.cda.embedded.TemperatureI2cSensorAdapterTask import TemperatureI2cSensorAdapterTask
+from programmingtheiot.cda.embedded.CO2SensorAdapterTask import CO2SensorAdapterTask
 
 class SensorAdapterManager(object):
     """
@@ -33,7 +34,7 @@ class SensorAdapterManager(object):
     According to config, manager also manage sim data set generation
     """
 
-    def __init__(self, useEmulator: bool = False, enableSenseHAT: bool = False, pollRate: int = 5, allowConfigOverride: bool = True):
+    def __init__(self, useEmulator: bool = False, enableSenseHAT: bool = False, pollRate: int = 30, allowConfigOverride: bool = True):
         """
         Init the SensorAdapterManager, if using simulator, setup data sets and sim tasks for simulation
 
@@ -55,16 +56,20 @@ class SensorAdapterManager(object):
         configUtil = ConfigUtil()
         self.enableSenseHAT = enableSenseHAT
         self.enableSenseHATI2C = configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,ConfigConst.ENABLE_SENSE_HAT_I2C_KEY,False)
-
+        self.enableCO2Sensor = configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,ConfigConst.ENABLE_CO2_SENSOR_KEY,False)
+        if self.enableCO2Sensor is True:
+            self.co2SensorTask = CO2SensorAdapterTask()
         if self.enableSenseHATI2C is True:
-            logging.info("SensorAdapterManager is using SenseHAT.")
+            logging.info("SensorAdapterManager is using I2C to communiate with SenseHAT.")
             self.humiditySensorI2cTask = HumidityI2cSensorAdapterTask()
             self.pressureSensorI2cTask = PressureI2cSensorAdapterTask()
             self.temperatureSensorI2cTask = TemperatureI2cSensorAdapterTask()
             pass
-        elif self.useEmulator is True or self.enableSenseHAT:
-            logging.info("SensorAdapterManager is using emulator.")
-
+        elif self.useEmulator is True or self.enableSenseHAT is True:
+            if self.enableSenseHAT is True:
+                logging.info("SensorAdapterManager is using pisense to communiate with SenseHAT.")
+            else:
+                logging.info("SensorAdapterManager is using SenseHAT emulator.")
             humidityModule = __import__('programmingtheiot.cda.emulated.HumiditySensorEmulatorTask',
                                         fromlist=['HumiditySensorEmulatorTask'])
             huClass = getattr(humidityModule, 'HumiditySensorEmulatorTask')
@@ -118,41 +123,53 @@ class SensorAdapterManager(object):
         If it is using simulator, got sensor data from sim tasks
         """
         logging.info("SensorAdapterManager is trying to get Telemetries...")
-        if self.enableSenseHAT is True:
-            humidityTelemetry = self.humiditySensorI2cTask.generateTelemetry()
-            logging.info("SenserHAT I2c humidity data: %s" % humidityTelemetry.__str__())
+        # get telemetries from SenseHAT
+        if self.enableSenseHAT:
+            if self.enableSenseHATI2C:
+                humidityTelemetry = self.humiditySensorI2cTask.generateTelemetry()
+                logging.info("SenserHAT I2c humidity data: %s" % humidityTelemetry.__str__())
 
-            pressureTelemetry = self.pressureSensorI2cTask.generateTelemetry()
-            logging.info("SenserHAT I2c pressure data: %s" % pressureTelemetry.__str__())
+                pressureTelemetry = self.pressureSensorI2cTask.generateTelemetry()
+                logging.info("SenserHAT I2c pressure data: %s" % pressureTelemetry.__str__())
 
-            tempTelemetry = self.temperatureSensorI2cTask.generateTelemetry()
-            logging.info("SenserHAT I2c temperature data: %s" % tempTelemetry.__str__())
+                tempTelemetry = self.temperatureSensorI2cTask.generateTelemetry()
+                logging.info("SenserHAT I2c temperature data: %s" % tempTelemetry.__str__())
+            else:
+                humidityTelemetry = self.humidityEmulator.generateTelemetry()
+                logging.info("SenserHAT humidity data: %s" % humidityTelemetry.__str__())
 
-            pass
+                pressureTelemetry = self.pressureEmulator.generateTelemetry()
+                logging.info("SenserHAT pressure data: %s" % pressureTelemetry.__str__())
+
+                tempTelemetry = self.tempEmulator.generateTelemetry()
+                logging.info("SenserHAT temperature data: %s" % tempTelemetry.__str__())
         elif self.useEmulator is False:
             humidityTelemetry = self.humiditySensorSimTask.generateTelemetry()
             logging.info("Simulated humidity data: %s" % humidityTelemetry.__str__())
-            self.dataMsgListener.handleSensorMessage(humidityTelemetry)
 
             pressureTelemetry = self.pressureSensorSimTask.generateTelemetry()
             logging.info("Simulated pressure data: %s" % pressureTelemetry.__str__())
-            self.dataMsgListener.handleSensorMessage(pressureTelemetry)
 
             tempTelemetry = self.temperatureSensorSimTask.generateTelemetry()
             logging.info("Simulated temperature data: %s" % tempTelemetry.__str__())
-            self.dataMsgListener.handleSensorMessage(tempTelemetry)
         else:
             humidityTelemetry = self.humidityEmulator.generateTelemetry()
             logging.info("Emulated humidity data: %s" % humidityTelemetry.__str__())
-            self.dataMsgListener.handleSensorMessage(humidityTelemetry)
 
             pressureTelemetry = self.pressureEmulator.generateTelemetry()
             logging.info("Emulated pressure data: %s" % pressureTelemetry.__str__())
-            self.dataMsgListener.handleSensorMessage(pressureTelemetry)
 
             tempTelemetry = self.tempEmulator.generateTelemetry()
             logging.info("Emulated temperature data: %s" % tempTelemetry.__str__())
-            self.dataMsgListener.handleSensorMessage(tempTelemetry)
+        # upload sensehat telemtries
+        self.dataMsgListener.handleSensorMessage(tempTelemetry)
+        self.dataMsgListener.handleSensorMessage(pressureTelemetry)
+        self.dataMsgListener.handleSensorMessage(humidityTelemetry)
+        # CO2 sensor
+        if self.enableCO2Sensor:
+            co2Telemetry = self.co2SensorTask.generateTelemetry()
+            logging.info("CO2 sensor data: %s" % co2Telemetry.__str__())
+            self.dataMsgListener.handleSensorMessage(co2Telemetry)
         pass
 
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:

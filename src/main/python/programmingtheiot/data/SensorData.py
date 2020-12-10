@@ -25,6 +25,7 @@ class SensorData(BaseIotData):
     PRESSURE_SENSOR_TYPE = 2
     TEMP_SENSOR_TYPE = 3
     SYS_UTIL_TYPE = 4
+    CO2_SENSOR_TYPE = 4
 
     def __init__(self, sensorType=DEFAULT_SENSOR_TYPE, name: str = ConfigConst.NOT_SET, d=None):
         """
