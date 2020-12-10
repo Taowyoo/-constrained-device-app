@@ -20,7 +20,7 @@ class IPubSubClient():
 	Interface definition for pub/sub clients.
 	
 	"""
-	DEFAULT_QOS = 0
+	DEFAULT_QOS = 1
 	
 	def connectClient(self) -> bool:
 		"""

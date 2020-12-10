@@ -10,7 +10,7 @@
 import logging
 import math
 import numpy as calcLib
-import matplotlib.pyplot as plotLib
+
 
 class SensorDataGenerator(object):
 	"""
@@ -290,6 +290,7 @@ class SensorDataGenerator(object):
 		@param chartXLabel The string to use for the X Label.
 		@param chartYLabel The string to use for the Y Label.
 		"""
+		import matplotlib.pyplot as plotLib
 		self.plotter = plotLib
 		
 		self.plotter.plot(dataSet.getTimeEntries(), dataSet.getDataEntries())
@@ -438,7 +439,6 @@ def main():
 	Main function definition for running as an application.
 	
 	"""
-	logging.basicConfig(format='%(asctime)s:%(levelname)s:%(message)s', level = logging.INFO)
 	
 	sensorDataGeneratorEpoch = SensorDataGenerator(useCurrentTime = False, alignGeneratorToDay = True)
 	
