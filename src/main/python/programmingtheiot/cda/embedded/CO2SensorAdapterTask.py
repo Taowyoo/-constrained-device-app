@@ -26,7 +26,7 @@ class CO2SensorAdapterTask(BaseSensorSimTask):
         super(CO2SensorAdapterTask, self).__init__(sensorType=SensorData.CO2_SENSOR_TYPE)
         self._sensorName = ConfigConst.CO2_SENSOR_NAME
         self.i2c = busio.I2C(board.SCL, board.SDA)
-        time.sleep(0.5)  # wait i2c instance fully init
+        time.sleep(1)  # wait i2c instance fully init
         self.ccs811 = adafruit_ccs811.CCS811(self.i2c)
         pass
 

@@ -60,8 +60,7 @@ class SystemPerformanceManager(object):
         sysPerfData.setCpuUtilization(cpuVal)
         sysPerfData.setMemoryUtilization(memVal)
         sysPerfData.setDiskUtilization(diskVal)
-        logging.info('CPU usage %s%, memory usage %s %, disk usage %s %',
-                     str(cpuVal), str(memVal), str(diskVal))
+        logging.info(f'CPU usage {cpuVal}%, memory usage {memVal}%, disk usage {diskVal}%')
         self.dataMsgListener.handleSystemPerformanceMessage(sysPerfData)
         pass
 
