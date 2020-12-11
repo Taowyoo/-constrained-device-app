@@ -10,13 +10,14 @@
 # Programming the Internet of Things project.
 # 
 
-import logging
-from programmingtheiot.common import ConfigConst
-
-from programmingtheiot.common.ConfigUtil import ConfigUtil
-logging.basicConfig(format='%(asctime)s:%(name)s:%(levelname)s:%(message)s', level=logging.INFO)
+# Import logging and setup it
+import logging,logging.config
+logging.config.fileConfig("logging.conf")
 
 from time import sleep
+
+from programmingtheiot.common import ConfigConst
+from programmingtheiot.common.ConfigUtil import ConfigUtil
 from programmingtheiot.cda.app.DeviceDataManager import DeviceDataManager
 from programmingtheiot.cda.system.SystemPerformanceManager import SystemPerformanceManager
 
@@ -62,14 +63,13 @@ class ConstrainedDeviceApp():
 		"""
 		logging.info("Parsing command line args...")
 
-
 def main():
 	"""
 	Main function definition for running client as application.
 	
 	Current implementation runs for 65 seconds then exits.
 	"""
-	run_time = ConfigUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE,ConfigConst.TEST_CDA_RUN_TIME_KEY,-1)
+	run_time = ConfigUtil().getInteger(ConfigConst.CONSTRAINED_DEVICE,ConfigConst.TEST_CDA_RUN_TIME_KEY,-1)
 	cda = ConstrainedDeviceApp()
 	cda.startApp()
 	
@@ -83,7 +83,6 @@ def main():
 			loop.close()
 	else:
 		sleep(run_time)
-	
 	cda.stopApp(0)
 
 if __name__ == '__main__':

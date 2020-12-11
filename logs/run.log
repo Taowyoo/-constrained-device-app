@@ -1,0 +1,106 @@
+2020-12-10 19:19:06,375 - root - INFO - ConfigUtil : 192 - Loading config: ./config/PiotConfig.props
+2020-12-10 19:19:06,378 - root - DEBUG - ConfigUtil : 203 - Config: ['Mqtt.GatewayService', 'Coap.GatewayService', 'ConstrainedDevice', 'Data.GatewayService']
+2020-12-10 19:19:06,379 - root - INFO - ConfigUtil : 46 - Created instance of ConfigUtil: <programmingtheiot.common.ConfigUtil.ConfigUtil object at 0xb61409b0>
+2020-12-10 19:19:06,987 - root - INFO - ConstrainedDeviceApp : 37 - Initializing CDA...
+2020-12-10 19:19:06,987 - root - INFO - DeviceDataManager : 52 - Initializing DeviceDataManager...
+2020-12-10 19:19:06,988 - root - INFO - SystemPerformanceManager : 34 - Initializing SystemPerformanceManager...
+2020-12-10 19:19:07,263 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-10 19:19:07,263 - root - INFO - SensorAdapterManager : 45 - SensorAdapterManager is initializing...
+2020-12-10 19:19:07,264 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-10 19:21:25,006 - root - INFO - ConfigUtil : 192 - Loading config: ./config/PiotConfig.props
+2020-12-10 19:21:25,009 - root - DEBUG - ConfigUtil : 203 - Config: ['Mqtt.GatewayService', 'Coap.GatewayService', 'ConstrainedDevice', 'Data.GatewayService']
+2020-12-10 19:21:25,010 - root - INFO - ConfigUtil : 46 - Created instance of ConfigUtil: <programmingtheiot.common.ConfigUtil.ConfigUtil object at 0xb61598d0>
+2020-12-10 19:21:25,632 - root - INFO - ConstrainedDeviceApp : 37 - Initializing CDA...
+2020-12-10 19:21:25,633 - root - INFO - DeviceDataManager : 52 - Initializing DeviceDataManager...
+2020-12-10 19:21:25,634 - root - INFO - SystemPerformanceManager : 34 - Initializing SystemPerformanceManager...
+2020-12-10 19:21:25,877 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-10 19:21:25,878 - root - INFO - SensorAdapterManager : 45 - SensorAdapterManager is initializing...
+2020-12-10 19:21:25,879 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-10 19:21:26,999 - root - INFO - SensorAdapterManager : 70 - SensorAdapterManager is using pisense to communiate with SenseHAT.
+2020-12-10 19:21:27,201 - root - INFO - SensorAdapterManager : 184 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb64dc6f0> as DataMessageListener.
+2020-12-10 19:21:27,202 - root - INFO - ActuatorAdapterManager : 25 - ActuatorAdapterManager is initializing...
+2020-12-10 19:21:27,202 - root - INFO - ActuatorAdapterManager : 31 - ActuatorAdapterManager is using SenseHAT.
+2020-12-10 19:21:27,206 - root - INFO - ActuatorAdapterManager : 97 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb64dc6f0> as DataMessageListener.
+2020-12-10 19:21:27,206 - root - INFO - MqttClientConnector : 54 - 	MQTT Broker Host: 10.1.10.209
+2020-12-10 19:21:27,207 - root - INFO - MqttClientConnector : 55 - 	MQTT Broker Port: 1883
+2020-12-10 19:21:27,207 - root - INFO - MqttClientConnector : 56 - 	MQTT Keep Alive:  30
+2020-12-10 19:21:27,207 - root - INFO - MqttClientConnector : 160 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb64dc6f0> as DataMessageListener.
+2020-12-10 19:21:27,208 - root - INFO - ConstrainedDeviceApp : 45 - Starting CDA...
+2020-12-10 19:21:27,208 - root - INFO - DeviceDataManager : 186 - DeviceDataManager starting...
+2020-12-10 19:21:27,209 - root - INFO - SystemPerformanceManager : 79 - Starting SystemPerformanceManager...
+2020-12-10 19:21:27,210 - apscheduler.scheduler - INFO - base : 881 - Added job "SystemPerformanceManager.handleTelemetry" to job store "default"
+2020-12-10 19:21:27,211 - apscheduler.scheduler - INFO - base : 166 - Scheduler started
+2020-12-10 19:21:27,212 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-10 19:21:27,212 - root - INFO - SystemPerformanceManager : 81 - SystemPerformanceManager started.
+2020-12-10 19:21:27,213 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-10 19:21:55.877545-08:00 (in 28.664626 seconds)
+2020-12-10 19:21:27,214 - apscheduler.scheduler - INFO - base : 881 - Added job "SensorAdapterManager.handleTelemetry" to job store "default"
+2020-12-10 19:21:27,214 - apscheduler.scheduler - INFO - base : 166 - Scheduler started
+2020-12-10 19:21:27,215 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-10 19:21:27,216 - root - INFO - SensorAdapterManager : 195 - Started SensorAdapterManager.
+2020-12-10 19:21:27,216 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-10 19:21:55.879442-08:00 (in 28.662753 seconds)
+2020-12-10 19:21:27,217 - root - INFO - MqttClientConnector : 66 - Creating MQTT client...
+2020-12-10 19:21:27,218 - root - INFO - MqttClientConnector : 73 - Succeed to create MQTT client!
+2020-12-10 19:21:27,219 - root - INFO - MqttClientConnector : 75 - Connecting MQTT client to broker at 10.1.10.209:1883...
+2020-12-10 19:21:27,228 - root - INFO - MqttClientConnector : 147 - MQTT client subscribe to topic 'PIOT/ConstrainedDevice/ActuatorCmd' with qos 0.
+2020-12-10 19:21:27,229 - root - INFO - DeviceDataManager : 196 - DeviceDataManager stated.
+2020-12-10 19:21:27,229 - root - INFO - ConstrainedDeviceApp : 47 - CDA started.
+2020-12-10 19:21:27,231 - root - INFO - MqttClientConnector : 96 - [Callback] Connected to MQTT broker. Result code: 0
+2020-12-10 19:21:27,233 - root - INFO - MqttClientConnector : 128 - [Callback] MQTT client succeed to subscribe, id: 1, QoS: (0,)
+2020-12-10 19:21:27,235 - root - INFO - MqttClientConnector : 128 - [Callback] MQTT client succeed to subscribe, id: 2, QoS: (1,)
+2020-12-10 19:21:37,235 - root - INFO - ConstrainedDeviceApp : 54 - CDA stopping...
+2020-12-10 19:21:37,235 - root - INFO - DeviceDataManager : 203 - DeviceDataManager stopping.
+2020-12-10 19:21:37,236 - root - INFO - SystemPerformanceManager : 89 - SystemPerformanceManager stopping...
+2020-12-10 19:21:37,236 - apscheduler.scheduler - INFO - base : 198 - Scheduler has been shut down
+2020-12-10 19:21:37,237 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-10 19:21:37,238 - apscheduler.scheduler - DEBUG - base : 1016 - No jobs; waiting until a job is added
+2020-12-10 19:21:37,238 - root - INFO - SystemPerformanceManager : 91 - SystemPerformanceManager stopped.
+2020-12-10 19:21:37,238 - apscheduler.scheduler - INFO - base : 198 - Scheduler has been shut down
+2020-12-10 19:21:37,239 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-10 19:21:37,239 - apscheduler.scheduler - DEBUG - base : 1016 - No jobs; waiting until a job is added
+2020-12-10 19:21:37,240 - root - INFO - SensorAdapterManager : 204 - Stopped SensorAdapterManager.
+2020-12-10 19:21:37,241 - root - INFO - MqttClientConnector : 152 - MQTT client MQTT client unsubscribe to topic 'PIOT/ConstrainedDevice/ActuatorCmd'.
+2020-12-10 19:21:37,241 - root - INFO - MqttClientConnector : 87 - MQTT client is disconnecting from broker...
+2020-12-10 19:21:37,242 - root - INFO - MqttClientConnector : 107 - [Callback] MQTT client succeed to disconnect from broker.
+2020-12-10 19:21:37,245 - root - INFO - DeviceDataManager : 214 - DeviceDataManager stopped.
+2020-12-10 19:21:37,245 - root - INFO - ConstrainedDeviceApp : 56 - CDA stopped with exit code 0.
+2020-12-10 19:47:13,571 - root - INFO - ConfigUtil : 192 - Loading config: ./config/PiotConfig.props
+2020-12-10 19:47:13,574 - root - DEBUG - ConfigUtil : 203 - Config: ['Mqtt.GatewayService', 'Coap.GatewayService', 'ConstrainedDevice', 'Data.GatewayService']
+2020-12-10 19:47:13,575 - root - INFO - ConfigUtil : 46 - Created instance of ConfigUtil: <programmingtheiot.common.ConfigUtil.ConfigUtil object at 0xb61298d0>
+2020-12-10 19:47:14,185 - root - INFO - ConstrainedDeviceApp : 37 - Initializing CDA...
+2020-12-10 19:47:14,186 - root - INFO - DeviceDataManager : 52 - Initializing DeviceDataManager...
+2020-12-10 19:47:14,187 - root - INFO - SystemPerformanceManager : 34 - Initializing SystemPerformanceManager...
+2020-12-10 19:47:14,423 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-10 19:47:14,424 - root - INFO - SensorAdapterManager : 45 - SensorAdapterManager is initializing...
+2020-12-10 19:47:14,425 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-10 19:47:15,541 - root - INFO - SensorAdapterManager : 70 - SensorAdapterManager is using pisense to communiate with SenseHAT.
+2020-12-10 19:47:15,777 - root - INFO - SensorAdapterManager : 184 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb651c8b0> as DataMessageListener.
+2020-12-10 19:47:15,778 - root - INFO - ActuatorAdapterManager : 25 - ActuatorAdapterManager is initializing...
+2020-12-10 19:47:15,778 - root - INFO - ActuatorAdapterManager : 31 - ActuatorAdapterManager is using SenseHAT.
+2020-12-10 19:47:15,782 - root - INFO - ActuatorAdapterManager : 97 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb651c8b0> as DataMessageListener.
+2020-12-10 19:47:15,783 - root - INFO - MqttClientConnector : 54 - 	MQTT Broker Host: 10.1.10.209
+2020-12-10 19:47:15,783 - root - INFO - MqttClientConnector : 55 - 	MQTT Broker Port: 1883
+2020-12-10 19:47:15,783 - root - INFO - MqttClientConnector : 56 - 	MQTT Keep Alive:  30
+2020-12-10 19:47:15,784 - root - INFO - MqttClientConnector : 160 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb651c8b0> as DataMessageListener.
+2020-12-10 19:47:15,787 - root - INFO - ConstrainedDeviceApp : 45 - Starting CDA...
+2020-12-10 19:47:15,788 - root - INFO - DeviceDataManager : 186 - DeviceDataManager starting...
+2020-12-10 19:47:15,788 - root - INFO - SystemPerformanceManager : 79 - Starting SystemPerformanceManager...
+2020-12-10 19:47:15,790 - apscheduler.scheduler - INFO - base : 881 - Added job "SystemPerformanceManager.handleTelemetry" to job store "default"
+2020-12-10 19:47:15,790 - apscheduler.scheduler - INFO - base : 166 - Scheduler started
+2020-12-10 19:47:15,791 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-10 19:47:15,792 - root - INFO - SystemPerformanceManager : 81 - SystemPerformanceManager started.
+2020-12-10 19:47:15,793 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-10 19:47:44.423249-08:00 (in 28.630314 seconds)
+2020-12-10 19:47:15,794 - apscheduler.scheduler - INFO - base : 881 - Added job "SensorAdapterManager.handleTelemetry" to job store "default"
+2020-12-10 19:47:15,795 - apscheduler.scheduler - INFO - base : 166 - Scheduler started
+2020-12-10 19:47:15,796 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-10 19:47:15,796 - root - INFO - SensorAdapterManager : 195 - Started SensorAdapterManager.
+2020-12-10 19:47:15,797 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-10 19:47:44.424856-08:00 (in 28.627756 seconds)
+2020-12-10 19:47:15,798 - root - INFO - MqttClientConnector : 66 - Creating MQTT client...
+2020-12-10 19:47:15,799 - root - INFO - MqttClientConnector : 73 - Succeed to create MQTT client!
+2020-12-10 19:47:15,800 - root - INFO - MqttClientConnector : 75 - Connecting MQTT client to broker at 10.1.10.209:1883...
+2020-12-10 19:47:15,813 - root - INFO - MqttClientConnector : 147 - MQTT client subscribe to topic 'PIOT/ConstrainedDevice/ActuatorCmd' with qos 0.
+2020-12-10 19:47:15,814 - root - INFO - DeviceDataManager : 196 - DeviceDataManager stated.
+2020-12-10 19:47:15,814 - root - INFO - ConstrainedDeviceApp : 47 - CDA started.
+2020-12-10 19:47:15,815 - asyncio - DEBUG - selector_events : 53 - Using selector: EpollSelector
+2020-12-10 19:47:15,820 - root - INFO - MqttClientConnector : 96 - [Callback] Connected to MQTT broker. Result code: 0
+2020-12-10 19:47:15,826 - root - INFO - MqttClientConnector : 128 - [Callback] MQTT client succeed to subscribe, id: 1, QoS: (0,)
+2020-12-10 19:47:15,835 - root - INFO - MqttClientConnector : 128 - [Callback] MQTT client succeed to subscribe, id: 2, QoS: (1,)
