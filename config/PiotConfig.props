@@ -46,6 +46,8 @@ testGdaDataPath = /tmp/gda-data
 testCdaDataPath = /tmp/cda-data
 testCdaRunTime  = -1
 
+enableLedJoyStickSwitch = True
+
 # configurable limits for sensor simulation
 humiditySimFloor   = 30
 humiditySimCeiling = 60
