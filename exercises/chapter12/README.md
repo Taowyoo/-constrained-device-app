@@ -2,48 +2,44 @@
 
 ## Lab Module 12 - Semester Project - CDA Components
 
-Be sure to implement all the PIOT-CDA-* issues (requirements) listed at [PIOT-INF-10-001 - Chapter 10](https://github.com/orgs/programming-the-iot/projects/1#column-10488510).
-
 ### Description
 
-NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
+**What does your implementation do?**
 
-What does your implementation do? 
+1. Update config of MQTT client to connect to server in home LAN
+2. Add `CO2SensorAdapterTask` implementation
+3. Add config to control the run time of CDA in `ConstrainedDeviceApp`
+4. Add auto logging and logging config file
+5. Update `SensorAdapterManagerTest` to test SenseHAT and CO2 sensor better
+6. Update `CoapClientConnectorTest` to test CoAP server better
+7. Add feature of control whether use I2C or `pisense` to communicate withg SenseHAT
+8. Add `SystemDiskUtilTask` 
 
-How does your implementation work?
+**How does your implementation work?**
+
+1. Update the host address for MQTT client in `PiotConfig.props`
+2. Use `adafruit_ccs811` library to use CCS811 CO2 gas sensor, just read eCO2 value. Also, check whether data is abnormal and set the `statusCode`
+3. Use python's logging module and logging config file to automatically logging to console and file. By use `TimedRotatingFileHandler`, program can logging file with timestamp and auto spilt log file by time
+4. Use `shutil` to get current disk usage value on root dir `/`
+5. Add some if-else and config to enable the feature of choosing whether use I2C or `pisense` to read humidity/temperature/pressure data from SenseHAT
+5. Update `CoapClientConnectorTest` to PUT/POST first then GET/DELETE, avoiding there is no data on CoAP Server.
+6. Update `SensorAdapterManagerTest` to test using `pisense`
 
 ### Code Repository and Branch
 
-NOTE: Be sure to include the branch (e.g. https://github.com/programming-the-iot/python-components/tree/alpha001).
-
-URL: 
+URL: https://github.com/NU-CSYE6530-Fall2020/constrained-device-app-Taowyoo/tree/alpha001
 
 ### UML Design Diagram(s)
 
-NOTE: Include one or more UML designs representing your solution. It's expected each
-diagram you provide will look similar to, but not the same as, its counterpart in the
-book [Programming the IoT](https://learning.oreilly.com/library/view/programming-the-internet/9781492081401/).
-
+Latest class diagram of CDA util semester project:
+![Class diagram](../../doc/UML/Lab12.svg)
 
 ### Unit Tests Executed
 
-NOTE: TA's will execute your unit tests. You only need to list each test case below
-(e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
-since you need to ensure you haven't introduced regressions.
-
-- 
-- 
-- 
+- All tests in part01 and part02 
 
 ### Integration Tests Executed
 
-NOTE: TA's will execute most of your integration tests using their own environment, with
-some exceptions (such as your cloud connectivity tests). In such cases, they'll review
-your code to ensure it's correct. As for the tests you execute, you only need to list each
-test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
-
-- 
-- 
-- 
-
-EOF.
+- SensorAdapterManagerTest
+- CoapClientConnectorTest
+- ConstrainedDeviceAppTest

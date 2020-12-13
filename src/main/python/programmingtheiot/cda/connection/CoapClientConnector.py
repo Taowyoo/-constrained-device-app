@@ -42,7 +42,6 @@ class CoapClientConnector(IRequestResponseClient):
                                            ConfigConst.DEFAULT_COAP_PORT)
 
         self.url = "coap://" + self.host + ":" + str(self.port) + "/"
-
         try:
             logging.info("Parsing URL: " + self.url)
 
@@ -120,7 +119,7 @@ class CoapClientConnector(IRequestResponseClient):
             return False
         pass
 
-    def sendPostRequest(self, resource: ResourceNameEnum, payload = None, enableCON = False, timeout: int = IRequestResponseClient.DEFAULT_TIMEOUT) -> bool:
+    def sendPostRequest(self, resource: ResourceNameEnum, payload: str, enableCON = False, timeout: int = IRequestResponseClient.DEFAULT_TIMEOUT) -> bool:
         """
         Send data to CoAP server by requesting a POST
         :param resource: The resource name of where to post
@@ -181,10 +180,17 @@ class CoapClientConnector(IRequestResponseClient):
         pass
 
     def startObserver(self, resource: ResourceNameEnum, ttl: int = IRequestResponseClient.DEFAULT_TTL) -> bool:
-        pass
+        if resource:
+            logging.debug("Starting an Observer on path: " + resource.value)
+            self.coapClient.observe(path=resource.value, callback=self._onGetResponse, timeout=ttl)
+            return True
+        else:
+            logging.warning("Can't Starting an Observer - no path or path list provided.")
+            return False
 
     def stopObserver(self, timeout: int = IRequestResponseClient.DEFAULT_TIMEOUT) -> bool:
-        pass
+            logging.debug("Stopping all Observers...")
+            self.coapClient.cancel_observing(None,False)
 
     def stopClient(self):
         """
@@ -237,9 +243,7 @@ class CoapClientConnector(IRequestResponseClient):
         logging.info('GET response received.')
 
         if response:
-            logging.info('Token: ' + str(response.token))
-            logging.info(str(response.location_path))
-            logging.info(str(response.payload))
+            logging.info("Response: "+response.pretty_print())
 
             #
             # NOTE: This next section is optional if you want to send a callback to the self.dataMsgListener instance
@@ -260,9 +264,7 @@ class CoapClientConnector(IRequestResponseClient):
         logging.info('PUT response received.')
 
         if response:
-            logging.info('Token: ' + str(response.token))
-            logging.info(str(response.location_path))
-            logging.info(str(response.payload))
+            logging.info("Response: "+response.pretty_print())
 
     def _onPostResponse(self, response):
         """
@@ -273,9 +275,7 @@ class CoapClientConnector(IRequestResponseClient):
         logging.info('POST response received.')
 
         if response:
-            logging.info('Token: ' + str(response.token))
-            logging.info(str(response.location_path))
-            logging.info(str(response.payload))
+            logging.info("Response: "+response.pretty_print())
 
     def _onDeleteResponse(self, response):
         """
@@ -286,6 +286,4 @@ class CoapClientConnector(IRequestResponseClient):
         logging.info('DELETE response received.')
 
         if response:
-            logging.info('Token: ' + str(response.token))
-            logging.info(str(response.location_path))
-            logging.info(str(response.payload))
+            logging.info("Response: "+response.pretty_print())

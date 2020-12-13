@@ -15,6 +15,7 @@ from programmingtheiot.common.IDataMessageListener import IDataMessageListener
 
 from programmingtheiot.cda.system.SystemCpuUtilTask import SystemCpuUtilTask
 from programmingtheiot.cda.system.SystemMemUtilTask import SystemMemUtilTask
+from programmingtheiot.cda.system.SystemDiskUtilTask import SystemDiskUtilTask
 from programmingtheiot.data.SystemPerformanceData import SystemPerformanceData
 
 
@@ -34,9 +35,11 @@ class SystemPerformanceManager(object):
         # Create tasks
         self.cpuUtilTask = SystemCpuUtilTask()
         self.memUtilTask = SystemMemUtilTask()
+        self.diskUtilTask = SystemDiskUtilTask()
         # Initialize sensor data values
         self.cpuUtilPct: float = None
         self.memUtilPct: float = None
+        self.diskUtilPct: float = None
         # Initialize dataMsgListener
         self.dataMsgListener: IDataMessageListener = None
         # Initialize BackgroundScheduler
@@ -52,11 +55,12 @@ class SystemPerformanceManager(object):
         """
         cpuVal = self.cpuUtilTask.getTelemetryValue()
         memVal = self.memUtilTask.getTelemetryValue()
+        diskVal = self.diskUtilTask.getTelemetryValue()
         sysPerfData = SystemPerformanceData()
         sysPerfData.setCpuUtilization(cpuVal)
         sysPerfData.setMemoryUtilization(memVal)
-        logging.info('CPU utilization is %s percent, and memory utilization is %s percent.',
-                     str(cpuVal), str(memVal))
+        sysPerfData.setDiskUtilization(diskVal)
+        logging.info(f'CPU usage {cpuVal}%, memory usage {memVal}%, disk usage {diskVal}%')
         self.dataMsgListener.handleSystemPerformanceMessage(sysPerfData)
         pass
 

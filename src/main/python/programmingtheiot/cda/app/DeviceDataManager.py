@@ -53,11 +53,10 @@ class DeviceDataManager(IDataMessageListener):
         # Retrieving configs
         self.configUtil = ConfigUtil()
         self.enableEmulator = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_EMULATOR_KEY)
-        # TODO: Add an option to control whether to use I2C or pisense to communicate with real SenseHAT
         self.enableSenseHAT = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_SENSE_HAT_KEY)
         self.enableHandleTempChangeOnDevice = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,
                                                                          ConfigConst.ENABLE_HANDLE_TEMP_CHANGE_ON_DEVICE_KEY)
-
+        self.enableShowCO2OnDevice = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE,ConfigConst.ENABLE_SHOW_CO2_ON_DEVICE_KEY)
         self.enableMqttClient = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_MQTT_KEY)
         self.enableCoAPClient = self.configUtil.getBoolean(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.ENABLE_COAP_KEY)
         if enableMqtt is not None:
@@ -69,15 +68,15 @@ class DeviceDataManager(IDataMessageListener):
                                                              ConfigConst.TRIGGER_HVAC_TEMP_FLOOR_KEY)
         self.triggerHvacTempCeiling = self.configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE,
                                                                ConfigConst.TRIGGER_HVAC_TEMP_CEILING_KEY)
-        self.sysPerfPollRate = self.configUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.POLL_CYCLES_KEY)
+        self.pollRate = self.configUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.POLL_CYCLES_KEY)
 
         self.qos = self.configUtil.getInteger(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.DEFAULT_QOS_KEY)
         # Init managers
-        self.sysPerfManager = SystemPerformanceManager(self.sysPerfPollRate)
+        self.sysPerfManager = SystemPerformanceManager(self.pollRate)
         self.sysPerfManager.setDataMessageListener(self)
-        self.sensorAdapterManager = SensorAdapterManager(useEmulator=self.enableEmulator, enableSenseHAT=self.enableSenseHAT)
+        self.sensorAdapterManager = SensorAdapterManager(useEmulator=self.enableEmulator, enableSenseHAT=self.enableSenseHAT,pollRate=self.pollRate)
         self.sensorAdapterManager.setDataMessageListener(self)
-        self.actuatorAdapterManager = ActuatorAdapterManager(useEmulator=self.enableEmulator)
+        self.actuatorAdapterManager = ActuatorAdapterManager(useEmulator=self.enableEmulator, enableSenseHAT=self.enableSenseHAT)
         self.actuatorAdapterManager.setDataMessageListener(self)
 
         # Init DataUtil for converting data
@@ -224,7 +223,6 @@ class DeviceDataManager(IDataMessageListener):
         3) Act on msg: Determine what - if any - action is required, and execute.
         """
         logging.debug("Handling analysis on IncomingData...")
-        # TODO: validate msg in more detail
         if msg is None or len(msg) == 0:
             logging.warning("Handling analysis on an invalid IncomingData string!")
             return
@@ -264,7 +262,13 @@ class DeviceDataManager(IDataMessageListener):
                     localActuatorCmd.setCommand(ActuatorData.COMMAND_OFF)
                     self.actuatorAdapterManager.sendActuatorCommand(localActuatorCmd)
                     pass
-
+        if self.enableShowCO2OnDevice is True:
+            if data.getSensorType() is SensorData.CO2_SENSOR_TYPE:
+                localActuatorCmd = ActuatorData(name=ConfigConst.LED_ACTUATOR_NAME,
+                                                actuatorType=ActuatorData.LED_DISPLAY_ACTUATOR_TYPE)
+                localActuatorCmd.setCommand(ActuatorData.COMMAND_ON)
+                localActuatorCmd.setStateData(f"CO2 {data.getValue():.0f} ppm")
+                self.actuatorAdapterManager.sendActuatorCommand(localActuatorCmd)
         pass
 
     def _handleUpstreamTransmission(self, resourceName: ResourceNameEnum, msg: str):

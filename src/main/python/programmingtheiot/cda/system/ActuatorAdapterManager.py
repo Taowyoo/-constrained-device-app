@@ -21,23 +21,27 @@ class ActuatorAdapterManager(object):
 
     """
 
-    def __init__(self, useEmulator: bool = False):
+    def __init__(self,  useEmulator: bool = False, enableSenseHAT: bool = False,):
         logging.info("ActuatorAdapterManager is initializing...")
         self.useEmulator = useEmulator
+        self.enableSenseHAT = enableSenseHAT
         self.dataMsgListener: IDataMessageListener = None
-        if self.useEmulator is True:
-            logging.info("ActuatorAdapterManager is using emulator.")
-            # create emulated humidifier actuator
+        if self.enableSenseHAT or self.useEmulator is True:
+            if self.enableSenseHAT:
+                logging.info("ActuatorAdapterManager is using SenseHAT.")
+            else:
+                logging.info("ActuatorAdapterManager is using emulator.")
+            # create emulated humidifier actuator which just call show texts on LED(Emulated or real)
             humidifierModule = __import__('programmingtheiot.cda.emulated.HumidifierEmulatorTask',
                                           fromlist=['HumidifierEmulatorTask'])
             humidifierClass = getattr(humidifierModule, 'HumidifierEmulatorTask')
             self.humidifierEmulator = humidifierClass()
-            # create emulated HVAC actuator
+            # create emulated HVAC actuator which just call show texts on LED(Emulated or real)
             hvacModule = __import__('programmingtheiot.cda.emulated.HvacEmulatorTask',
                                           fromlist=['HvacEmulatorTask'])
             hvacClass = getattr(hvacModule, 'HvacEmulatorTask')
             self.hvacEmulator = hvacClass()
-            # create emulated LED Display
+            # create emulated or real LED Display
             ledModule = __import__('programmingtheiot.cda.emulated.LedDisplayEmulatorTask',
                                     fromlist=['LedDisplayEmulatorTask'])
             ledClass = getattr(ledModule, 'LedDisplayEmulatorTask')
@@ -48,7 +52,6 @@ class ActuatorAdapterManager(object):
             self.humidifierActuator = HumidifierActuatorSimTask()
             # create simulated HVAC actuator
             self.hvacActuator = HvacActuatorSimTask()
-
         pass
 
     def sendActuatorCommand(self, data: ActuatorData) -> bool:
@@ -56,18 +59,11 @@ class ActuatorAdapterManager(object):
         if data.isResponse:
             logging.info("Ignore response ActuatorData.")
             return True
-        if self.useEmulator is False:
-            logging.info("Sending ActuatorData to simulated Actuators.")
-            if data.getActuatorType() is ActuatorData.HUMIDIFIER_ACTUATOR_TYPE:
-                self.humidifierActuator.updateActuator(data)
-                pass
-            elif data.getActuatorType() is ActuatorData.HVAC_ACTUATOR_TYPE:
-                self.hvacActuator.updateActuator(data)
-                pass
+        if self.enableSenseHAT or self.useEmulator is True:
+            if self.enableSenseHAT:
+                logging.info("Sending ActuatorData to SenseHAT LED.")
             else:
-                logging.warning("Got ActuatorData for Actuator that has not been simulated.")
-        else:
-            logging.info("Sending ActuatorData to emulated Actuators.")
+                logging.info("Sending ActuatorData to emulated Actuators.")
             if data.getActuatorType() is ActuatorData.HUMIDIFIER_ACTUATOR_TYPE:
                 self.humidifierEmulator.updateActuator(data)
                 pass
@@ -78,7 +74,19 @@ class ActuatorAdapterManager(object):
                 self.ledEmulator.updateActuator(data)
                 pass
             else:
-                logging.warning("Got ActuatorData for Actuator that has not been simulated.")
+                logging.warning("Got ActuatorData for Actuator that has not been implemented.")
+                return False
+        else:
+            logging.info("Sending ActuatorData to simulated Actuators.")
+            if data.getActuatorType() is ActuatorData.HUMIDIFIER_ACTUATOR_TYPE:
+                self.humidifierActuator.updateActuator(data)
+                pass
+            elif data.getActuatorType() is ActuatorData.HVAC_ACTUATOR_TYPE:
+                self.hvacActuator.updateActuator(data)
+                pass
+            else:
+                logging.warning("Got ActuatorData for Actuator that has not been implemented.")
+                return False
         return True
         pass
 

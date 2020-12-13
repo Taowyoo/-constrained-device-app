@@ -39,7 +39,7 @@ class SenseHatEmulatorQuickTest(unittest.TestCase):
 	def setUpClass(self):
 		logging.basicConfig(format = '%(asctime)s:%(module)s:%(levelname)s:%(message)s', level = logging.DEBUG)
 		logging.info("Testing SenseHatEmulatorQuickTest class [using SenseHAT emulator]...")
-		self.sh = SenseHAT(emulate = True)
+		self.sh = SenseHAT(emulate = False)
 		
 	def setUp(self):
 		pass
@@ -50,9 +50,12 @@ class SenseHatEmulatorQuickTest(unittest.TestCase):
 	def testCheckEmulator(self):
 		self.assertTrue(self.sh.screen)
 		
-		self.sh.screen.scroll_text(self.HELLO_WORLD_A)
-		self.sh.screen.scroll_text(self.HELLO_WORLD_B)
-		self.sh.screen.scroll_text("Current temperature is: " + str(self.sh.environ.temperature))
+		# self.sh.screen.scroll_text(self.HELLO_WORLD_A)
+		# self.sh.screen.scroll_text(self.HELLO_WORLD_B)
+		print("Current humidity is: " + str(self.sh.environ.humidity))
+		print("Current pressure is: " + str(self.sh.environ.pressure))
+		print("Current temperature is: " + str(self.sh.environ.temperature))
+		self.sh.screen.scroll_text("Current temperature is %.2f C" % self.sh.environ.temperature)
 		
 		sleep(5)
 		

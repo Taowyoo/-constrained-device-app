@@ -69,6 +69,7 @@ DEFAULT_CRED_FILE_NAME   = './cred/PiotCred.props'
 
 TEST_GDA_DATA_PATH_KEY = 'testGdaDataPath'
 TEST_CDA_DATA_PATH_KEY = 'testCdaDataPath'
+TEST_CDA_RUN_TIME_KEY = "testCdaRunTime"
 
 LOCAL   = 'Local'
 MQTT    = 'Mqtt'
@@ -105,6 +106,8 @@ ENABLE_AUTH_KEY      = 'enableAuth'
 ENABLE_CRYPT_KEY     = 'enableCrypt'
 ENABLE_EMULATOR_KEY  = 'enableEmulator'
 ENABLE_SENSE_HAT_KEY = 'enableSenseHAT'
+ENABLE_SENSE_HAT_I2C_KEY = 'enableSenseHATI2C'
+ENABLE_CO2_SENSOR_KEY = 'enableCO2Sensor'
 ENABLE_LOGGING_KEY   = 'enableLogging'
 ENABLE_REDIS_KEY     = 'enableRedis'
 ENABLE_MQTT_KEY      = 'enableMqttClient'
@@ -113,6 +116,7 @@ USE_WEB_ACCESS_KEY   = 'useWebAccess'
 POLL_CYCLES_KEY      = 'pollCycleSecs'
 KEEP_ALIVE_KEY       = 'keepAlive'
 DEFAULT_QOS_KEY      = 'defaultQos'
+ENABLE_LED_JOYSTICK_SWITCH = 'enableLedJoyStickSwitch'
 
 HUMIDITY_SIM_FLOOR_KEY   = 'humiditySimFloor'
 HUMIDITY_SIM_CEILING_KEY = 'humiditySimCeiling'
@@ -122,6 +126,7 @@ TEMP_SIM_FLOOR_KEY       = 'tempSimFloor'
 TEMP_SIM_CEILING_KEY     = 'tempSimCeiling'
 
 ENABLE_HANDLE_TEMP_CHANGE_ON_DEVICE_KEY = 'enableHandleTempChangeOnDevice'
+ENABLE_SHOW_CO2_ON_DEVICE_KEY = 'enableShowCO2OnDevice'
 TRIGGER_HVAC_TEMP_FLOOR_KEY = 'triggerHvacTempFloor'
 TRIGGER_HVAC_TEMP_CEILING_KEY = 'triggerHvacTempCeiling'
 
@@ -133,6 +138,7 @@ HVAC_ACTUATOR_NAME = 'HvacActuator'
 HUMIDITY_SENSOR_NAME = 'HumiditySensor'
 PRESSURE_SENSOR_NAME = 'PressureSensor'
 TEMP_SENSOR_NAME = 'TempSensor'
+CO2_SENSOR_NAME = 'CO2Sensor'
 
 SYS_PERF_DATA = 'SysPerfData'
 

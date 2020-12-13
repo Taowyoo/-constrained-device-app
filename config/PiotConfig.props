@@ -11,11 +11,11 @@
 [Mqtt.GatewayService]
 credFile       = ./cred/PiotMqttCred.props
 certFile       = ./cert/PiotMqttLocalCertFile.pem
-host           = localhost
+host           = 10.1.10.209
 port           = 1883
 securePort     = 1884
-defaultQoS     = 0
-keepAlive      = 60
+defaultQoS     = 1
+keepAlive      = 30
 enableCrypt    = False
 
 #
@@ -24,7 +24,7 @@ enableCrypt    = False
 [Coap.GatewayService]
 credFile       = ./cred/PiotCoapCred.props
 certFile       = ./cert/PiotCoapLocalCertFile.pem
-host           = localhost
+host           = 10.1.10.209
 port           = 5683
 securePort     = 5684
 enableCrypt    = False
@@ -33,28 +33,36 @@ enableCrypt    = False
 # CDA specific configuration information
 #
 [ConstrainedDevice]
-enableEmulator  = True
-enableSenseHAT  = False
+enableEmulator  = False
+enableSenseHAT  = True
+enableSenseHATI2C = False
+enableCO2Sensor = True
 enableLogging   = True
 enableRedis     = False
 enableMqttClient= True
 enableCoAPClient= False
-pollCycleSecs   = 10
+pollCycleSecs   = 30
 testGdaDataPath = /tmp/gda-data
 testCdaDataPath = /tmp/cda-data
+testCdaRunTime  = -1
+
+enableLedJoyStickSwitch = True
 
 # configurable limits for sensor simulation
-humiditySimFloor   = 35
-humiditySimCeiling = 45
-pressureSimFloor   = 990
-pressureSimCeiling = 1010
+humiditySimFloor   = 30
+humiditySimCeiling = 60
+pressureSimFloor   = 950
+pressureSimCeiling = 1100
 tempSimFloor       = 18
-tempSimCeiling     = 22
+tempSimCeiling     = 28
 
 # configurable limits for actuator triggers
 enableHandleTempChangeOnDevice = True
 triggerHvacTempFloor = 16
 triggerHvacTempCeiling = 23
+
+# configurable actuator triggers
+enableShowCO2OnDevice = True
 
 #
 # Persistence client configuration information
