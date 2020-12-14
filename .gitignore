@@ -5,6 +5,7 @@
 # python virtual env
 **/venv
 /.wsl/
+/.venv/
 .env/
 
 # vscode stuff
