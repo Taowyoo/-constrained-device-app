@@ -62,6 +62,10 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def connect(self) -> bool:
+        """
+        Connect to mqtt server
+        return: whether succeed to connect
+        """
         if not self.mc:
             logging.info("Creating MQTT client...")
             self.mc = mqttClient.Client(client_id=self.clientID, clean_session=True)
@@ -82,6 +86,10 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def disconnect(self) -> bool:
+        """
+        Disconnect from server
+        return: whether succeed to disconnect from server
+        """
         if self.mc is not None:
             if self.mc.is_connected():
                 logging.info("MQTT client is disconnecting from broker...")
@@ -93,6 +101,13 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def onConnect(self, client, userdata, flags, rc):
+        """
+        Callback when connection completed
+        :param client: Client instance
+        :param userdata: User data
+        :param flags: Result flags
+        :param rc: Result code
+        """
         logging.info('[Callback] Connected to MQTT broker. Result code: ' + str(rc))
         # NOTE: Use the QoS of your choice - '1' is only an example
         self.mc.subscribe(topic=ResourceNameEnum.CDA_ACTUATOR_CMD_RESOURCE.value, qos=self.QOS)
@@ -101,6 +116,13 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def onDisconnect(self, client, userdata, rc):
+        """
+        Callback when disconnection completed
+        :param client: Client instance
+        :param userdata: User data
+        :param flags: Result flags
+        :param rc: Result code
+        """
         if rc != 0:
             logging.warning("[Callback] MQTT client meets Unexpected disconnection!")
         else:
@@ -108,6 +130,12 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def onMessage(self, client, userdata, msg):
+        """
+        Callback when a message arrived
+        :param client: client instance
+        :param userdata: User data
+        :param msg: MqttMsg instance
+        """
         logging.info("[Callback] MQTT client received message '" + str(msg.payload) + "' on topic '"
                      + msg.topic + "' with QoS " + str(msg.qos))
         resource = ResourceNameEnum.getResourceNameByValue(val=msg.topic)
@@ -121,14 +149,33 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def onPublish(self, client, userdata, mid):
+        """
+        Callback when publish a message
+        :param client: client instance
+        :param userdata: User data
+        :param mid: Message id
+        """
         logging.info("[Callback] MQTT client succeed to publish a message, id: " + str(mid))
         pass
 
     def onSubscribe(self, client, userdata, mid, granted_qos):
+        """
+        Callback when try to a subscribe a topic
+        :param client: client instance
+        :param userdata: User data
+        :param mid: Message id
+        :param granted_qos: Required QoS level
+        """
         logging.info("[Callback] MQTT client succeed to subscribe, id: {}, QoS: {}".format(mid, granted_qos))
         pass
 
     def publishMessage(self, resource: ResourceNameEnum, msg, qos: int = QOS):
+        """
+        Publish a msg to a topic which is defined by ResourceNameEnum
+        :param resource: Given ResourceNameEnum
+        :param msg: Msg String
+        :param qos: Required QoS level
+        """
         if resource is None:
             logging.warning("Got invalid ResourceNameEnum when publishing!")
         if qos > 2 or qos < 0:
@@ -139,6 +186,11 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def subscribeToTopic(self, resource: ResourceNameEnum, qos: int = QOS):
+        """
+        Subscribe to a topic which is defined by ResourceNameEnum
+        :param resource: Given ResourceNameEnum
+        :param qos: Required QoS level
+        """
         if resource is None:
             logging.warning("Got invalid ResourceNameEnum when subscribing!")
         if qos > 2 or qos < 0:
@@ -149,11 +201,19 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def unsubscribeFromTopic(self, resource: ResourceNameEnum):
+        """
+        Unsubscribe to a topic which is defined by ResourceNameEnum
+        :param resource: Given ResourceNameEnum
+        """
         logging.info("MQTT client MQTT client unsubscribe to topic '{}'.".format(resource.value))
         self.mc.unsubscribe(topic=resource.value)
         pass
 
     def setDataMessageListener(self, listener: IDataMessageListener) -> bool:
+        """
+        Set the IDataMessageListener instance for current MqttClientConnector to upstream data to DeviceDataManager
+        :param listener:
+        """
         if listener is None:
             logging.info("Given DataMessageListener is invalid!")
             return False
@@ -163,6 +223,12 @@ class MqttClientConnector(IPubSubClient):
         pass
 
     def onActuatorCommandMessage(self, client, userdata, msg):
+        """
+        Callback when a ActuatorCommandMessage arrived
+        :param client: Client instance
+        :param userdata: User data
+        :param msg: MqttMsg instance
+        """
         logging.info('[Callback] Actuator command message received. Topic: %s.', msg.topic)
 
         if self.dataMsgListener:

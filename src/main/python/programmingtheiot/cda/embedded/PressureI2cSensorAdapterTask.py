@@ -16,8 +16,7 @@ from programmingtheiot.cda.sim.SensorDataGenerator import SensorDataGenerator
 
 class PressureI2cSensorAdapterTask(BaseSensorSimTask):
     """
-    Shell representation of class for student implementation.
-    
+    Use I2C bus to read pressure Sensor data
     """
 
     def __init__(self):
@@ -32,6 +31,11 @@ class PressureI2cSensorAdapterTask(BaseSensorSimTask):
         pass
 
     def generateTelemetry(self) -> SensorData:
+        """
+        Generate SensorData from raw value
+
+        :return: SensorData which contains pressure data
+        """
         data = SensorData(sensorType=self._sensorType)
         data.setValue(self._readValueFromI2cBus())
         self._latestSensorData = data
@@ -39,6 +43,12 @@ class PressureI2cSensorAdapterTask(BaseSensorSimTask):
         pass
 
     def _readValueFromI2cBus(self) -> float:
+        """
+        Read pressure value from I2C bus
+
+        :return: Pressure value in millibar
+        :rtype: float
+        """
         PRESS_OUT_XL = 0x28
         PRESS_OUT_L = 0x29
         PRESS_OUT_H = 0x2A

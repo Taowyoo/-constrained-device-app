@@ -12,7 +12,10 @@ import redis
 
 class RedisPersistenceAdapter:
 
-    def __init__(self):
+    def __init__(self)
+        """
+        Constructor, do some basic configrations
+        """
         self.dataUtil = DataUtil()
         self.configUtil = ConfigUtil()
         self.host = self.configUtil.getProperty(ConfigConst.DATA_GATEWAY_SERVICE, ConfigConst.HOST_KEY)
@@ -26,7 +29,10 @@ class RedisPersistenceAdapter:
         self.curConnection: redis.client.Redis = None
 
     def connectClient(self) -> bool:
-
+        """
+        Connect to redis
+        :return: whether success
+        """
         if self.curConnection is None:
             logging.info("Redis client connecting to server...")
             try:
@@ -42,6 +48,10 @@ class RedisPersistenceAdapter:
             return True
 
     def disconnectClient(self) -> bool:
+        """
+        Disconnect to redis
+        :return: whether success
+        """
         if self.curConnection is None:
             logging.warning("Redis client has already disconnected!")
             return True
@@ -53,6 +63,13 @@ class RedisPersistenceAdapter:
             return True
 
     def storeData(self, data: SensorData, resource: ResourceNameEnum = ResourceNameEnum.CDA_SENSOR_MSG_RESOURCE) -> bool:
+        """
+        Store a SensorData to the key which defined by given ResourceNameEnum
+
+        :param data: SensorData instance to store which will be convert to json string
+        :param resource: ResourceNameEnum instance which will be convert to string, defaults to ResourceNameEnum.CDA_SENSOR_MSG_RESOURCE
+        :return: whether success
+        """
         topicName: str = resource.value
         jsonStr = self.dataUtil.sensorDataToJson(data)
         if self.curConnection:

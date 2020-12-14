@@ -17,7 +17,7 @@ from programmingtheiot.cda.sim.SensorDataGenerator import SensorDataGenerator
 
 class TemperatureI2cSensorAdapterTask(BaseSensorSimTask):
     """
-    Shell representation of class for student implementation.
+    Use I2C bus to read temperature Sensor data
     """
 
     def __init__(self):
@@ -33,6 +33,11 @@ class TemperatureI2cSensorAdapterTask(BaseSensorSimTask):
         pass
 
     def generateTelemetry(self) -> SensorData:
+        """
+        Generate SensorData from raw value
+
+        :return: SensorData which contains Temperature data
+        """
         data = SensorData(sensorType=self._sensorType)
         data.setValue(self._readValueFromI2cBus())
         self._latestSensorData = data
@@ -40,6 +45,12 @@ class TemperatureI2cSensorAdapterTask(BaseSensorSimTask):
         pass
 
     def _readValueFromI2cBus(self) -> float:
+        """
+        Read Temperature value from I2C bus
+
+        :return: Temperature value in celsius degree
+        :rtype: float
+        """
         # read humidity sensor tempreture
         # T0_OUT
         T0_OUT_L = 0x3C
