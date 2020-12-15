@@ -12,7 +12,7 @@ import redis
 
 class RedisPersistenceAdapter:
 
-    def __init__(self)
+    def __init__(self):
         """
         Constructor, do some basic configrations
         """
