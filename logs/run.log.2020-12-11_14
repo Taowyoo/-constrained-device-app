@@ -1,0 +1,1700 @@
+2020-12-11 14:02:59,018 - root - INFO - ConfigUtil : 192 - Loading config: ./config/PiotConfig.props
+2020-12-11 14:02:59,022 - root - DEBUG - ConfigUtil : 203 - Config: ['Mqtt.GatewayService', 'Coap.GatewayService', 'ConstrainedDevice', 'Data.GatewayService']
+2020-12-11 14:02:59,022 - root - INFO - ConfigUtil : 46 - Created instance of ConfigUtil: <programmingtheiot.common.ConfigUtil.ConfigUtil object at 0xb61428f0>
+2020-12-11 14:03:00,103 - root - INFO - ConstrainedDeviceApp : 37 - Initializing CDA...
+2020-12-11 14:03:00,103 - root - INFO - DeviceDataManager : 52 - Initializing DeviceDataManager...
+2020-12-11 14:03:00,112 - root - INFO - SystemPerformanceManager : 34 - Initializing SystemPerformanceManager...
+2020-12-11 14:03:00,439 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-11 14:03:00,441 - root - INFO - SensorAdapterManager : 45 - SensorAdapterManager is initializing...
+2020-12-11 14:03:00,442 - apscheduler.scheduler - INFO - base : 440 - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-12-11 14:03:01,566 - root - INFO - SensorAdapterManager : 70 - SensorAdapterManager is using pisense to communiate with SenseHAT.
+2020-12-11 14:03:01,876 - root - INFO - SensorAdapterManager : 184 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb65358f0> as DataMessageListener.
+2020-12-11 14:03:01,876 - root - INFO - ActuatorAdapterManager : 25 - ActuatorAdapterManager is initializing...
+2020-12-11 14:03:01,876 - root - INFO - ActuatorAdapterManager : 31 - ActuatorAdapterManager is using SenseHAT.
+2020-12-11 14:03:01,884 - root - INFO - ActuatorAdapterManager : 97 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb65358f0> as DataMessageListener.
+2020-12-11 14:03:01,884 - root - INFO - MqttClientConnector : 54 - 	MQTT Broker Host: 10.1.10.209
+2020-12-11 14:03:01,885 - root - INFO - MqttClientConnector : 55 - 	MQTT Broker Port: 1883
+2020-12-11 14:03:01,885 - root - INFO - MqttClientConnector : 56 - 	MQTT Keep Alive:  30
+2020-12-11 14:03:01,885 - root - INFO - MqttClientConnector : 160 - Set <programmingtheiot.cda.app.DeviceDataManager.DeviceDataManager object at 0xb65358f0> as DataMessageListener.
+2020-12-11 14:03:01,886 - root - INFO - ConstrainedDeviceApp : 45 - Starting CDA...
+2020-12-11 14:03:01,886 - root - INFO - DeviceDataManager : 186 - DeviceDataManager starting...
+2020-12-11 14:03:01,887 - root - INFO - SystemPerformanceManager : 79 - Starting SystemPerformanceManager...
+2020-12-11 14:03:01,891 - apscheduler.scheduler - INFO - base : 881 - Added job "SystemPerformanceManager.handleTelemetry" to job store "default"
+2020-12-11 14:03:01,892 - apscheduler.scheduler - INFO - base : 166 - Scheduler started
+2020-12-11 14:03:01,892 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:03:01,893 - root - INFO - SystemPerformanceManager : 81 - SystemPerformanceManager started.
+2020-12-11 14:03:01,893 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:03:30.439089-08:00 (in 28.545457 seconds)
+2020-12-11 14:03:01,894 - apscheduler.scheduler - INFO - base : 881 - Added job "SensorAdapterManager.handleTelemetry" to job store "default"
+2020-12-11 14:03:01,895 - apscheduler.scheduler - INFO - base : 166 - Scheduler started
+2020-12-11 14:03:01,896 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:03:01,896 - root - INFO - SensorAdapterManager : 195 - Started SensorAdapterManager.
+2020-12-11 14:03:01,897 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:03:30.441982-08:00 (in 28.545154 seconds)
+2020-12-11 14:03:01,897 - root - INFO - MqttClientConnector : 66 - Creating MQTT client...
+2020-12-11 14:03:01,901 - root - INFO - MqttClientConnector : 73 - Succeed to create MQTT client!
+2020-12-11 14:03:01,902 - root - INFO - MqttClientConnector : 75 - Connecting MQTT client to broker at 10.1.10.209:1883...
+2020-12-11 14:03:01,913 - root - INFO - MqttClientConnector : 147 - MQTT client subscribe to topic 'PIOT/ConstrainedDevice/ActuatorCmd' with qos 0.
+2020-12-11 14:03:01,914 - root - INFO - DeviceDataManager : 196 - DeviceDataManager stated.
+2020-12-11 14:03:01,915 - root - INFO - ConstrainedDeviceApp : 47 - CDA started.
+2020-12-11 14:03:01,915 - asyncio - DEBUG - selector_events : 53 - Using selector: EpollSelector
+2020-12-11 14:03:01,921 - root - INFO - MqttClientConnector : 96 - [Callback] Connected to MQTT broker. Result code: 0
+2020-12-11 14:03:01,928 - root - INFO - MqttClientConnector : 128 - [Callback] MQTT client succeed to subscribe, id: 1, QoS: (0,)
+2020-12-11 14:03:01,932 - root - INFO - MqttClientConnector : 128 - [Callback] MQTT client succeed to subscribe, id: 2, QoS: (1,)
+2020-12-11 14:03:13,286 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:03:13,287 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:03:13,288 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:03:12.000914, hasError= False, statusCode = 0, actuatorType=100, value=0.0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:03:13,288 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:03:13,289 - root - DEBUG - LedDisplayEmulatorTask : 65 - Clear SenseHAT screen
+2020-12-11 14:03:30,440 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:03:30,443 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:00 PST)" (scheduled at 2020-12-11 14:03:30.439089-08:00)
+2020-12-11 14:03:30,444 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:04:00.439089-08:00 (in 29.997536 seconds)
+2020-12-11 14:03:30,446 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 12.4
+2020-12-11 14:03:30,448 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.9
+2020-12-11 14:03:30,449 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.3684395644354424
+2020-12-11 14:03:30,450 - root - INFO - SystemPerformanceManager : 63 - CPU usage 12.4%, memory usage 6.9%, disk usage 0.3684395644354424%
+2020-12-11 14:03:30,451 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:03:30,451 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:03:30.450215, hasError= False, statusCode = 0, CpuUtilization = 12.4, DiskUtilization = 0.3684395644354424, MemoryUtilization = 6.9
+2020-12-11 14:03:30,452 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:03:30,453 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:03:30,455 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:03:30.450215",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 12.4,
+  "diskUtil": 0.3684395644354424,
+  "memUtil": 6.9
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:03:30,458 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:04:00.441982-08:00 (in 29.985447 seconds)
+2020-12-11 14:03:30,458 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:00 PST)" (scheduled at 2020-12-11 14:03:30.441982-08:00)
+2020-12-11 14:03:30,461 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:00 PST)" executed successfully
+2020-12-11 14:03:30,463 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:03:30,464 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 3
+2020-12-11 14:03:30,473 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:03:30.465153, hasError= False, statusCode = 0, sensorType = 1, value = 49.98078155517578
+2020-12-11 14:03:30,475 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:03:30.474920, hasError= False, statusCode = 0, sensorType = 2, value = 1020.6845703125
+2020-12-11 14:03:30,476 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:03:30.476422, hasError= False, statusCode = 0, sensorType = 3, value = 25.530990600585938
+2020-12-11 14:03:30,477 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:03:30,478 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:03:30.476422, hasError= False, statusCode = 0, sensorType = 3, value = 25.530990600585938
+2020-12-11 14:03:30,479 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:03:30,480 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:03:30.476422",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.530990600585938
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:03:30,482 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 4
+2020-12-11 14:03:30,484 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:03:30,485 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.530991 is higher than ceiling: 23.000000.
+2020-12-11 14:03:30,486 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:03:30.485319, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:03:30,487 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:03:30,488 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:03:30,546 - PIL.PngImagePlugin - DEBUG - PngImagePlugin : 187 - STREAM b'IHDR' 16 13
+2020-12-11 14:03:30,547 - PIL.PngImagePlugin - DEBUG - PngImagePlugin : 187 - STREAM b'IDAT' 41 367
+2020-12-11 14:03:37,271 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:03:37,272 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:03:30.474920, hasError= False, statusCode = 0, sensorType = 2, value = 1020.6845703125
+2020-12-11 14:03:37,273 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:03:37,274 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:03:30.474920",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.6845703125
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:03:37,275 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 5
+2020-12-11 14:03:37,276 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:03:37,276 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:03:37,277 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:03:30.465153, hasError= False, statusCode = 0, sensorType = 1, value = 49.98078155517578
+2020-12-11 14:03:37,277 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:03:37,278 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:03:30.465153",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 49.98078155517578
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:03:37,279 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:03:37,281 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 6
+2020-12-11 14:03:37,286 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:03:37.280097, hasError= False, statusCode = 0, sensorType = 4, value = 400.0
+2020-12-11 14:03:37,287 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:03:37,288 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:03:37.280097, hasError= False, statusCode = 0, sensorType = 4, value = 400.0
+2020-12-11 14:03:37,288 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:03:37,289 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:03:37.280097",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 400.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:03:37,290 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:03:37,291 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:03:37.290942, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 400 ppm
+2020-12-11 14:03:37,291 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:03:37,293 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 7
+2020-12-11 14:03:37,295 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 400 ppm
+2020-12-11 14:03:42,144 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:00 PST)" executed successfully
+2020-12-11 14:04:00,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:04:00,446 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:00 PST)" (scheduled at 2020-12-11 14:04:00.439089-08:00)
+2020-12-11 14:04:00,448 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.2
+2020-12-11 14:04:00,449 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:04:30.439089-08:00 (in 29.993701 seconds)
+2020-12-11 14:04:00,450 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:04:00,452 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:00 PST)" (scheduled at 2020-12-11 14:04:00.441982-08:00)
+2020-12-11 14:04:00,453 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:04:00,462 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:04:30.441982-08:00 (in 29.990563 seconds)
+2020-12-11 14:04:00,462 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:04:00.454394, hasError= False, statusCode = 0, sensorType = 1, value = 50.03013229370117
+2020-12-11 14:04:00,464 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.9
+2020-12-11 14:04:00,465 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:04:00.464888, hasError= False, statusCode = 0, sensorType = 2, value = 1020.656982421875
+2020-12-11 14:04:00,466 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.3684411416743366
+2020-12-11 14:04:00,466 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:04:00.466503, hasError= False, statusCode = 0, sensorType = 3, value = 25.621883392333984
+2020-12-11 14:04:00,467 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.2%, memory usage 6.9%, disk usage 0.3684411416743366%
+2020-12-11 14:04:00,468 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:00,468 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:04:00,469 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:04:00.466503, hasError= False, statusCode = 0, sensorType = 3, value = 25.621883392333984
+2020-12-11 14:04:00,470 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:04:00.467297, hasError= False, statusCode = 0, CpuUtilization = 11.2, DiskUtilization = 0.3684411416743366, MemoryUtilization = 6.9
+2020-12-11 14:04:00,471 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:00,472 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:00,472 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:04:00.466503",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.621883392333984
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:00,474 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:04:00.467297",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.2,
+  "diskUtil": 0.3684411416743366,
+  "memUtil": 6.9
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:04:00,475 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:00,477 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.621883 is higher than ceiling: 23.000000.
+2020-12-11 14:04:00,477 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 8
+2020-12-11 14:04:00,477 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:30 PST)" executed successfully
+2020-12-11 14:04:00,478 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:04:00.477026, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:04:00,480 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 9
+2020-12-11 14:04:00,481 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:04:00,489 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:04:07,228 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:07,229 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:04:00.464888, hasError= False, statusCode = 0, sensorType = 2, value = 1020.656982421875
+2020-12-11 14:04:07,230 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:07,231 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:04:00.464888",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.656982421875
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:07,231 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:07,232 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 10
+2020-12-11 14:04:07,233 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:07,234 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:04:00.454394, hasError= False, statusCode = 0, sensorType = 1, value = 50.03013229370117
+2020-12-11 14:04:07,235 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:07,235 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:04:00.454394",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 50.03013229370117
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:07,237 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:07,237 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 11
+2020-12-11 14:04:07,247 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:04:07.240551, hasError= False, statusCode = 0, sensorType = 4, value = 400.0
+2020-12-11 14:04:07,247 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:07,248 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:04:07.240551, hasError= False, statusCode = 0, sensorType = 4, value = 400.0
+2020-12-11 14:04:07,249 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:07,249 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:04:07.240551",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 400.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:07,251 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 12
+2020-12-11 14:04:07,251 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:07,252 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:04:07.252761, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 400 ppm
+2020-12-11 14:04:07,253 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:04:07,254 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 400 ppm
+2020-12-11 14:04:07,300 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:04:07,301 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:04:07,301 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:04:06.000929, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:04:07,302 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:04:07,302 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:04:12,276 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:04:30 PST)" executed successfully
+2020-12-11 14:04:30,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:04:30,446 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:00 PST)" (scheduled at 2020-12-11 14:04:30.439089-08:00)
+2020-12-11 14:04:30,447 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:05:00.439089-08:00 (in 29.993559 seconds)
+2020-12-11 14:04:30,449 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.1
+2020-12-11 14:04:30,451 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.9
+2020-12-11 14:04:30,452 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.3684425755278768
+2020-12-11 14:04:30,453 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.1%, memory usage 6.9%, disk usage 0.3684425755278768%
+2020-12-11 14:04:30,453 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:04:30,454 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:04:30,454 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:04:30.452889, hasError= False, statusCode = 0, CpuUtilization = 11.1, DiskUtilization = 0.3684425755278768, MemoryUtilization = 6.9
+2020-12-11 14:04:30,457 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:00 PST)" (scheduled at 2020-12-11 14:04:30.441982-08:00)
+2020-12-11 14:04:30,458 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:05:00.441982-08:00 (in 29.985998 seconds)
+2020-12-11 14:04:30,459 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:30,460 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:04:30,461 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:04:30.452889",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.1,
+  "diskUtil": 0.3684425755278768,
+  "memUtil": 6.9
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:04:30,468 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:04:30.461953, hasError= False, statusCode = 0, sensorType = 1, value = 49.98658752441406
+2020-12-11 14:04:30,469 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:00 PST)" executed successfully
+2020-12-11 14:04:30,470 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:04:30.470201, hasError= False, statusCode = 0, sensorType = 2, value = 1020.680908203125
+2020-12-11 14:04:30,472 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 13
+2020-12-11 14:04:30,472 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:04:30.472607, hasError= False, statusCode = 0, sensorType = 3, value = 25.60370635986328
+2020-12-11 14:04:30,473 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:30,474 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:04:30.472607, hasError= False, statusCode = 0, sensorType = 3, value = 25.60370635986328
+2020-12-11 14:04:30,474 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:30,475 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:04:30.472607",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.60370635986328
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:30,476 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 14
+2020-12-11 14:04:30,477 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:30,477 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.603706 is higher than ceiling: 23.000000.
+2020-12-11 14:04:30,478 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:04:30.477812, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:04:30,479 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:04:30,479 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:04:37,212 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:37,213 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:04:30.470201, hasError= False, statusCode = 0, sensorType = 2, value = 1020.680908203125
+2020-12-11 14:04:37,213 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:37,214 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:04:30.470201",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.680908203125
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:37,215 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:37,215 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 15
+2020-12-11 14:04:37,216 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:37,217 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:04:30.461953, hasError= False, statusCode = 0, sensorType = 1, value = 49.98658752441406
+2020-12-11 14:04:37,217 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:37,218 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:04:30.461953",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 49.98658752441406
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:37,219 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:37,219 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 16
+2020-12-11 14:04:37,225 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:04:37.220191, hasError= False, statusCode = 0, sensorType = 4, value = 411.0
+2020-12-11 14:04:37,225 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:04:37,226 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:04:37.220191, hasError= False, statusCode = 0, sensorType = 4, value = 411.0
+2020-12-11 14:04:37,226 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:04:37,227 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:04:37.220191",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 411.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:04:37,228 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 17
+2020-12-11 14:04:37,229 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:04:37,229 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:04:37.229594, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 411 ppm
+2020-12-11 14:04:37,230 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:04:37,230 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 411 ppm
+2020-12-11 14:04:41,805 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:00 PST)" executed successfully
+2020-12-11 14:05:00,443 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:05:00,445 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:30 PST)" (scheduled at 2020-12-11 14:05:00.439089-08:00)
+2020-12-11 14:05:00,446 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:05:30.439089-08:00 (in 29.995280 seconds)
+2020-12-11 14:05:00,448 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:05:00,451 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:00 PST)" (scheduled at 2020-12-11 14:05:00.441982-08:00)
+2020-12-11 14:05:00,452 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:05:00,456 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:05:30.441982-08:00 (in 29.992218 seconds)
+2020-12-11 14:05:00,466 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.2
+2020-12-11 14:05:00,468 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:05:00.457797, hasError= False, statusCode = 0, sensorType = 1, value = 49.79499816894531
+2020-12-11 14:05:00,469 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:05:00.469329, hasError= False, statusCode = 0, sensorType = 2, value = 1020.639404296875
+2020-12-11 14:05:00,471 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:05:00.470834, hasError= False, statusCode = 0, sensorType = 3, value = 25.694599151611328
+2020-12-11 14:05:00,472 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.9
+2020-12-11 14:05:00,472 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:00,473 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36844386599606294
+2020-12-11 14:05:00,474 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:05:00.470834, hasError= False, statusCode = 0, sensorType = 3, value = 25.694599151611328
+2020-12-11 14:05:00,476 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.2%, memory usage 6.9%, disk usage 0.36844386599606294%
+2020-12-11 14:05:00,477 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:00,479 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:05:00,479 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:05:00.470834",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.694599151611328
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:00,480 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:05:00.475861, hasError= False, statusCode = 0, CpuUtilization = 11.2, DiskUtilization = 0.36844386599606294, MemoryUtilization = 6.9
+2020-12-11 14:05:00,483 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:00,483 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 18
+2020-12-11 14:05:00,483 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:00,484 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.694599 is higher than ceiling: 23.000000.
+2020-12-11 14:05:00,485 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:05:00.475861",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.2,
+  "diskUtil": 0.36844386599606294,
+  "memUtil": 6.9
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:05:00,486 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:05:00.484383, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:05:00,487 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:05:00,487 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 19
+2020-12-11 14:05:00,488 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:05:00,489 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:30 PST)" executed successfully
+2020-12-11 14:05:07,219 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:07,220 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:05:00.469329, hasError= False, statusCode = 0, sensorType = 2, value = 1020.639404296875
+2020-12-11 14:05:07,221 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:07,221 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:05:00.469329",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.639404296875
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:07,222 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 20
+2020-12-11 14:05:07,223 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:07,224 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:07,224 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:05:00.457797, hasError= False, statusCode = 0, sensorType = 1, value = 49.79499816894531
+2020-12-11 14:05:07,225 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:07,225 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:05:00.457797",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 49.79499816894531
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:07,227 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 21
+2020-12-11 14:05:07,228 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:07,234 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:05:07.228681, hasError= False, statusCode = 0, sensorType = 4, value = 409.0
+2020-12-11 14:05:07,235 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:07,235 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:05:07.228681, hasError= False, statusCode = 0, sensorType = 4, value = 409.0
+2020-12-11 14:05:07,236 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:07,237 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:05:07.228681",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 409.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:07,237 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:07,238 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:05:07.238493, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 409 ppm
+2020-12-11 14:05:07,239 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 22
+2020-12-11 14:05:07,239 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:05:07,240 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 409 ppm
+2020-12-11 14:05:12,087 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:30 PST)" executed successfully
+2020-12-11 14:05:30,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:05:30,447 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:05:30 PST)" (scheduled at 2020-12-11 14:05:30.439089-08:00)
+2020-12-11 14:05:30,449 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.3
+2020-12-11 14:05:30,450 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:05:30,451 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.3684454432349571
+2020-12-11 14:05:30,453 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.3%, memory usage 6.8%, disk usage 0.3684454432349571%
+2020-12-11 14:05:30,452 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:06:00.439089-08:00 (in 29.993539 seconds)
+2020-12-11 14:05:30,454 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:05:30,456 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:05:30.453640, hasError= False, statusCode = 0, CpuUtilization = 11.3, DiskUtilization = 0.3684454432349571, MemoryUtilization = 6.8
+2020-12-11 14:05:30,458 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:30,458 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:05:30.453640",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.3,
+  "diskUtil": 0.3684454432349571,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:05:30,460 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:05:30,463 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:00 PST)" executed successfully
+2020-12-11 14:05:30,465 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:00 PST)" (scheduled at 2020-12-11 14:05:30.441982-08:00)
+2020-12-11 14:05:30,467 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:06:00.441982-08:00 (in 29.980042 seconds)
+2020-12-11 14:05:30,468 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 23
+2020-12-11 14:05:30,471 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:05:30,484 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:05:30.473667, hasError= False, statusCode = 0, sensorType = 1, value = 50.14915084838867
+2020-12-11 14:05:30,486 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:05:30.486048, hasError= False, statusCode = 0, sensorType = 2, value = 1020.595703125
+2020-12-11 14:05:30,487 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:05:30.487169, hasError= False, statusCode = 0, sensorType = 3, value = 25.64006233215332
+2020-12-11 14:05:30,488 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:30,489 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:05:30.487169, hasError= False, statusCode = 0, sensorType = 3, value = 25.64006233215332
+2020-12-11 14:05:30,490 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:30,491 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:05:30.487169",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.64006233215332
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:30,493 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:30,494 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.640062 is higher than ceiling: 23.000000.
+2020-12-11 14:05:30,495 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:05:30.494239, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:05:30,496 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:05:30,498 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:05:30,505 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 24
+2020-12-11 14:05:37,238 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:37,239 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:05:30.486048, hasError= False, statusCode = 0, sensorType = 2, value = 1020.595703125
+2020-12-11 14:05:37,240 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:37,240 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:05:30.486048",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.595703125
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:37,241 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:37,242 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 25
+2020-12-11 14:05:37,242 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:37,244 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:05:30.473667, hasError= False, statusCode = 0, sensorType = 1, value = 50.14915084838867
+2020-12-11 14:05:37,245 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:37,246 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:05:30.473667",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 50.14915084838867
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:37,247 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:37,248 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 26
+2020-12-11 14:05:37,255 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:05:37.249438, hasError= False, statusCode = 0, sensorType = 4, value = 1307.0
+2020-12-11 14:05:37,257 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:05:37,258 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:05:37.249438, hasError= False, statusCode = 0, sensorType = 4, value = 1307.0
+2020-12-11 14:05:37,260 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:05:37,261 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:05:37.249438",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 1307.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:05:37,263 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:05:37,264 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 27
+2020-12-11 14:05:37,264 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:05:37.264506, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 1307 ppm
+2020-12-11 14:05:37,265 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:05:37,266 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 1307 ppm
+2020-12-11 14:05:37,309 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:05:37,310 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:05:37,310 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:05:36.000938, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:05:37,311 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:05:37,312 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:05:42,375 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:00 PST)" executed successfully
+2020-12-11 14:05:45,989 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:05:45,990 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:05:45,990 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:05:37.000476, hasError= False, statusCode = 0, actuatorType=100, value=0.0, command=1, isResponse=False, stateData=High CO2!
+2020-12-11 14:05:45,991 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:05:45,991 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: High CO2!
+2020-12-11 14:06:00,449 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:06:00,451 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:30 PST)" (scheduled at 2020-12-11 14:06:00.439089-08:00)
+2020-12-11 14:06:00,452 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:06:30.439089-08:00 (in 29.989132 seconds)
+2020-12-11 14:06:00,453 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:06:00,456 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:30 PST)" (scheduled at 2020-12-11 14:06:00.441982-08:00)
+2020-12-11 14:06:00,458 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:06:00,458 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:06:30.441982-08:00 (in 29.986943 seconds)
+2020-12-11 14:06:00,459 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 10.8
+2020-12-11 14:06:00,468 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:06:00.460110, hasError= False, statusCode = 0, sensorType = 1, value = 52.99691390991211
+2020-12-11 14:06:00,469 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:06:00.469422, hasError= False, statusCode = 0, sensorType = 2, value = 1020.590087890625
+2020-12-11 14:06:00,471 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:06:00.470798, hasError= False, statusCode = 0, sensorType = 3, value = 25.73095703125
+2020-12-11 14:06:00,471 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:06:00,472 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:00,473 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:06:00.470798, hasError= False, statusCode = 0, sensorType = 3, value = 25.73095703125
+2020-12-11 14:06:00,473 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.3684467337031433
+2020-12-11 14:06:00,474 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:00,475 - root - INFO - SystemPerformanceManager : 63 - CPU usage 10.8%, memory usage 6.8%, disk usage 0.3684467337031433%
+2020-12-11 14:06:00,476 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:06:00.470798",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.73095703125
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:00,476 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:06:00,478 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:00,479 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:06:00.475448, hasError= False, statusCode = 0, CpuUtilization = 10.8, DiskUtilization = 0.3684467337031433, MemoryUtilization = 6.8
+2020-12-11 14:06:00,480 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 28
+2020-12-11 14:06:00,480 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.730957 is higher than ceiling: 23.000000.
+2020-12-11 14:06:00,482 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:00,483 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:06:00.480816, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:06:00,483 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:06:00.475448",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 10.8,
+  "diskUtil": 0.3684467337031433,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:06:00,484 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:06:00,485 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:30 PST)" executed successfully
+2020-12-11 14:06:00,485 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:06:00,487 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 29
+2020-12-11 14:06:07,219 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:07,220 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:06:00.469422, hasError= False, statusCode = 0, sensorType = 2, value = 1020.590087890625
+2020-12-11 14:06:07,221 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:07,222 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:06:00.469422",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.590087890625
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:07,223 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:07,224 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:07,224 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:06:00.460110, hasError= False, statusCode = 0, sensorType = 1, value = 52.99691390991211
+2020-12-11 14:06:07,225 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:07,227 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:06:00.460110",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 52.99691390991211
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:07,227 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 30
+2020-12-11 14:06:07,229 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:07,230 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 31
+2020-12-11 14:06:07,237 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:06:07.230430, hasError= False, statusCode = 0, sensorType = 4, value = 423.0
+2020-12-11 14:06:07,238 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:07,239 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:06:07.230430, hasError= False, statusCode = 0, sensorType = 4, value = 423.0
+2020-12-11 14:06:07,240 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:07,240 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:06:07.230430",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 423.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:07,242 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:07,242 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 32
+2020-12-11 14:06:07,243 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:06:07.243708, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 423 ppm
+2020-12-11 14:06:07,245 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:06:07,246 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 423 ppm
+2020-12-11 14:06:07,293 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:06:07,294 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:06:07,294 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:06:06.000924, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:06:07,295 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:06:07,295 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:06:12,228 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:30 PST)" executed successfully
+2020-12-11 14:06:16,052 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:06:16,052 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:06:16,053 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:06:07.000365, hasError= False, statusCode = 0, actuatorType=100, value=0.0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:06:16,053 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:06:16,053 - root - DEBUG - LedDisplayEmulatorTask : 65 - Clear SenseHAT screen
+2020-12-11 14:06:30,443 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:06:30,445 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:30 PST)" (scheduled at 2020-12-11 14:06:30.439089-08:00)
+2020-12-11 14:06:30,446 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:07:00.439089-08:00 (in 29.994747 seconds)
+2020-12-11 14:06:30,447 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 10.8
+2020-12-11 14:06:30,448 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:06:30,449 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36844802417132944
+2020-12-11 14:06:30,450 - root - INFO - SystemPerformanceManager : 63 - CPU usage 10.8%, memory usage 6.8%, disk usage 0.36844802417132944%
+2020-12-11 14:06:30,450 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:06:30,451 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:06:30.449837, hasError= False, statusCode = 0, CpuUtilization = 10.8, DiskUtilization = 0.36844802417132944, MemoryUtilization = 6.8
+2020-12-11 14:06:30,451 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:30,452 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:06:30.449837",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 10.8,
+  "diskUtil": 0.36844802417132944,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:06:30,453 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:00 PST)" executed successfully
+2020-12-11 14:06:30,455 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 33
+2020-12-11 14:06:30,455 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:06:30,458 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:06:30 PST)" (scheduled at 2020-12-11 14:06:30.441982-08:00)
+2020-12-11 14:06:30,460 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:06:30,468 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:07:00.441982-08:00 (in 29.984613 seconds)
+2020-12-11 14:06:30,468 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:06:30.460679, hasError= False, statusCode = 0, sensorType = 1, value = 51.739952087402344
+2020-12-11 14:06:30,470 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:06:30.469795, hasError= False, statusCode = 0, sensorType = 2, value = 1020.577392578125
+2020-12-11 14:06:30,470 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:06:30.470547, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:06:30,471 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:30,471 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:06:30.470547, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:06:30,472 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:30,473 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:06:30.470547",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.785491943359375
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:30,474 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 34
+2020-12-11 14:06:30,475 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:30,476 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.785492 is higher than ceiling: 23.000000.
+2020-12-11 14:06:30,477 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:06:30.476324, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:06:30,477 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:06:30,478 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:06:37,223 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:37,224 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:06:30.469795, hasError= False, statusCode = 0, sensorType = 2, value = 1020.577392578125
+2020-12-11 14:06:37,224 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:37,225 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:06:30.469795",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.577392578125
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:37,226 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:37,227 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 35
+2020-12-11 14:06:37,228 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:37,229 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:06:30.460679, hasError= False, statusCode = 0, sensorType = 1, value = 51.739952087402344
+2020-12-11 14:06:37,230 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:37,230 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:06:30.460679",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 51.739952087402344
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:37,232 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:37,233 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 36
+2020-12-11 14:06:37,240 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:06:37.233734, hasError= False, statusCode = 0, sensorType = 4, value = 405.0
+2020-12-11 14:06:37,240 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:06:37,241 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:06:37.233734, hasError= False, statusCode = 0, sensorType = 4, value = 405.0
+2020-12-11 14:06:37,242 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:06:37,244 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:06:37.233734",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 405.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:06:37,245 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:06:37,246 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 37
+2020-12-11 14:06:37,247 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:06:37.247118, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 405 ppm
+2020-12-11 14:06:37,248 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:06:37,249 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 405 ppm
+2020-12-11 14:06:37,288 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:06:37,289 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:06:37,290 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:06:36.000918, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:06:37,290 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:06:37,291 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:06:42,094 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:00 PST)" executed successfully
+2020-12-11 14:07:00,441 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:07:00,443 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:00 PST)" (scheduled at 2020-12-11 14:07:00.439089-08:00)
+2020-12-11 14:07:00,445 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.4
+2020-12-11 14:07:00,446 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:07:30.439089-08:00 (in 29.996630 seconds)
+2020-12-11 14:07:00,448 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:07:00,449 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.3684494580248696
+2020-12-11 14:07:00,450 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.4%, memory usage 6.8%, disk usage 0.3684494580248696%
+2020-12-11 14:07:00,453 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:07:00,454 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:07:00.450534, hasError= False, statusCode = 0, CpuUtilization = 11.4, DiskUtilization = 0.3684494580248696, MemoryUtilization = 6.8
+2020-12-11 14:07:00,455 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:00,456 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:07:00.450534",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.4,
+  "diskUtil": 0.3684494580248696,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:07:00,457 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:30 PST)" executed successfully
+2020-12-11 14:07:00,459 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 38
+2020-12-11 14:07:00,462 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:07:00,465 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:00 PST)" (scheduled at 2020-12-11 14:07:00.441982-08:00)
+2020-12-11 14:07:00,471 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:07:00,470 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:07:30.441982-08:00 (in 29.978924 seconds)
+2020-12-11 14:07:00,482 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:07:00.472475, hasError= False, statusCode = 0, sensorType = 1, value = 51.35966873168945
+2020-12-11 14:07:00,483 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:07:00.483439, hasError= False, statusCode = 0, sensorType = 2, value = 1020.577880859375
+2020-12-11 14:07:00,484 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:07:00.484316, hasError= False, statusCode = 0, sensorType = 3, value = 25.840028762817383
+2020-12-11 14:07:00,485 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:00,486 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:07:00.484316, hasError= False, statusCode = 0, sensorType = 3, value = 25.840028762817383
+2020-12-11 14:07:00,487 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:00,487 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:07:00.484316",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.840028762817383
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:00,489 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 39
+2020-12-11 14:07:00,490 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:00,491 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.840029 is higher than ceiling: 23.000000.
+2020-12-11 14:07:00,491 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:07:00.490948, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:07:00,492 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:07:00,493 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:07:07,239 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:07,239 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:07:00.483439, hasError= False, statusCode = 0, sensorType = 2, value = 1020.577880859375
+2020-12-11 14:07:07,240 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:07,241 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:07:00.483439",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.577880859375
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:07,242 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:07,243 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:07,244 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:07:00.472475, hasError= False, statusCode = 0, sensorType = 1, value = 51.35966873168945
+2020-12-11 14:07:07,244 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 40
+2020-12-11 14:07:07,245 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:07,248 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:07:00.472475",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 51.35966873168945
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:07,249 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:07,251 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 41
+2020-12-11 14:07:07,257 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:07:07.250735, hasError= False, statusCode = 0, sensorType = 4, value = 423.0
+2020-12-11 14:07:07,258 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:07,259 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:07:07.250735, hasError= False, statusCode = 0, sensorType = 4, value = 423.0
+2020-12-11 14:07:07,260 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:07,260 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:07:07.250735",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 423.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:07,262 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 42
+2020-12-11 14:07:07,262 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:07,263 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:07:07.263482, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 423 ppm
+2020-12-11 14:07:07,264 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:07:07,265 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 423 ppm
+2020-12-11 14:07:07,305 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:07:07,306 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:07:07,307 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:07:06.000936, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:07:07,308 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:07:07,308 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:07:12,246 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:30 PST)" executed successfully
+2020-12-11 14:07:30,446 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:07:30,447 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:30 PST)" (scheduled at 2020-12-11 14:07:30.439089-08:00)
+2020-12-11 14:07:30,449 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:08:00.439089-08:00 (in 29.992457 seconds)
+2020-12-11 14:07:30,450 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.4
+2020-12-11 14:07:30,451 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:07:30,452 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36845074849305576
+2020-12-11 14:07:30,453 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.4%, memory usage 6.8%, disk usage 0.36845074849305576%
+2020-12-11 14:07:30,453 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:07:30,454 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:07:30.452930, hasError= False, statusCode = 0, CpuUtilization = 11.4, DiskUtilization = 0.36845074849305576, MemoryUtilization = 6.8
+2020-12-11 14:07:30,455 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:30,455 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:07:30.452930",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.4,
+  "diskUtil": 0.36845074849305576,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:07:30,456 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:08:00 PST)" executed successfully
+2020-12-11 14:07:30,457 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 43
+2020-12-11 14:07:30,461 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:07:30,463 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:07:30 PST)" (scheduled at 2020-12-11 14:07:30.441982-08:00)
+2020-12-11 14:07:30,466 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:08:00.441982-08:00 (in 29.979477 seconds)
+2020-12-11 14:07:30,466 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:07:30,474 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:07:30.467771, hasError= False, statusCode = 0, sensorType = 1, value = 51.2987060546875
+2020-12-11 14:07:30,474 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:07:30.474733, hasError= False, statusCode = 0, sensorType = 2, value = 1020.624267578125
+2020-12-11 14:07:30,475 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:07:30.475363, hasError= False, statusCode = 0, sensorType = 3, value = 25.749134063720703
+2020-12-11 14:07:30,476 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:30,476 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:07:30.475363, hasError= False, statusCode = 0, sensorType = 3, value = 25.749134063720703
+2020-12-11 14:07:30,477 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:30,477 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:07:30.475363",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.749134063720703
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:30,481 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:30,483 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.749134 is higher than ceiling: 23.000000.
+2020-12-11 14:07:30,485 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:07:30.483791, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:07:30,487 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:07:30,488 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:07:30,486 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 44
+2020-12-11 14:07:37,236 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:37,237 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:07:30.474733, hasError= False, statusCode = 0, sensorType = 2, value = 1020.624267578125
+2020-12-11 14:07:37,238 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:37,238 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:07:30.474733",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.624267578125
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:37,239 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:37,240 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:37,241 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:07:30.467771, hasError= False, statusCode = 0, sensorType = 1, value = 51.2987060546875
+2020-12-11 14:07:37,242 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:37,244 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:07:30.467771",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 51.2987060546875
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:37,244 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 45
+2020-12-11 14:07:37,245 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:37,246 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 46
+2020-12-11 14:07:37,252 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:07:37.246883, hasError= False, statusCode = 0, sensorType = 4, value = 432.0
+2020-12-11 14:07:37,253 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:07:37,254 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:07:37.246883, hasError= False, statusCode = 0, sensorType = 4, value = 432.0
+2020-12-11 14:07:37,254 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:07:37,255 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:07:37.246883",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 432.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:07:37,256 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 47
+2020-12-11 14:07:37,258 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:07:37,259 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:07:37.259489, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 432 ppm
+2020-12-11 14:07:37,261 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:07:37,262 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 432 ppm
+2020-12-11 14:07:37,298 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:07:37,299 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:07:37,300 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:07:36.000930, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:07:37,300 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:07:37,301 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:07:42,323 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:08:00 PST)" executed successfully
+2020-12-11 14:08:00,442 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:08:00,444 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:08:30 PST)" (scheduled at 2020-12-11 14:08:00.439089-08:00)
+2020-12-11 14:08:00,445 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:08:30.439089-08:00 (in 29.995577 seconds)
+2020-12-11 14:08:00,447 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:08:00,450 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.1
+2020-12-11 14:08:00,453 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:08:00 PST)" (scheduled at 2020-12-11 14:08:00.441982-08:00)
+2020-12-11 14:08:00,454 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:08:00,462 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:08:30.441982-08:00 (in 29.993220 seconds)
+2020-12-11 14:08:00,464 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:08:00,465 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36845218234659594
+2020-12-11 14:08:00,465 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:08:00.455608, hasError= False, statusCode = 0, sensorType = 1, value = 50.871978759765625
+2020-12-11 14:08:00,466 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.1%, memory usage 6.8%, disk usage 0.36845218234659594%
+2020-12-11 14:08:00,468 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:08:00.468688, hasError= False, statusCode = 0, sensorType = 2, value = 1020.569091796875
+2020-12-11 14:08:00,469 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:08:00,471 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:08:00.471135, hasError= False, statusCode = 0, sensorType = 3, value = 25.712778091430664
+2020-12-11 14:08:00,471 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:08:00.466387, hasError= False, statusCode = 0, CpuUtilization = 11.1, DiskUtilization = 0.36845218234659594, MemoryUtilization = 6.8
+2020-12-11 14:08:00,473 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:00,474 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:00,476 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:08:00.471135, hasError= False, statusCode = 0, sensorType = 3, value = 25.712778091430664
+2020-12-11 14:08:00,476 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:08:00.466387",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.1,
+  "diskUtil": 0.36845218234659594,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:08:00,480 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:00,483 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:08:00.471135",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.712778091430664
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:00,483 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 48
+2020-12-11 14:08:00,487 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:00,488 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 49
+2020-12-11 14:08:00,490 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.712778 is higher than ceiling: 23.000000.
+2020-12-11 14:08:00,491 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:08:30 PST)" executed successfully
+2020-12-11 14:08:00,493 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:08:00.490470, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:08:00,494 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:08:00,496 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:08:07,236 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:07,237 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:08:00.468688, hasError= False, statusCode = 0, sensorType = 2, value = 1020.569091796875
+2020-12-11 14:08:07,237 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:07,238 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:08:00.468688",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.569091796875
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:07,239 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:07,240 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:07,241 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:08:00.455608, hasError= False, statusCode = 0, sensorType = 1, value = 50.871978759765625
+2020-12-11 14:08:07,242 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:07,242 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:08:00.455608",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 50.871978759765625
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:07,244 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:07,245 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 50
+2020-12-11 14:08:07,247 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 51
+2020-12-11 14:08:07,252 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:08:07.244917, hasError= False, statusCode = 0, sensorType = 4, value = 428.0
+2020-12-11 14:08:07,253 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:07,253 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:08:07.244917, hasError= False, statusCode = 0, sensorType = 4, value = 428.0
+2020-12-11 14:08:07,254 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:07,255 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:08:07.244917",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 428.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:07,256 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 52
+2020-12-11 14:08:07,257 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:07,259 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:08:07.258489, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 428 ppm
+2020-12-11 14:08:07,259 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:08:07,260 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 428 ppm
+2020-12-11 14:08:07,298 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:08:07,299 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:08:07,300 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:08:06.000930, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:08:07,301 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:08:07,301 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:08:12,106 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:08:30 PST)" executed successfully
+2020-12-11 14:08:30,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:08:30,445 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:09:00.439089-08:00 (in 29.994300 seconds)
+2020-12-11 14:08:30,446 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:00 PST)" (scheduled at 2020-12-11 14:08:30.439089-08:00)
+2020-12-11 14:08:30,448 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.2
+2020-12-11 14:08:30,449 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:08:30,450 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36845347281478213
+2020-12-11 14:08:30,450 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.2%, memory usage 6.8%, disk usage 0.36845347281478213%
+2020-12-11 14:08:30,451 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:08:30,452 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:08:30.450749, hasError= False, statusCode = 0, CpuUtilization = 11.2, DiskUtilization = 0.36845347281478213, MemoryUtilization = 6.8
+2020-12-11 14:08:30,452 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:30,453 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:08:30.450749",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.2,
+  "diskUtil": 0.36845347281478213,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:08:30,454 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:00 PST)" executed successfully
+2020-12-11 14:08:30,456 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 53
+2020-12-11 14:08:30,456 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:08:30,458 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:09:00.441982-08:00 (in 29.983841 seconds)
+2020-12-11 14:08:30,459 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:00 PST)" (scheduled at 2020-12-11 14:08:30.441982-08:00)
+2020-12-11 14:08:30,461 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:08:30,469 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:08:30.461806, hasError= False, statusCode = 0, sensorType = 1, value = 50.93584442138672
+2020-12-11 14:08:30,469 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:08:30.469639, hasError= False, statusCode = 0, sensorType = 2, value = 1020.582763671875
+2020-12-11 14:08:30,470 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:08:30.470383, hasError= False, statusCode = 0, sensorType = 3, value = 25.821849822998047
+2020-12-11 14:08:30,471 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:30,471 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:08:30.470383, hasError= False, statusCode = 0, sensorType = 3, value = 25.821849822998047
+2020-12-11 14:08:30,472 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:30,473 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:08:30.470383",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.821849822998047
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:30,474 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 54
+2020-12-11 14:08:30,475 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:30,476 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.821850 is higher than ceiling: 23.000000.
+2020-12-11 14:08:30,476 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:08:30.475974, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:08:30,477 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:08:30,478 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:08:37,223 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:37,223 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:08:30.469639, hasError= False, statusCode = 0, sensorType = 2, value = 1020.582763671875
+2020-12-11 14:08:37,224 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:37,225 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:08:30.469639",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.582763671875
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:37,226 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:37,227 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:37,228 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 55
+2020-12-11 14:08:37,229 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:08:30.461806, hasError= False, statusCode = 0, sensorType = 1, value = 50.93584442138672
+2020-12-11 14:08:37,231 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:37,232 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:08:30.461806",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 50.93584442138672
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:37,234 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 56
+2020-12-11 14:08:37,235 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:37,243 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:08:37.236808, hasError= False, statusCode = 0, sensorType = 4, value = 433.0
+2020-12-11 14:08:37,244 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:08:37,245 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:08:37.236808, hasError= False, statusCode = 0, sensorType = 4, value = 433.0
+2020-12-11 14:08:37,246 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:08:37,247 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:08:37.236808",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 433.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:08:37,249 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 57
+2020-12-11 14:08:37,250 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:08:37,252 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:08:37.251792, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 433 ppm
+2020-12-11 14:08:37,252 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:08:37,254 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 433 ppm
+2020-12-11 14:08:37,289 - root - INFO - MqttClientConnector : 166 - [Callback] Actuator command message received. Topic: PIOT/ConstrainedDevice/ActuatorCmd.
+2020-12-11 14:08:37,290 - root - INFO - DeviceDataManager : 110 - Processing actuator command message.
+2020-12-11 14:08:37,291 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = Not Set, timeStamp = 2020-12-11 14:08:36.000919, hasError= False, statusCode = 0, actuatorType=2, value=0.0, command=0, isResponse=False, stateData=Humidity too high
+2020-12-11 14:08:37,292 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:08:37,293 - root - DEBUG - HumidifierEmulatorTask : 65 - Scroll text: HumidifierActuator OFF
+2020-12-11 14:08:42,186 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:00 PST)" executed successfully
+2020-12-11 14:09:00,441 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:09:00,442 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:09:30.439089-08:00 (in 29.997061 seconds)
+2020-12-11 14:09:00,443 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:30 PST)" (scheduled at 2020-12-11 14:09:00.439089-08:00)
+2020-12-11 14:09:00,446 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 10.6
+2020-12-11 14:09:00,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:09:00,448 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:09:30.441982-08:00 (in 29.994084 seconds)
+2020-12-11 14:09:00,449 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:30 PST)" (scheduled at 2020-12-11 14:09:00.441982-08:00)
+2020-12-11 14:09:00,451 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:09:00,459 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.8
+2020-12-11 14:09:00,460 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.3684551934390303
+2020-12-11 14:09:00,461 - root - INFO - SystemPerformanceManager : 63 - CPU usage 10.6%, memory usage 6.8%, disk usage 0.3684551934390303%
+2020-12-11 14:09:00,460 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:09:00.452374, hasError= False, statusCode = 0, sensorType = 1, value = 50.63393783569336
+2020-12-11 14:09:00,463 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:09:00.463450, hasError= False, statusCode = 0, sensorType = 2, value = 1020.58349609375
+2020-12-11 14:09:00,464 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:09:00.464344, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:09:00,465 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:00,466 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:09:00.464344, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:09:00,462 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:09:00,467 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:00,468 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:09:00.461608, hasError= False, statusCode = 0, CpuUtilization = 10.6, DiskUtilization = 0.3684551934390303, MemoryUtilization = 6.8
+2020-12-11 14:09:00,469 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:09:00.464344",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.785491943359375
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:00,470 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:00,471 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:00,471 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:09:00.461608",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 10.6,
+  "diskUtil": 0.3684551934390303,
+  "memUtil": 6.8
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:09:00,472 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.785492 is higher than ceiling: 23.000000.
+2020-12-11 14:09:00,473 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 58
+2020-12-11 14:09:00,474 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:30 PST)" executed successfully
+2020-12-11 14:09:00,475 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:09:00.472653, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:09:00,476 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 59
+2020-12-11 14:09:00,477 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:09:00,479 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:09:07,211 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:07,212 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:09:00.463450, hasError= False, statusCode = 0, sensorType = 2, value = 1020.58349609375
+2020-12-11 14:09:07,213 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:07,214 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:09:00.463450",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.58349609375
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:07,215 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:07,215 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:07,216 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:09:00.452374, hasError= False, statusCode = 0, sensorType = 1, value = 50.63393783569336
+2020-12-11 14:09:07,217 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:07,218 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:09:00.452374",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 50.63393783569336
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:07,217 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 60
+2020-12-11 14:09:07,219 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:07,221 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 61
+2020-12-11 14:09:07,226 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:09:07.220989, hasError= True, statusCode = -1, sensorType = 4, value = 33209.0
+2020-12-11 14:09:07,227 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:07,228 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:09:07.220989, hasError= True, statusCode = -1, sensorType = 4, value = 33209.0
+2020-12-11 14:09:07,229 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:07,229 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:09:07.220989",
+  "hasError": true,
+  "statusCode": -1,
+  "sensorType": 4,
+  "value": 33209.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:07,230 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:07,231 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 62
+2020-12-11 14:09:07,232 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:09:07.232023, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 33209 ppm
+2020-12-11 14:09:07,233 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:09:07,234 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 33209 ppm
+2020-12-11 14:09:12,888 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:09:30 PST)" executed successfully
+2020-12-11 14:09:30,441 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:09:30,443 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:10:00.439089-08:00 (in 29.996599 seconds)
+2020-12-11 14:09:30,444 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:00 PST)" (scheduled at 2020-12-11 14:09:30.439089-08:00)
+2020-12-11 14:09:30,446 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 10.9
+2020-12-11 14:09:30,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:09:30,448 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.9
+2020-12-11 14:09:30,449 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:10:00.441982-08:00 (in 29.993138 seconds)
+2020-12-11 14:09:30,450 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:00 PST)" (scheduled at 2020-12-11 14:09:30.441982-08:00)
+2020-12-11 14:09:30,451 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36845648390721647
+2020-12-11 14:09:30,453 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:09:30,455 - root - INFO - SystemPerformanceManager : 63 - CPU usage 10.9%, memory usage 6.9%, disk usage 0.36845648390721647%
+2020-12-11 14:09:30,464 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:09:30.455921, hasError= False, statusCode = 0, sensorType = 1, value = 50.81391906738281
+2020-12-11 14:09:30,464 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:09:30,465 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:09:30.465595, hasError= False, statusCode = 0, sensorType = 2, value = 1020.5947265625
+2020-12-11 14:09:30,466 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:09:30.455043, hasError= False, statusCode = 0, CpuUtilization = 10.9, DiskUtilization = 0.36845648390721647, MemoryUtilization = 6.9
+2020-12-11 14:09:30,467 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:09:30.467384, hasError= False, statusCode = 0, sensorType = 3, value = 25.712778091430664
+2020-12-11 14:09:30,468 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:30,469 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:30,471 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:09:30.455043",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 10.9,
+  "diskUtil": 0.36845648390721647,
+  "memUtil": 6.9
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:09:30,472 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:09:30.467384, hasError= False, statusCode = 0, sensorType = 3, value = 25.712778091430664
+2020-12-11 14:09:30,474 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:00 PST)" executed successfully
+2020-12-11 14:09:30,475 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:30,476 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 63
+2020-12-11 14:09:30,482 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:09:30.467384",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.712778091430664
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:30,485 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:30,486 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 64
+2020-12-11 14:09:30,487 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.712778 is higher than ceiling: 23.000000.
+2020-12-11 14:09:30,488 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:09:30.487105, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:09:30,489 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:09:30,490 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:09:37,237 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:37,238 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:09:30.465595, hasError= False, statusCode = 0, sensorType = 2, value = 1020.5947265625
+2020-12-11 14:09:37,239 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:37,240 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:09:30.465595",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.5947265625
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:37,241 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:37,241 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 65
+2020-12-11 14:09:37,246 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:37,248 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:09:30.455921, hasError= False, statusCode = 0, sensorType = 1, value = 50.81391906738281
+2020-12-11 14:09:37,248 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:37,249 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:09:30.455921",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 50.81391906738281
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:37,250 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:37,251 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 66
+2020-12-11 14:09:37,261 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:09:37.254238, hasError= False, statusCode = 0, sensorType = 4, value = 445.0
+2020-12-11 14:09:37,262 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:09:37,262 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:09:37.254238, hasError= False, statusCode = 0, sensorType = 4, value = 445.0
+2020-12-11 14:09:37,264 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:09:37,264 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:09:37.254238",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 445.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:09:37,266 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:09:37,267 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 67
+2020-12-11 14:09:37,270 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:09:37.269801, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 445 ppm
+2020-12-11 14:09:37,271 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:09:37,278 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 445 ppm
+2020-12-11 14:09:42,134 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:00 PST)" executed successfully
+2020-12-11 14:10:00,442 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:10:00,443 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:10:30.439089-08:00 (in 29.996231 seconds)
+2020-12-11 14:10:00,445 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:30 PST)" (scheduled at 2020-12-11 14:10:00.439089-08:00)
+2020-12-11 14:10:00,447 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:10:00,448 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:10:30.441982-08:00 (in 29.993993 seconds)
+2020-12-11 14:10:00,451 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.2
+2020-12-11 14:10:00,454 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:30 PST)" (scheduled at 2020-12-11 14:10:00.441982-08:00)
+2020-12-11 14:10:00,455 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:10:00,463 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:10:00.455884, hasError= False, statusCode = 0, sensorType = 1, value = 52.34085464477539
+2020-12-11 14:10:00,464 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:10:00.464027, hasError= False, statusCode = 0, sensorType = 2, value = 1020.56884765625
+2020-12-11 14:10:00,465 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:10:00.465085, hasError= False, statusCode = 0, sensorType = 3, value = 25.912742614746094
+2020-12-11 14:10:00,466 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:00,466 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:10:00.465085, hasError= False, statusCode = 0, sensorType = 3, value = 25.912742614746094
+2020-12-11 14:10:00,467 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:00,468 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 6.9
+2020-12-11 14:10:00,470 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:10:00.465085",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.912742614746094
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:00,471 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36845791776075665
+2020-12-11 14:10:00,473 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.2%, memory usage 6.9%, disk usage 0.36845791776075665%
+2020-12-11 14:10:00,474 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:10:00,475 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:10:00.473447, hasError= False, statusCode = 0, CpuUtilization = 11.2, DiskUtilization = 0.36845791776075665, MemoryUtilization = 6.9
+2020-12-11 14:10:00,476 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:00,478 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:10:00.473447",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.2,
+  "diskUtil": 0.36845791776075665,
+  "memUtil": 6.9
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:10:00,478 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:00,479 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 68
+2020-12-11 14:10:00,480 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:30 PST)" executed successfully
+2020-12-11 14:10:00,481 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.912743 is higher than ceiling: 23.000000.
+2020-12-11 14:10:00,483 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 69
+2020-12-11 14:10:00,484 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:10:00.481275, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:10:00,489 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:10:00,490 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:10:07,238 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:07,239 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:10:00.464027, hasError= False, statusCode = 0, sensorType = 2, value = 1020.56884765625
+2020-12-11 14:10:07,240 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:07,241 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:10:00.464027",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.56884765625
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:07,242 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 70
+2020-12-11 14:10:07,244 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:07,244 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:07,245 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:10:00.455884, hasError= False, statusCode = 0, sensorType = 1, value = 52.34085464477539
+2020-12-11 14:10:07,246 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:07,247 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:10:00.455884",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 52.34085464477539
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:07,249 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 71
+2020-12-11 14:10:07,250 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:07,259 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:10:07.251224, hasError= False, statusCode = 0, sensorType = 4, value = 470.0
+2020-12-11 14:10:07,259 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:07,260 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:10:07.251224, hasError= False, statusCode = 0, sensorType = 4, value = 470.0
+2020-12-11 14:10:07,261 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:07,262 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:10:07.251224",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 470.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:07,266 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:07,267 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 72
+2020-12-11 14:10:07,270 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:10:07.267903, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 470 ppm
+2020-12-11 14:10:07,274 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:10:07,275 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 470 ppm
+2020-12-11 14:10:12,135 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:10:30 PST)" executed successfully
+2020-12-11 14:10:30,440 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:10:30,442 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:11:00.439089-08:00 (in 29.997487 seconds)
+2020-12-11 14:10:30,443 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:00 PST)" (scheduled at 2020-12-11 14:10:30.439089-08:00)
+2020-12-11 14:10:30,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:10:30,446 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.2
+2020-12-11 14:10:30,447 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:11:00.441982-08:00 (in 29.995183 seconds)
+2020-12-11 14:10:30,448 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:00 PST)" (scheduled at 2020-12-11 14:10:30.441982-08:00)
+2020-12-11 14:10:30,449 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 7.0
+2020-12-11 14:10:30,451 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:10:30,452 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36845920822894285
+2020-12-11 14:10:30,460 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:10:30.452754, hasError= False, statusCode = 0, sensorType = 1, value = 55.30183029174805
+2020-12-11 14:10:30,460 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.2%, memory usage 7.0%, disk usage 0.36845920822894285%
+2020-12-11 14:10:30,461 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:10:30.461537, hasError= False, statusCode = 0, sensorType = 2, value = 1020.5947265625
+2020-12-11 14:10:30,462 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:10:30,463 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:10:30.462982, hasError= False, statusCode = 0, sensorType = 3, value = 25.840028762817383
+2020-12-11 14:10:30,465 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:10:30.460729, hasError= False, statusCode = 0, CpuUtilization = 11.2, DiskUtilization = 0.36845920822894285, MemoryUtilization = 7.0
+2020-12-11 14:10:30,465 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:30,466 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:30,468 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:10:30.462982, hasError= False, statusCode = 0, sensorType = 3, value = 25.840028762817383
+2020-12-11 14:10:30,468 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:10:30.460729",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.2,
+  "diskUtil": 0.36845920822894285,
+  "memUtil": 7.0
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:10:30,469 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:30,471 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:00 PST)" executed successfully
+2020-12-11 14:10:30,472 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:10:30.462982",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.840028762817383
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:30,472 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 73
+2020-12-11 14:10:30,474 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:30,475 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 74
+2020-12-11 14:10:30,477 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.840029 is higher than ceiling: 23.000000.
+2020-12-11 14:10:30,478 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:10:30.477082, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:10:30,479 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:10:30,480 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:10:37,218 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:37,219 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:10:30.461537, hasError= False, statusCode = 0, sensorType = 2, value = 1020.5947265625
+2020-12-11 14:10:37,220 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:37,221 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:10:30.461537",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.5947265625
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:37,222 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:37,223 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:37,223 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 75
+2020-12-11 14:10:37,224 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:10:30.452754, hasError= False, statusCode = 0, sensorType = 1, value = 55.30183029174805
+2020-12-11 14:10:37,226 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:37,226 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:10:30.452754",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 55.30183029174805
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:37,228 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:37,229 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 76
+2020-12-11 14:10:37,236 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:10:37.229516, hasError= False, statusCode = 0, sensorType = 4, value = 486.0
+2020-12-11 14:10:37,236 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:10:37,237 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:10:37.229516, hasError= False, statusCode = 0, sensorType = 4, value = 486.0
+2020-12-11 14:10:37,238 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:10:37,239 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:10:37.229516",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 486.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:10:37,240 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:10:37,241 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:10:37.241226, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 486 ppm
+2020-12-11 14:10:37,242 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 77
+2020-12-11 14:10:37,244 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:10:37,245 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 486 ppm
+2020-12-11 14:10:42,094 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:00 PST)" executed successfully
+2020-12-11 14:11:00,441 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:11:00,443 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:11:30.439089-08:00 (in 29.996444 seconds)
+2020-12-11 14:11:00,445 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:30 PST)" (scheduled at 2020-12-11 14:11:00.439089-08:00)
+2020-12-11 14:11:00,446 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:11:00,448 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:11:30.441982-08:00 (in 29.994863 seconds)
+2020-12-11 14:11:00,448 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.7
+2020-12-11 14:11:00,449 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:30 PST)" (scheduled at 2020-12-11 14:11:00.441982-08:00)
+2020-12-11 14:11:00,451 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:11:00,459 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:11:00.452681, hasError= False, statusCode = 0, sensorType = 1, value = 52.78209686279297
+2020-12-11 14:11:00,460 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 7.0
+2020-12-11 14:11:00,461 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:11:00.460859, hasError= False, statusCode = 0, sensorType = 2, value = 1020.569091796875
+2020-12-11 14:11:00,462 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.368460642082483
+2020-12-11 14:11:00,462 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:11:00.462398, hasError= False, statusCode = 0, sensorType = 3, value = 25.76731300354004
+2020-12-11 14:11:00,463 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.7%, memory usage 7.0%, disk usage 0.368460642082483%
+2020-12-11 14:11:00,464 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:00,465 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:11:00,465 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:11:00.462398, hasError= False, statusCode = 0, sensorType = 3, value = 25.76731300354004
+2020-12-11 14:11:00,466 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:11:00.463309, hasError= False, statusCode = 0, CpuUtilization = 11.7, DiskUtilization = 0.368460642082483, MemoryUtilization = 7.0
+2020-12-11 14:11:00,467 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:00,468 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:00,468 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:11:00.462398",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.76731300354004
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:00,469 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:11:00.463309",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.7,
+  "diskUtil": 0.368460642082483,
+  "memUtil": 7.0
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:11:00,470 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:00,471 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 78
+2020-12-11 14:11:00,471 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:30 PST)" executed successfully
+2020-12-11 14:11:00,472 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.767313 is higher than ceiling: 23.000000.
+2020-12-11 14:11:00,473 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 79
+2020-12-11 14:11:00,474 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:11:00.472710, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:11:00,475 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:11:00,476 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:11:07,222 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:07,223 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:11:00.460859, hasError= False, statusCode = 0, sensorType = 2, value = 1020.569091796875
+2020-12-11 14:11:07,224 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:07,225 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:11:00.460859",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.569091796875
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:07,226 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:07,226 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:07,227 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:11:00.452681, hasError= False, statusCode = 0, sensorType = 1, value = 52.78209686279297
+2020-12-11 14:11:07,228 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:07,229 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 80
+2020-12-11 14:11:07,230 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:11:00.452681",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 52.78209686279297
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:07,231 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:07,232 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 81
+2020-12-11 14:11:07,238 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:11:07.232406, hasError= False, statusCode = 0, sensorType = 4, value = 1534.0
+2020-12-11 14:11:07,238 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:07,239 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:11:07.232406, hasError= False, statusCode = 0, sensorType = 4, value = 1534.0
+2020-12-11 14:11:07,240 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:07,240 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:11:07.232406",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 1534.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:07,241 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 82
+2020-12-11 14:11:07,243 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:07,244 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:11:07.244027, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 1534 ppm
+2020-12-11 14:11:07,245 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:11:07,245 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 1534 ppm
+2020-12-11 14:11:12,363 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:11:30 PST)" executed successfully
+2020-12-11 14:11:30,441 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:11:30,442 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:12:00.439089-08:00 (in 29.997112 seconds)
+2020-12-11 14:11:30,443 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:00 PST)" (scheduled at 2020-12-11 14:11:30.439089-08:00)
+2020-12-11 14:11:30,445 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:11:30,447 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:12:00.441982-08:00 (in 29.995736 seconds)
+2020-12-11 14:11:30,448 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:00 PST)" (scheduled at 2020-12-11 14:11:30.441982-08:00)
+2020-12-11 14:11:30,449 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.3
+2020-12-11 14:11:30,450 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:11:30,457 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 7.0
+2020-12-11 14:11:30,458 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36846178916531513
+2020-12-11 14:11:30,462 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:11:30.451275, hasError= False, statusCode = 0, sensorType = 1, value = 53.66168212890625
+2020-12-11 14:11:30,463 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.3%, memory usage 7.0%, disk usage 0.36846178916531513%
+2020-12-11 14:11:30,464 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:11:30.464291, hasError= False, statusCode = 0, sensorType = 2, value = 1020.581787109375
+2020-12-11 14:11:30,465 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:11:30,465 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:11:30.465625, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:11:30,466 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:11:30.463401, hasError= False, statusCode = 0, CpuUtilization = 11.3, DiskUtilization = 0.36846178916531513, MemoryUtilization = 7.0
+2020-12-11 14:11:30,467 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:30,468 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:30,468 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:11:30.465625, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:11:30,469 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:11:30.463401",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.3,
+  "diskUtil": 0.36846178916531513,
+  "memUtil": 7.0
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:11:30,470 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:30,471 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:11:30.465625",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.785491943359375
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:30,472 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 83
+2020-12-11 14:11:30,473 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:30,474 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.785492 is higher than ceiling: 23.000000.
+2020-12-11 14:11:30,475 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:00 PST)" executed successfully
+2020-12-11 14:11:30,475 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 84
+2020-12-11 14:11:30,477 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:11:30.474606, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:11:30,479 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:11:30,480 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:11:37,226 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:37,226 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:11:30.464291, hasError= False, statusCode = 0, sensorType = 2, value = 1020.581787109375
+2020-12-11 14:11:37,227 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:37,228 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:11:30.464291",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.581787109375
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:37,229 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 85
+2020-12-11 14:11:37,230 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:37,230 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:37,231 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:11:30.451275, hasError= False, statusCode = 0, sensorType = 1, value = 53.66168212890625
+2020-12-11 14:11:37,232 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:37,233 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:11:30.451275",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 53.66168212890625
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:37,234 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 86
+2020-12-11 14:11:37,234 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:37,241 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:11:37.235756, hasError= False, statusCode = 0, sensorType = 4, value = 508.0
+2020-12-11 14:11:37,242 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:11:37,242 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:11:37.235756, hasError= False, statusCode = 0, sensorType = 4, value = 508.0
+2020-12-11 14:11:37,243 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:11:37,244 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:11:37.235756",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 508.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:11:37,245 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 87
+2020-12-11 14:11:37,246 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:11:37,247 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:11:37.246859, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 508 ppm
+2020-12-11 14:11:37,247 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:11:37,248 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 508 ppm
+2020-12-11 14:11:42,095 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:00 PST)" executed successfully
+2020-12-11 14:12:00,442 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:12:00,442 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:12:30.439089-08:00 (in 29.996586 seconds)
+2020-12-11 14:12:00,443 - apscheduler.executors.default - INFO - base : 123 - Running job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:30 PST)" (scheduled at 2020-12-11 14:12:00.439089-08:00)
+2020-12-11 14:12:00,444 - apscheduler.scheduler - DEBUG - base : 940 - Looking for jobs to run
+2020-12-11 14:12:00,445 - apscheduler.scheduler - DEBUG - base : 1020 - Next wakeup is due at 2020-12-11 14:12:30.441982-08:00 (in 29.996937 seconds)
+2020-12-11 14:12:00,446 - root - INFO - BaseSystemUtilTask : 51 - SystemCpuUtilTask: Got telemetry value: 11.2
+2020-12-11 14:12:00,446 - apscheduler.executors.default - INFO - base : 123 - Running job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:30 PST)" (scheduled at 2020-12-11 14:12:00.441982-08:00)
+2020-12-11 14:12:00,447 - root - INFO - SensorAdapterManager : 125 - SensorAdapterManager is trying to get Telemetries...
+2020-12-11 14:12:00,451 - root - INFO - SensorAdapterManager : 139 - SenserHAT humidity data: name = HumiditySensor, timeStamp = 2020-12-11 14:12:00.448129, hasError= False, statusCode = 0, sensorType = 1, value = 52.37568664550781
+2020-12-11 14:12:00,452 - root - INFO - SensorAdapterManager : 142 - SenserHAT pressure data: name = PressureSensor, timeStamp = 2020-12-11 14:12:00.452155, hasError= False, statusCode = 0, sensorType = 2, value = 1020.572998046875
+2020-12-11 14:12:00,452 - root - INFO - BaseSystemUtilTask : 51 - SystemMemUtilTask: Got telemetry value: 7.0
+2020-12-11 14:12:00,453 - root - INFO - SensorAdapterManager : 145 - SenserHAT temperature data: name = TempSensor, timeStamp = 2020-12-11 14:12:00.452978, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:12:00,453 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:12:00,454 - root - INFO - BaseSystemUtilTask : 51 - SystemDiskUtilTask: Got telemetry value: 0.36846336640420935
+2020-12-11 14:12:00,454 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = TempSensor, timeStamp = 2020-12-11 14:12:00.452978, hasError= False, statusCode = 0, sensorType = 3, value = 25.785491943359375
+2020-12-11 14:12:00,455 - root - INFO - SystemPerformanceManager : 63 - CPU usage 11.2%, memory usage 7.0%, disk usage 0.36846336640420935%
+2020-12-11 14:12:00,455 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:12:00,456 - root - INFO - DeviceDataManager : 175 - Callback: Handling an SystemPerformanceMessage
+2020-12-11 14:12:00,456 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "TempSensor",
+  "timeStamp": "2020-12-11 14:12:00.452978",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 3,
+  "value": 25.785491943359375
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:12:00,456 - root - DEBUG - DeviceDataManager : 176 - SystemPerformanceData: name = SysPerfData, timeStamp = 2020-12-11 14:12:00.455029, hasError= False, statusCode = 0, CpuUtilization = 11.2, DiskUtilization = 0.36846336640420935, MemoryUtilization = 7.0
+2020-12-11 14:12:00,457 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:12:00,457 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:12:00,458 - root - DEBUG - DeviceDataManager : 261 - Turn off HVAC as current temperature: 25.785492 is higher than ceiling: 23.000000.
+2020-12-11 14:12:00,458 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "SysPerfData",
+  "timeStamp": "2020-12-11 14:12:00.455029",
+  "hasError": false,
+  "statusCode": 0,
+  "cpuUtil": 11.2,
+  "diskUtil": 0.36846336640420935,
+  "memUtil": 7.0
+}' to topic 'PIOT/ConstrainedDevice/SystemPerfMsg' with qos 0.
+2020-12-11 14:12:00,459 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = HvacActuator, timeStamp = 2020-12-11 14:12:00.458281, hasError= False, statusCode = 0, actuatorType=1, value=0, command=0, isResponse=False, stateData=Default state data string
+2020-12-11 14:12:00,462 - apscheduler.executors.default - INFO - base : 144 - Job "SystemPerformanceManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:30 PST)" executed successfully
+2020-12-11 14:12:00,463 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 88
+2020-12-11 14:12:00,463 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:12:00,464 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 89
+2020-12-11 14:12:00,464 - root - DEBUG - HvacEmulatorTask : 66 - Scroll text: HvacActuator OFF
+2020-12-11 14:12:07,201 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:12:07,202 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = PressureSensor, timeStamp = 2020-12-11 14:12:00.452155, hasError= False, statusCode = 0, sensorType = 2, value = 1020.572998046875
+2020-12-11 14:12:07,213 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:12:07,214 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "PressureSensor",
+  "timeStamp": "2020-12-11 14:12:00.452155",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 2,
+  "value": 1020.572998046875
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:12:07,215 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:12:07,216 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:12:07,216 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 90
+2020-12-11 14:12:07,217 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = HumiditySensor, timeStamp = 2020-12-11 14:12:00.448129, hasError= False, statusCode = 0, sensorType = 1, value = 52.37568664550781
+2020-12-11 14:12:07,218 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:12:07,218 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "HumiditySensor",
+  "timeStamp": "2020-12-11 14:12:00.448129",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 1,
+  "value": 52.37568664550781
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:12:07,219 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:12:07,220 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 91
+2020-12-11 14:12:07,225 - root - INFO - SensorAdapterManager : 171 - CO2 sensor data: name = CO2Sensor, timeStamp = 2020-12-11 14:12:07.220791, hasError= False, statusCode = 0, sensorType = 4, value = 517.0
+2020-12-11 14:12:07,226 - root - INFO - DeviceDataManager : 158 - Callback: Handling an SensorMessage
+2020-12-11 14:12:07,226 - root - DEBUG - DeviceDataManager : 159 - SensorData: name = CO2Sensor, timeStamp = 2020-12-11 14:12:07.220791, hasError= False, statusCode = 0, sensorType = 4, value = 517.0
+2020-12-11 14:12:07,227 - root - DEBUG - DeviceDataManager : 281 - Handling upstream transmission...
+2020-12-11 14:12:07,228 - root - INFO - MqttClientConnector : 137 - MQTT client send msg:'{
+  "name": "CO2Sensor",
+  "timeStamp": "2020-12-11 14:12:07.220791",
+  "hasError": false,
+  "statusCode": 0,
+  "sensorType": 4,
+  "value": 517.0
+}' to topic 'PIOT/ConstrainedDevice/SensorMsg' with qos 0.
+2020-12-11 14:12:07,229 - root - DEBUG - DeviceDataManager : 248 - Handling analysis on SensorData...
+2020-12-11 14:12:07,229 - root - DEBUG - ActuatorAdapterManager : 58 - Got ActuatorData: name = LedActuator, timeStamp = 2020-12-11 14:12:07.229728, hasError= False, statusCode = 0, actuatorType=100, value=0, command=1, isResponse=False, stateData=CO2 517 ppm
+2020-12-11 14:12:07,230 - root - INFO - MqttClientConnector : 124 - [Callback] MQTT client succeed to publish a message, id: 92
+2020-12-11 14:12:07,230 - root - INFO - ActuatorAdapterManager : 64 - Sending ActuatorData to SenseHAT LED.
+2020-12-11 14:12:07,231 - root - DEBUG - LedDisplayEmulatorTask : 56 - Scroll text: CO2 517 ppm
+2020-12-11 14:12:11,942 - apscheduler.executors.default - INFO - base : 144 - Job "SensorAdapterManager.handleTelemetry (trigger: interval[0:00:30], next run at: 2020-12-11 14:12:30 PST)" executed successfully
