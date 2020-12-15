@@ -41,7 +41,7 @@ enableLogging   = True
 enableRedis     = False
 enableMqttClient= True
 enableCoAPClient= False
-pollCycleSecs   = 30
+pollCycleSecs   = 15
 testGdaDataPath = /tmp/gda-data
 testCdaDataPath = /tmp/cda-data
 testCdaRunTime  = -1
@@ -59,7 +59,7 @@ tempSimCeiling     = 28
 # configurable limits for actuator triggers
 enableHandleTempChangeOnDevice = True
 triggerHvacTempFloor = 16
-triggerHvacTempCeiling = 23
+triggerHvacTempCeiling = 28
 
 # configurable actuator triggers
 enableShowCO2OnDevice = True
