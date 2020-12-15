@@ -23,6 +23,10 @@ class CO2SensorAdapterTask(BaseSensorSimTask):
     MINVAL_TVOC = 0
     MAXVAL_TVOC = 1187
     def __init__(self):
+        """
+        Constrcutor
+        Create instance of I2C and CCS811
+        """
         super(CO2SensorAdapterTask, self).__init__(sensorType=SensorData.CO2_SENSOR_TYPE)
         self._sensorName = ConfigConst.CO2_SENSOR_NAME
         self.i2c = busio.I2C(board.SCL, board.SDA)
@@ -31,6 +35,11 @@ class CO2SensorAdapterTask(BaseSensorSimTask):
         pass
 
     def generateTelemetry(self) -> SensorData:
+        """
+        Generate SensorData  from raw value
+
+        :return: SensorData which contains CO2 data
+        """
         data = SensorData(sensorType=self._sensorType)
         telemetry = self._readValueFromSensor()
         if telemetry < self.MINVAL_ECO2 or telemetry > self.MAXVAL_ECO2:
@@ -43,6 +52,12 @@ class CO2SensorAdapterTask(BaseSensorSimTask):
         pass
 
     def _readValueFromSensor(self) -> float:
+        """
+        Read value from CCS811 CO2 sensor
+
+        :return: Current CO2 level in ppm
+        :rtype: float
+        """
         # Wait for the sensor to be ready
         ret = 0
         while not self.ccs811.data_ready:
